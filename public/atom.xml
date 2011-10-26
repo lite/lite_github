@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[4sSLe]]></title>
+  <link href="http://lite.heroku.com/atom.xml" rel="self"/>
+  <link href="http://lite.heroku.com/"/>
+  <updated>2011-10-26T21:27:43+08:00</updated>
+  <id>http://lite.heroku.com/</id>
+  <author>
+    <name><![CDATA[Lite]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[showoff on heroku]]></title>
+    <link href="http://lite.heroku.com/blog/2011/10/27/showoff-on-heroku/"/>
+    <updated>2011-10-27T20:46:00+08:00</updated>
+    <id>http://lite.heroku.com/blog/2011/10/27/showoff-on-heroku</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/schacon/showoff">showoff</a></p>
+
+<pre><code>heroku config:add SHOWOFF_EVAL_RUBY=1
+
+showoff create . -d ruby
+showoff add title -d ruby
+showoff serve
+showoff heroku slide
+</code></pre>
+
+<p><a href="http://showoff.io/">showoff-io</a></p>
+
+<pre><code>show 9090
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[facebook's architecture]]></title>
+    <link href="http://lite.heroku.com/blog/2011/10/26/facebooks-architecture/"/>
+    <updated>2011-10-26T00:56:00+08:00</updated>
+    <id>http://lite.heroku.com/blog/2011/10/26/facebooks-architecture</id>
+    <content type="html"><![CDATA[<p><a href="http://www.quora.com/What-is-Facebooks-architecture">facebook&#8217;s architecture on quora</a></p>
+
+<ul>
+<li>Web front-end written in PHP. Facebook&#8217;s HipHop [1] then converts it to C++ and compiles it using g++, thus providing a high performance templating and Web logic execution layer</li>
+<li>Business logic is exposed as services using Thrift [2]. Some of these services are implemented in PHP, C++ or Java depending on service requirements (some other languages are probably used&#8230;)</li>
+<li>Services implemented in Java don&#8217;t use any usual enterprise application server but rather use Facebook&#8217;s custom application server. At first this can look as wheel reinvented but as these services are exposed and consumed only (or mostly) using Thrift, the overhead of Tomcat, or even Jetty, was probably too high with no significant added value for their need.</li>
+<li>Persistence is done using MySQL, Memcached [3], Facebook&#8217;s Cassandra [4], Hadoop&#8217;s HBase [5]. Memcached is used as a cache for MySQL as well as a general purpose cache. Facebook engineers admit that their use of Cassandra is currently decreasing as they now prefer HBase for its simpler consistency model and its MapReduce ability.</li>
+<li>Offline processing is done using Hadoop and Hive</li>
+<li>Data such as logging, clicks and feeds transit using Scribe [6] and are aggregating and stored in HDFS using Scribe-HDFS [7], thus allowing extended analysis using MapReduce</li>
+<li>BigPipe [8] is their custom technology to accelerate page rendering using a pipelining logic</li>
+<li>Varnish Cache [9] is used for HTTP proxying. They&#8217;ve prefered it for its high performance and efficiency [10].</li>
+<li>The storage of the billions of photos posted by the users is handled by Haystack, an ad-hoc storage solution developed by Facebook which brings low level optimizations and append-only writes [11].</li>
+<li>Facebook Messages is using its own architecture which is notably based on infrastructure sharding and dynamic cluster management. Business logic and persistence is encapsulated in so-called &#8216;Cell&#8217;. Each Cell handles a part of users ; new Cells can be added as popularity grows [12]. Persistence is achieved using HBase [13].</li>
+<li>Facebook Messages&#8217; search engine is built with an inverted index stored in HBase [14]</li>
+<li>Facebook Search Engine&#8217;s implementation details are unknown as far as I know</li>
+<li>The typeahead search uses a custom storage and retrieval logic [15]</li>
+<li>Chat is based on an Epoll server developed in Erlang and accessed using Thrift [16]</li>
+<li>About the resources provisioned for each of these components, some information and numbers are known:</li>
+<li>Facebook is estimated to own more than 60,000 servers [17]. Their recent datacenter in Prineville, Oregon is based on entirely self-designed hardware [18] that was recently unveiled as Open Compute Project [19].</li>
+<li>300 TB of data is stored in Memcached processes [20]</li>
+<li>Their Hadoop and Hive cluster is made of 3000 servers with 8 cores, 32 GB RAM, 12 TB disks that is a total of 24k cores, 96 TB RAM and 36 PB disks [20]</li>
+<li>100 billion hits per day, 50 billion photos, 3 trillion objects cached, 130 TB of logs per day as of july 2010 [21]</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[use octopress]]></title>
+    <link href="http://lite.heroku.com/blog/2011/10/25/octopress-on-heroku/"/>
+    <updated>2011-10-25T00:56:00+08:00</updated>
+    <id>http://lite.heroku.com/blog/2011/10/25/octopress-on-heroku</id>
+    <content type="html"><![CDATA[<p><a href="http://octopress.org/docs/blogging/">blogging</a></p>
+
+<pre><code>rake generate
+rake preview
+</code></pre>
+
+<p><a href="http://octopress.org/docs/deploying/heroku/">heroku</a></p>
+
+<pre><code>heroku create lite
+heroku new_post[octopress]
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>
