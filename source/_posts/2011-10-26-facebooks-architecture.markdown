@@ -4,7 +4,6 @@ title: "facebook's architecture"
 date: 2011-10-26 00:56
 comments: true
 categories: [Architecture]
-
 ---
 
 [facebook's architecture on quora](http://www.quora.com/What-is-Facebooks-architecture)

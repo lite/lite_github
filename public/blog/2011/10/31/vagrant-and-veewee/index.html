@@ -5,12 +5,15 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>About - 4sSLe</title>
+  <title>vagrant and veewee - 4sSLe</title>
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="About github I&#8217;ve been developing web applications full-time using Rails and other
-Ruby-based frameworks for over two years. I love taking &hellip;">
+  <meta name="description" content="vagrant veewee vagrant basebox templates
+mkdir iso
+vagrant basebox define 'fssle' 'ubuntu-11.04-server-i386'
+vagrant basebox build 'fssle'
+vagrant &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +22,7 @@ Ruby-based frameworks for over two years. I love taking &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://lite.heroku.com/about.html">
+  <link rel="canonical" href="http://lite.heroku.com/blog/2011/10/31/vagrant-and-veewee">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,47 +66,96 @@ Ruby-based frameworks for over two years. I love taking &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">About</h1>
-    <p class="meta">
-
-
-
-
-  
-
-<time datetime="2011-10-25T01:13:00+08:00" pubdate></time></p>
-  </header>
-  
-  <p><a href="http://github.com/lite">github</a></p>
-
-<p><img src="/favicon.png" title="Lite" alt="Lite" /></p>
-
-<blockquote><p>I&#8217;ve been developing web applications full-time using Rails and other
-Ruby-based frameworks for over two years. I love taking ideas and turning
-them in to a releasable product and I&#8217;m lucky enough to get to do this
-every day.</p></blockquote>
-
-  
-    <footer>
+    
+      <h1 class="entry-title">Vagrant and Veewee</h1>
+    
+    
       <p class="meta">
         
-        
 
 
 
 
   
 
-<time datetime="2011-10-25T01:13:00+08:00" pubdate></time>
+<time datetime="2011-10-31T23:51:00+08:00" pubdate>Oct 31<span>st</span>, 2011</time>
+        
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://vagrantup.comi">vagrant</a></p>
+
+<p><a href="https://github.com/jedi4ever/veewee">veewee</a></p>
+
+<pre><code>vagrant basebox templates
+mkdir iso
+vagrant basebox define 'fssle' 'ubuntu-11.04-server-i386'
+vagrant basebox build 'fssle'
+vagrant basebox validate 'fssle'
+vagrant basebox export 'fssle'
+vagrant box add 'fssle' 'fssle'
+vagrant init 'fssle'
+vagrant up
+vagrant reload
+vagrant ssh
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
       
-    </footer>
   
+
+<span class="byline author vcard">Posted by <span class="fn">Lite</span></span>
+
+      
+
+
+
+
+  
+
+<time datetime="2011-10-31T23:51:00+08:00" pubdate>Oct 31<span>st</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/vagrant/'>vagrant</a>, <a class='category' href='/blog/categories/veewee/'>veewee</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/10/27/showoff-on-heroku/" title="Previous Post: showoff on heroku">&laquo; showoff on heroku</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -175,6 +227,22 @@ every day.</p></blockquote>
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'fssle';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://lite.heroku.com/blog/2011/10/31/vagrant-and-veewee';
+        var disqus_url = 'http://lite.heroku.com/blog/2011/10/31/vagrant-and-veewee';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 Included file 'facebook_like.html' not found in _includes directory

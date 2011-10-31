@@ -1,5 +1,2 @@
-_site/
-_compass/.sass-cache/
-archives.html
-tags.html
-tags/
+.sass-cache/
+*.swp

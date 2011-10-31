@@ -4,7 +4,6 @@ title: "use octopress"
 date: 2011-10-25 00:56
 comments: true
 categories: [Octopress, Heroku]
-
 ---
 
 [blogging](http://octopress.org/docs/blogging/)

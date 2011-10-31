@@ -9,10 +9,11 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="showoff heroku config:add SHOWOFF_EVAL_RUBY=1 showoff create . -d ruby
-showoff add title -d ruby
-showoff serve
-showoff heroku slide showoff-io show &hellip;">
+  <meta name="description" content="vagrant veewee vagrant basebox templates
+mkdir iso
+vagrant basebox define 'fssle' 'ubuntu-11.04-server-i386'
+vagrant basebox build 'fssle'
+vagrant &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +67,54 @@ showoff heroku slide showoff-io show &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/31/vagrant-and-veewee/">Vagrant and Veewee</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-10-31T23:51:00+08:00" pubdate>Oct 31<span>st</span>, 2011</time>
+        
+         | <a href="/blog/2011/10/31/vagrant-and-veewee/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://vagrantup.comi">vagrant</a></p>
+
+<p><a href="https://github.com/jedi4ever/veewee">veewee</a></p>
+
+<pre><code>vagrant basebox templates
+mkdir iso
+vagrant basebox define 'fssle' 'ubuntu-11.04-server-i386'
+vagrant basebox build 'fssle'
+vagrant basebox validate 'fssle'
+vagrant basebox export 'fssle'
+vagrant box add 'fssle' 'fssle'
+vagrant init 'fssle'
+vagrant up
+vagrant reload
+vagrant ssh
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -223,6 +272,10 @@ heroku new_post[octopress]
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/10/31/vagrant-and-veewee/">vagrant and veewee</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2011/10/27/showoff-on-heroku/">showoff on heroku</a>

@@ -4,7 +4,6 @@ title: "showoff on heroku"
 date: 2011-10-27 20:46
 comments: true
 categories: [heroku, showoff, showoff-io]
-
 ---
 
 [showoff](https://github.com/schacon/showoff)
