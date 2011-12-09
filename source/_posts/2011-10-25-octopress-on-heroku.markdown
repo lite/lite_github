@@ -15,4 +15,4 @@ categories: [Octopress, Heroku]
 
     heroku create lite
     heroku new_post[octopress]
-
+    git push heroku master
