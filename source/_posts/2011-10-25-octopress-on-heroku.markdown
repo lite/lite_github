@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "use octopress"
+title: "octopress on heroku"
 date: 2011-10-25 00:56
 comments: true
 categories: [Octopress, Heroku]
@@ -14,5 +14,5 @@ categories: [Octopress, Heroku]
 [heroku](http://octopress.org/docs/deploying/heroku/)
 
     heroku create lite
-    heroku new_post[octopress]
+    rake new_post[octopress]
     git push heroku master

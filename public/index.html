@@ -9,9 +9,8 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="aws security groups 22 (SSH) 0.0.0.0/0 Delete
-80 (HTTP) 0.0.0.0/0 Delete ssh-keygen -R www.fssle.com
-ssh -i fssle-ec2.pem ubuntu@www.fssle.com aws &hellip;">
+  <meta name="description" content="dnscrypt download git clone git://github.com/opendns/dnscrypt-proxy.git view README.markdown
+install ./autogen.sh &amp;&amp; ./configure &amp;&amp; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +64,58 @@ ssh -i fssle-ec2.pem ubuntu@www.fssle.com aws &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/16/dnscrypt/">Dnscrypt</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-12-16T22:56:00+08:00" pubdate>Dec 16<span>th</span>, 2011</time>
+        
+         | <a href="/blog/2011/12/16/dnscrypt/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://github.com/opendns/dnscrypt-proxy">dnscrypt</a></p>
+
+<p>download</p>
+
+<pre><code>git clone git://github.com/opendns/dnscrypt-proxy.git
+</code></pre>
+
+<p>view README.markdown
+install</p>
+
+<pre><code>./autogen.sh &amp;&amp; ./configure &amp;&amp; make &amp;&amp; make check
+sudo make install
+</code></pre>
+
+<p>in file /etc/resolv.conf</p>
+
+<pre><code>nameserver 127.0.0.1
+sudo chattr +i /etc/resolv.conf
+sudo dnscrypt-proxy --daemonize
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -328,7 +379,7 @@ showoff heroku slide
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2011/10/25/octopress-on-heroku/">Use Octopress</a></h1>
+      <h1 class="entry-title"><a href="/blog/2011/10/25/octopress-on-heroku/">Octopress on Heroku</a></h1>
     
     
       <p class="meta">
@@ -357,7 +408,7 @@ rake preview
 <p><a href="http://octopress.org/docs/deploying/heroku/">heroku</a></p>
 
 <pre><code>heroku create lite
-heroku new_post[octopress]
+rake new_post[octopress]
 git push heroku master
 </code></pre>
 </div>
@@ -380,6 +431,10 @@ git push heroku master
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2011/12/16/dnscrypt/">dnscrypt</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2011/11/08/chef-on-ec2/">chef_on_ec2</a>
       </li>
     
@@ -393,10 +448,6 @@ git push heroku master
     
       <li class="post">
         <a href="/blog/2011/10/26/facebooks-architecture/">facebook&#8217;s architecture</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/10/25/octopress-on-heroku/">use octopress</a>
       </li>
     
   </ul>
