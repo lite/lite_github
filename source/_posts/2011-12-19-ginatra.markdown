@@ -1,0 +1,27 @@
+---
+layout: post
+title: "ginatra"
+date: 2011-12-19 09:10
+comments: true
+categories: [git, sinatra] 
+---
+
+[ginatra](https://github.com/lenary/ginatra)
+
+setup
+
+    sudo apt-get install python-pip
+    sudo pip install pygments
+    gem install ginatra
+
+repo directory
+
+    ginatra setup
+    ginatra directory add '~/git/repo'
+    ginatra directory list
+
+server
+    ginatra server start
+    ginatra server stop
+    ginatra daemon start
+    ginatra daemon status

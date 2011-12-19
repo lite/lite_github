@@ -4,7 +4,7 @@
   <title><![CDATA[4sSLe]]></title>
   <link href="http://lite.heroku.com/atom.xml" rel="self"/>
   <link href="http://lite.heroku.com/"/>
-  <updated>2011-12-16T23:17:58+08:00</updated>
+  <updated>2011-12-19T09:16:33+08:00</updated>
   <id>http://lite.heroku.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ginatra]]></title>
+    <link href="http://lite.heroku.com/blog/2011/12/19/ginatra/"/>
+    <updated>2011-12-19T09:10:00+08:00</updated>
+    <id>http://lite.heroku.com/blog/2011/12/19/ginatra</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/lenary/ginatra">ginatra</a></p>
+
+<p>setup</p>
+
+<pre><code>sudo apt-get install python-pip
+sudo pip install pygments
+gem install ginatra
+</code></pre>
+
+<p>repo directory</p>
+
+<pre><code>ginatra setup
+ginatra directory add '~/git/repo'
+ginatra directory list
+</code></pre>
+
+<p>server</p>
+
+<pre><code>ginatra server start
+ginatra server stop
+ginatra daemon start
+ginatra daemon status
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[dnscrypt]]></title>
