@@ -4,57 +4,64 @@
   
 <url>
   <loc>http://lite.heroku.com</loc>
-    <lastmod>2011-12-19T09:16:33+08:00</lastmod>
+    <lastmod>2011-12-28T17:18:54+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
   
   <url>
+    <loc>http://lite.heroku.com/blog/2011/12/28/zte-ct-x920-on-ubuntu/</loc>
+    <lastmod>2011-12-28 17:18:54 +0800</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://lite.heroku.com/blog/2011/12/19/ginatra/</loc>
-    <lastmod>2011-12-19 09:16:33 +0800</lastmod>
+    <lastmod>2011-12-28 17:18:54 +0800</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://lite.heroku.com/blog/2011/12/16/dnscrypt/</loc>
-    <lastmod>2011-12-19 09:16:33 +0800</lastmod>
+    <lastmod>2011-12-28 17:18:54 +0800</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://lite.heroku.com/blog/2011/11/08/chef-on-ec2/</loc>
-    <lastmod>2011-12-19 09:16:33 +0800</lastmod>
+    <lastmod>2011-12-28 17:18:54 +0800</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://lite.heroku.com/blog/2011/10/31/vagrant-and-veewee/</loc>
-    <lastmod>2011-12-19 09:16:33 +0800</lastmod>
+    <lastmod>2011-12-28 17:18:54 +0800</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://lite.heroku.com/blog/2011/10/27/showoff-on-heroku/</loc>
-    <lastmod>2011-12-19 09:16:33 +0800</lastmod>
+    <lastmod>2011-12-28 17:18:54 +0800</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://lite.heroku.com/blog/2011/10/26/facebooks-architecture/</loc>
-    <lastmod>2011-12-19 09:16:33 +0800</lastmod>
+    <lastmod>2011-12-28 17:18:54 +0800</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://lite.heroku.com/blog/2011/10/25/octopress-on-heroku/</loc>
-    <lastmod>2011-12-19 09:16:33 +0800</lastmod>
+    <lastmod>2011-12-28 17:18:54 +0800</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
