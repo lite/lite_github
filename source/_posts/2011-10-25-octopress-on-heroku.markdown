@@ -14,5 +14,6 @@ categories: [Octopress, Heroku]
 [heroku](http://octopress.org/docs/deploying/heroku/)
 
     heroku create lite
+    git remote add heroku git@heroku.com:lite.git
     rake new_post[octopress]
     git push heroku master
