@@ -20,6 +20,7 @@ header{
 			>li{
 				display: inline-block;
 				margin-left: 50px;
+        float: left;
 				&:hover{
 					>a{
 						color: $main;
