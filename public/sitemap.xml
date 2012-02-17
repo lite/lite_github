@@ -4,64 +4,71 @@
   
 <url>
   <loc>http://yiong.heroku.com</loc>
-    <lastmod>2012-02-17T03:15:55-05:00</lastmod>
+    <lastmod>2012-02-17T05:05:29-05:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
   
   <url>
+    <loc>http://yiong.heroku.com/blog/2012/02/17/archlinux-on-vmware/</loc>
+    <lastmod>2012-02-17 05:05:29 -0500</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://yiong.heroku.com/blog/2012/02/15/slash/</loc>
-    <lastmod>2012-02-17 03:15:55 -0500</lastmod>
+    <lastmod>2012-02-17 05:05:29 -0500</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yiong.heroku.com/blog/2011/12/28/zte-ct-x920-on-ubuntu/</loc>
-    <lastmod>2012-02-17 03:15:55 -0500</lastmod>
+    <lastmod>2012-02-17 05:05:29 -0500</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yiong.heroku.com/blog/2011/12/19/ginatra/</loc>
-    <lastmod>2012-02-17 03:15:55 -0500</lastmod>
+    <lastmod>2012-02-17 05:05:29 -0500</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yiong.heroku.com/blog/2011/12/16/dnscrypt/</loc>
-    <lastmod>2012-02-17 03:15:55 -0500</lastmod>
+    <lastmod>2012-02-17 05:05:29 -0500</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yiong.heroku.com/blog/2011/11/08/chef-on-ec2/</loc>
-    <lastmod>2012-02-17 03:15:55 -0500</lastmod>
+    <lastmod>2012-02-17 05:05:29 -0500</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yiong.heroku.com/blog/2011/10/31/vagrant-and-veewee/</loc>
-    <lastmod>2012-02-17 03:15:55 -0500</lastmod>
+    <lastmod>2012-02-17 05:05:29 -0500</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yiong.heroku.com/blog/2011/10/27/showoff-on-heroku/</loc>
-    <lastmod>2012-02-17 03:15:55 -0500</lastmod>
+    <lastmod>2012-02-17 05:05:29 -0500</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yiong.heroku.com/blog/2011/10/25/octopress-on-heroku/</loc>
-    <lastmod>2012-02-17 03:15:55 -0500</lastmod>
+    <lastmod>2012-02-17 05:05:29 -0500</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>

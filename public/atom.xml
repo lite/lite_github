@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://yiong.heroku.com/atom.xml" rel="self"/>
   <link href="http://yiong.heroku.com/"/>
-  <updated>2012-02-17T03:15:55-05:00</updated>
+  <updated>2012-02-17T05:05:29-05:00</updated>
   <id>http://yiong.heroku.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[archlinux on vmware]]></title>
+    <link href="http://yiong.heroku.com/blog/2012/02/17/archlinux-on-vmware/"/>
+    <updated>2012-02-17T04:35:00-05:00</updated>
+    <id>http://yiong.heroku.com/blog/2012/02/17/archlinux-on-vmware</id>
+    <content type="html"><![CDATA[<h2>Enable networking</h2>
+
+<p>append to /etc/rc.conf</p>
+
+<pre><code>eth0="dhcp"
+INTERFACE=(eth0)
+ROUTES=(!gateway)
+</code></pre>
+
+<p>run command &#8220;/etc/rc.d/network restart&#8221;</p>
+
+<h2>Enable pacman repo</h2>
+
+<p>append to &#8220;/etc/pacman.conf&#8221;</p>
+
+<pre><code>SigLevel=Optional TrustAll 
+</code></pre>
+
+<p>uncomment the repo in &#8220;/etc/pacman.d/mirrorlist&#8221;</p>
+
+<h2>Upgrade</h2>
+
+<pre><code>pacman -Syu
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[slash]]></title>
