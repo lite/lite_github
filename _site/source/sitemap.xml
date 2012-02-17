@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">   
+  
+<url>
+  <loc></loc>
+    <lastmod>2012-02-17T00:54:05-05:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  
+  <url>
+    <loc>/source/2012/02/15/slash.html</loc>
+    <lastmod>2012-02-17 00:54:05 -0500</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>/source/2011/12/28/zte-ct-x920-on-ubuntu.html</loc>
+    <lastmod>2012-02-17 00:54:05 -0500</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>/source/2011/12/19/ginatra.html</loc>
+    <lastmod>2012-02-17 00:54:05 -0500</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>/source/2011/12/16/dnscrypt.html</loc>
+    <lastmod>2012-02-17 00:54:05 -0500</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>/source/2011/11/08/chef-on-ec2.html</loc>
+    <lastmod>2012-02-17 00:54:05 -0500</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>/source/2011/10/31/vagrant-and-veewee.html</loc>
+    <lastmod>2012-02-17 00:54:05 -0500</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>/source/2011/10/27/showoff-on-heroku.html</loc>
+    <lastmod>2012-02-17 00:54:05 -0500</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>/source/2011/10/25/octopress-on-heroku.html</loc>
+    <lastmod>2012-02-17 00:54:05 -0500</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+</urlset>

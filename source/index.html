@@ -1,18 +1,18 @@
 ---
 layout: default
 ---
+<article class="post">
+  <div class="entry">
+      <ul>    
+        <li>Loving <b>programming & walking</b></li>
+        <li>Living in <u>Chengdu, China</u></li>
+        <li>Making friends on <a href="https://www.facebook.com/litekok"><i>Facebook</i></a> & <a href="http://weibo.com/209998588"><i>Weibo</i></a></li>
+        <li>Looking at <a href="http://one.laptop.org"><i>OLPC</i></a> & <a href="http://www.chengdu-open-party.org"><i>OpenParty Chengdu</i></a></li>      
+        <li>Coding on <a href="http://github.com/lite"><i>Github</i></a></li>      
+      </ul>
 
-{% assign index = true %}
-{% for post in paginator.posts %}
-{% assign content = post.content %}
-    <article class="post">{% include article.html %}</article>
-{% endfor %}
-<nav id="pagenavi">
-    {% if paginator.previous_page %}
-        <a href="{{paginator.previous_page}}" class="prev">Prev</a>
-    {% endif %}
-    {% if paginator.next_page %}
-        <a href="{{paginator.next_page}}" class="next">Next</a>
-    {% endif %}
-    <a href="{{ root_url }}/blog/archives" class="center">Blog Archives</a>
-</nav>
+      <p>
+        <img src="/favicon.png" title="Lite" alt="Lite" />
+      </p>
+  </div>
+</article>

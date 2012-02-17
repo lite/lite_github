@@ -1,0 +1,31 @@
+<p><a href='http://blog.163.com/dengjingniurou@126/blog/static/5398919620111112111659617/'>android udev</a></p>
+
+<p>adb devices</p>
+
+<p><code>
+List of devices attached
+????????????    no permissions
+</code></p>
+
+<p>lsusb</p>
+
+<p><code>
+Bus 001 Device 050: ID 19d2:ffda ONDA Communication S.p.A. 
+</code></p>
+
+<p>sudo vim /etc/udev/rules.d/51-Android.rules</p>
+
+<p><code>
+SUBSYSTEM==&quot;usb&quot;, SYSFS{idVendor}==&quot;19d2&quot;, MODE=&quot;0666&quot;
+</code></p>
+
+<p>sudo chmod a+r /etc/udev/rules.d/51-Android.rules sudo /etc/init.d/udev stop sudo /etc/init.d/udev start</p>
+
+<p>then re-plug the cable</p>
+
+<p>adb devices</p>
+
+<p><code>
+List of devices attached 
+X920_CT device
+</code></p>

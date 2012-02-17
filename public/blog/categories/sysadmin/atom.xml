@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: sysadmin | Lite]]></title>
-  <link href="http://lite.heroku.com/blog/categories/sysadmin/atom.xml" rel="self"/>
-  <link href="http://lite.heroku.com/"/>
-  <updated>2012-02-16T12:10:28+08:00</updated>
-  <id>http://lite.heroku.com/</id>
+  <link href="http://yiong.heroku.com/blog/categories/sysadmin/atom.xml" rel="self"/>
+  <link href="http://yiong.heroku.com/"/>
+  <updated>2012-02-17T03:15:55-05:00</updated>
+  <id>http://yiong.heroku.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[dnscrypt]]></title>
-    <link href="http://lite.heroku.com/blog/2011/12/16/dnscrypt/"/>
-    <updated>2011-12-16T22:56:00+08:00</updated>
-    <id>http://lite.heroku.com/blog/2011/12/16/dnscrypt</id>
+    <link href="http://yiong.heroku.com/blog/2011/12/16/dnscrypt/"/>
+    <updated>2011-12-16T22:56:00-05:00</updated>
+    <id>http://yiong.heroku.com/blog/2011/12/16/dnscrypt</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/opendns/dnscrypt-proxy">dnscrypt</a></p>
 
 <p>download</p>
