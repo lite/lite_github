@@ -1,0 +1,643 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lite</title>
+    <meta name="author" content="Lite">
+
+    
+    <meta name="description" content="Archlinux on Vmware Enable networking append to /etc/rc.conf eth0="dhcp"
+INTERFACE=(eth0)
+ROUTES=(!gateway) run command &#8220;/etc/rc.d/network &hellip;">
+    
+    <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+    <link href="/atom.xml" rel="alternate" title="Lite" type="application/atom+xml">
+    <link rel="canonical" href="">
+    <link href="/favicon.png" rel="shortcut icon">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]><script src="/javascripts/html5.js"></script><![endif]-->
+    <script src="/javascripts/jquery.min.js"></script>
+    
+    
+
+</head>
+
+<body>
+	<header class="inner"><h1 class="left"><a href="/">Lite</a></h1>
+<nav class="menu left"><ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<div class="right">
+	<form class="search right" action="http://google.com/search" method="get">
+		<input class="left" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:yiong.heroku.com">
+	</form>
+	<div class="social right">
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</div>
+</header>
+	
+
+
+	<div id="content" class="inner">
+
+
+    <article class="post">
+    <h1 class="title"><a href="/blog/2012/02/17/archlinux-on-vmware/">Archlinux on Vmware</a></h1>
+    <div class="entry">
+        <h2>Enable networking</h2>
+
+<p>append to /etc/rc.conf</p>
+
+<pre><code>eth0="dhcp"
+INTERFACE=(eth0)
+ROUTES=(!gateway)
+</code></pre>
+
+<p>run command &#8220;/etc/rc.d/network restart&#8221;</p>
+
+<h2>Enable pacman repo</h2>
+
+<p>append to &#8220;/etc/pacman.conf&#8221;</p>
+
+<pre><code>SigLevel=Optional TrustAll 
+</code></pre>
+
+<p>uncomment the repo in &#8220;/etc/pacman.d/mirrorlist&#8221;</p>
+
+<h2>Upgrade</h2>
+
+<pre><code>pacman -Syu
+</code></pre>
+
+        
+        
+    </div>
+    <div class="meta">
+        <div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-17T04:35:00-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2012</time></div>
+        <div class="tags">
+
+<div class="cat">
+  
+    <a class='category' href='/blog/categories/archlinux/'>Archlinux</a>, <a class='category' href='/blog/categories/vmware/'>Vmware</a>
+  
+</div>
+
+</div>
+        
+        <div class="comments"><a href="/blog/2012/02/17/archlinux-on-vmware/#disqus_thread">Comments</a></div>
+        
+    </div>
+</article>
+
+
+    <article class="post">
+    <h1 class="title"><a href="/blog/2012/02/15/slash/">Slash</a></h1>
+    <div class="entry">
+        <p><a href="http://zespia.tw/Octopress-Theme-Slash/index_tw.html">Octopress themes - Slash</a></p>
+
+<pre><code>cd octopress
+git clone git@github.com:tommy351/Octopress-Theme-Slash.git .themes/slash
+rake install['slash']
+rake generate
+</code></pre>
+
+        
+        
+    </div>
+    <div class="meta">
+        <div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-15T18:45:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2012</time></div>
+        <div class="tags">
+
+<div class="cat">
+  
+    <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/themes/'>Themes</a>
+  
+</div>
+
+</div>
+        
+        <div class="comments"><a href="/blog/2012/02/15/slash/#disqus_thread">Comments</a></div>
+        
+    </div>
+</article>
+
+
+    <article class="post">
+    <h1 class="title"><a href="/blog/2011/12/28/zte-ct-x920-on-ubuntu/">Zte_ct_x920 on Ubuntu</a></h1>
+    <div class="entry">
+        <p><a href="http://blog.163.com/dengjingniurou@126/blog/static/5398919620111112111659617/">android udev</a></p>
+
+<p>adb devices</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached
+</span><span class='line'>????????????    no permissions</span></code></pre></td></tr></table></div></figure>
+
+
+<p>lsusb</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Bus 001 Device 050: ID 19d2:ffda ONDA Communication S.p.A. </span></code></pre></td></tr></table></div></figure>
+
+
+<p>sudo vim /etc/udev/rules.d/51-Android.rules</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", MODE="0666"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>sudo chmod a+r /etc/udev/rules.d/51-Android.rules
+sudo /etc/init.d/udev stop
+sudo /etc/init.d/udev start</p>
+
+<p>then re-plug the cable</p>
+
+<p>adb devices</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached 
+</span><span class='line'>X920_CT device</span></code></pre></td></tr></table></div></figure>
+
+
+        
+        
+    </div>
+    <div class="meta">
+        <div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-28T16:51:00-05:00" pubdate data-updated="true">Dec 28<span>th</span>, 2011</time></div>
+        <div class="tags">
+
+<div class="cat">
+  
+    <a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/ubuntu/'>ubuntu</a>
+  
+</div>
+
+</div>
+        
+        <div class="comments"><a href="/blog/2011/12/28/zte-ct-x920-on-ubuntu/#disqus_thread">Comments</a></div>
+        
+    </div>
+</article>
+
+
+    <article class="post">
+    <h1 class="title"><a href="/blog/2011/12/19/ginatra/">Ginatra</a></h1>
+    <div class="entry">
+        <p><a href="https://github.com/lenary/ginatra">ginatra</a></p>
+
+<p>setup</p>
+
+<pre><code>sudo apt-get install python-pip
+sudo pip install pygments
+gem install ginatra
+</code></pre>
+
+<p>repo directory</p>
+
+<pre><code>ginatra setup
+ginatra directory add '~/git/repo'
+ginatra directory list
+</code></pre>
+
+<p>server</p>
+
+<pre><code>ginatra server start
+ginatra server stop
+ginatra daemon start
+ginatra daemon status
+</code></pre>
+
+        
+        
+    </div>
+    <div class="meta">
+        <div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-19T09:10:00-05:00" pubdate data-updated="true">Dec 19<span>th</span>, 2011</time></div>
+        <div class="tags">
+
+<div class="cat">
+  
+    <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/sinatra/'>sinatra</a>
+  
+</div>
+
+</div>
+        
+        <div class="comments"><a href="/blog/2011/12/19/ginatra/#disqus_thread">Comments</a></div>
+        
+    </div>
+</article>
+
+
+    <article class="post">
+    <h1 class="title"><a href="/blog/2011/12/16/dnscrypt/">Dnscrypt</a></h1>
+    <div class="entry">
+        <p><a href="https://github.com/opendns/dnscrypt-proxy">dnscrypt</a></p>
+
+<p>download</p>
+
+<pre><code>git clone git://github.com/opendns/dnscrypt-proxy.git
+</code></pre>
+
+<p>view README.markdown
+install</p>
+
+<pre><code>./autogen.sh &amp;&amp; ./configure &amp;&amp; make &amp;&amp; make check
+sudo make install
+</code></pre>
+
+<p>in file /etc/resolv.conf</p>
+
+<pre><code>nameserver 127.0.0.1
+sudo chattr +i /etc/resolv.conf
+sudo dnscrypt-proxy --daemonize
+</code></pre>
+
+        
+        
+    </div>
+    <div class="meta">
+        <div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-16T22:56:00-05:00" pubdate data-updated="true">Dec 16<span>th</span>, 2011</time></div>
+        <div class="tags">
+
+<div class="cat">
+  
+    <a class='category' href='/blog/categories/sysadmin/'>sysadmin</a>, <a class='category' href='/blog/categories/ubuntu/'>ubuntu</a>
+  
+</div>
+
+</div>
+        
+        <div class="comments"><a href="/blog/2011/12/16/dnscrypt/#disqus_thread">Comments</a></div>
+        
+    </div>
+</article>
+
+
+    <article class="post">
+    <h1 class="title"><a href="/blog/2011/11/08/chef-on-ec2/">Chef_on_ec2</a></h1>
+    <div class="entry">
+        <p><a href="http://console.aws.amazon.com/ec2/home?region=us-west-1&amp;#s=SecurityGroups">aws security groups</a></p>
+
+<pre><code>22 (SSH)  0.0.0.0/0 Delete
+80 (HTTP) 0.0.0.0/0 Delete
+
+ssh-keygen -R www.fssle.com
+ssh -i fssle-ec2.pem ubuntu@www.fssle.com
+</code></pre>
+
+<p><a href="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key">aws access key</a></p>
+
+<pre><code>export AWS_ACCESS_KEY_ID=""
+export AWS_SECRET_ACCESS_KEY=""
+</code></pre>
+
+<p><a href="http://uec-images.ubuntu.com/server/releases/11.04/release/">ubuntu ec2 image</a></p>
+
+<pre><code>knife[:aws_access_key_id]     = "#{ENV['AWS_ACCESS_KEY_ID']}"
+knife[:aws_secret_access_key] = "#{ENV['AWS_SECRET_ACCESS_KEY']}"
+knife[:identity_file]         = 'fssle-ec2.pem'
+knife[:aws_ssh_key_id]        = "fssle-ec2"
+knife[:availability_zone]     = 'us-west-1a'
+knife[:region]                = 'us-west-1'
+knife[:aws_image_id]          = 'ami-43580406'
+
+knife ec2 server list
+knife ec2 server delete i-296cd36e
+knife ec2 server create -I ami-43580406 -f t1.micro -x ubuntu -G default 
+</code></pre>
+
+<p><a href="https://community.opscode.com/users/username/user_key/new">opscode user key</a></p>
+
+<pre><code>username.pem 
+knife.rb 
+org-validator.pem
+</code></pre>
+
+<ul>
+<li>chef</li>
+</ul>
+
+
+<blockquote><ul>
+<li>role</li>
+</ul>
+</blockquote>
+
+<pre><code>knife role list
+export EDITOR=vim &amp;&amp; knife role create base
+knife role edit base
+knife role show base
+knife role from file roles/base.rb
+</code></pre>
+
+<blockquote><ul>
+<li>cookbook</li>
+</ul>
+</blockquote>
+
+<pre><code>knife cookbook site download apt
+knife cookbook site download aws
+knife cookbook site download apache2
+
+knife cookbook create fssle
+knife cookbook list
+knife cookbook upload aws apt apache2
+</code></pre>
+
+<blockquote><ul>
+<li>ec2</li>
+</ul>
+</blockquote>
+
+<pre><code>knife ec2 server create "role[fssle]" -I ami-43580406 -f t1.micro -G default -region -S knife -i ./fssle-ec2.pem --ssh-user ubuntu 
+</code></pre>
+
+        
+        
+    </div>
+    <div class="meta">
+        <div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-08T00:17:00-05:00" pubdate data-updated="true">Nov 8<span>th</span>, 2011</time></div>
+        <div class="tags">
+
+<div class="cat">
+  
+    <a class='category' href='/blog/categories/chef/'>chef</a>, <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/ec2/'>ec2</a>
+  
+</div>
+
+</div>
+        
+        <div class="comments"><a href="/blog/2011/11/08/chef-on-ec2/#disqus_thread">Comments</a></div>
+        
+    </div>
+</article>
+
+
+    <article class="post">
+    <h1 class="title"><a href="/blog/2011/10/31/vagrant-and-veewee/">Vagrant and Veewee</a></h1>
+    <div class="entry">
+        <p><a href="http://vagrantup.comi">vagrant</a></p>
+
+<p><a href="https://github.com/jedi4ever/veewee">veewee</a></p>
+
+<pre><code>vagrant basebox templates
+mkdir iso
+vagrant basebox define 'fssle' 'ubuntu-11.04-server-i386'
+vagrant basebox build 'fssle'
+vagrant basebox validate 'fssle'
+vagrant basebox export 'fssle'
+vagrant box add 'fssle' 'fssle'
+vagrant init 'fssle'
+vagrant up
+vagrant reload
+vagrant ssh
+</code></pre>
+
+        
+        
+    </div>
+    <div class="meta">
+        <div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-31T23:51:00-04:00" pubdate data-updated="true">Oct 31<span>st</span>, 2011</time></div>
+        <div class="tags">
+
+<div class="cat">
+  
+    <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/vagrant/'>vagrant</a>, <a class='category' href='/blog/categories/veewee/'>veewee</a>
+  
+</div>
+
+</div>
+        
+        <div class="comments"><a href="/blog/2011/10/31/vagrant-and-veewee/#disqus_thread">Comments</a></div>
+        
+    </div>
+</article>
+
+
+    <article class="post">
+    <h1 class="title"><a href="/blog/2011/10/27/showoff-on-heroku/">Showoff on Heroku</a></h1>
+    <div class="entry">
+        <p><a href="https://github.com/schacon/showoff">showoff</a></p>
+
+<pre><code>heroku config:add SHOWOFF_EVAL_RUBY=1
+
+showoff create . -d ruby
+showoff add title -d ruby
+showoff serve
+showoff heroku slide
+</code></pre>
+
+<p><a href="http://showoff.io/">showoff-io</a></p>
+
+<pre><code>show 9090
+</code></pre>
+
+        
+        
+    </div>
+    <div class="meta">
+        <div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-27T20:46:00-04:00" pubdate data-updated="true">Oct 27<span>th</span>, 2011</time></div>
+        <div class="tags">
+
+<div class="cat">
+  
+    <a class='category' href='/blog/categories/heroku/'>heroku</a>, <a class='category' href='/blog/categories/showoff/'>showoff</a>, <a class='category' href='/blog/categories/showoff-io/'>showoff-io</a>
+  
+</div>
+
+</div>
+        
+        <div class="comments"><a href="/blog/2011/10/27/showoff-on-heroku/#disqus_thread">Comments</a></div>
+        
+    </div>
+</article>
+
+
+    <article class="post">
+    <h1 class="title"><a href="/blog/2011/10/25/octopress-on-heroku/">Octopress on Heroku</a></h1>
+    <div class="entry">
+        <p><a href="http://octopress.org/docs/blogging/">blogging</a></p>
+
+<pre><code>rake generate
+rake preview
+</code></pre>
+
+<p><a href="http://octopress.org/docs/deploying/heroku/">heroku</a></p>
+
+<pre><code>heroku create lite
+git remote add heroku git@heroku.com:lite.git
+rake new_post[octopress]
+git push heroku master
+</code></pre>
+
+        
+        
+    </div>
+    <div class="meta">
+        <div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-25T00:56:00-04:00" pubdate data-updated="true">Oct 25<span>th</span>, 2011</time></div>
+        <div class="tags">
+
+<div class="cat">
+  
+    <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>
+  
+</div>
+
+</div>
+        
+        <div class="comments"><a href="/blog/2011/10/25/octopress-on-heroku/#disqus_thread">Comments</a></div>
+        
+    </div>
+</article>
+
+<nav id="pagenavi">
+    
+    
+    <a href="/blog/archives" class="center">Blog Archives</a>
+</nav>
+</div>
+	<footer class="inner">Copyright &copy; 2012 Lite</footer>
+	<script src="/javascripts/jquery.easing.1.3.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script src="/javascripts/slash.js"></script>
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'fssle';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+</html>
