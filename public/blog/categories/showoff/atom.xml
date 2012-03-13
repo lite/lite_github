@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: showoff | Lite]]></title>
-  <link href="http://yiong.heroku.com/blog/categories/showoff/atom.xml" rel="self"/>
-  <link href="http://yiong.heroku.com/"/>
-  <updated>2012-02-17T05:05:29-05:00</updated>
-  <id>http://yiong.heroku.com/</id>
+  <link href="http://lite.github.com/blog/categories/showoff/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2012-03-13T06:39:53-04:00</updated>
+  <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[showoff on heroku]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/10/27/showoff-on-heroku/"/>
+    <link href="http://lite.github.com/blog/2011/10/27/showoff-on-heroku/"/>
     <updated>2011-10-27T20:46:00-04:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/10/27/showoff-on-heroku</id>
+    <id>http://lite.github.com/blog/2011/10/27/showoff-on-heroku</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/schacon/showoff">showoff</a></p>
 
 <pre><code>heroku config:add SHOWOFF_EVAL_RUBY=1

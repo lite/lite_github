@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: vagrant | Lite]]></title>
-  <link href="http://yiong.heroku.com/blog/categories/vagrant/atom.xml" rel="self"/>
-  <link href="http://yiong.heroku.com/"/>
-  <updated>2012-02-17T05:05:29-05:00</updated>
-  <id>http://yiong.heroku.com/</id>
+  <link href="http://lite.github.com/blog/categories/vagrant/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2012-03-13T06:39:53-04:00</updated>
+  <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[vagrant and veewee]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/10/31/vagrant-and-veewee/"/>
+    <link href="http://lite.github.com/blog/2011/10/31/vagrant-and-veewee/"/>
     <updated>2011-10-31T23:51:00-04:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/10/31/vagrant-and-veewee</id>
+    <id>http://lite.github.com/blog/2011/10/31/vagrant-and-veewee</id>
     <content type="html"><![CDATA[<p><a href="http://vagrantup.comi">vagrant</a></p>
 
 <p><a href="https://github.com/jedi4ever/veewee">veewee</a></p>

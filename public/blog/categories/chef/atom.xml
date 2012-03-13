@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: chef | Lite]]></title>
-  <link href="http://yiong.heroku.com/blog/categories/chef/atom.xml" rel="self"/>
-  <link href="http://yiong.heroku.com/"/>
-  <updated>2012-02-17T05:05:29-05:00</updated>
-  <id>http://yiong.heroku.com/</id>
+  <link href="http://lite.github.com/blog/categories/chef/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2012-03-13T06:39:53-04:00</updated>
+  <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[chef_on_ec2]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/11/08/chef-on-ec2/"/>
+    <link href="http://lite.github.com/blog/2011/11/08/chef-on-ec2/"/>
     <updated>2011-11-08T00:17:00-05:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/11/08/chef-on-ec2</id>
+    <id>http://lite.github.com/blog/2011/11/08/chef-on-ec2</id>
     <content type="html"><![CDATA[<p><a href="http://console.aws.amazon.com/ec2/home?region=us-west-1&amp;#s=SecurityGroups">aws security groups</a></p>
 
 <pre><code>22 (SSH)  0.0.0.0/0 Delete
