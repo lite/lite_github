@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Octopress | Lite]]></title>
-  <link href="http://yiong.heroku.com/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://yiong.heroku.com/"/>
-  <updated>2012-02-17T05:05:29-05:00</updated>
-  <id>http://yiong.heroku.com/</id>
+  <link href="http://lite.github.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2012-05-09T06:53:14-04:00</updated>
+  <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[slash]]></title>
-    <link href="http://yiong.heroku.com/blog/2012/02/15/slash/"/>
+    <link href="http://lite.github.com/blog/2012/02/15/slash/"/>
     <updated>2012-02-15T18:45:00-05:00</updated>
-    <id>http://yiong.heroku.com/blog/2012/02/15/slash</id>
+    <id>http://lite.github.com/blog/2012/02/15/slash</id>
     <content type="html"><![CDATA[<p><a href="http://zespia.tw/Octopress-Theme-Slash/index_tw.html">Octopress themes - Slash</a></p>
 
 <pre><code>cd octopress
@@ -30,9 +30,9 @@ rake generate
   
   <entry>
     <title type="html"><![CDATA[octopress on heroku]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/10/25/octopress-on-heroku/"/>
+    <link href="http://lite.github.com/blog/2011/10/25/octopress-on-heroku/"/>
     <updated>2011-10-25T00:56:00-04:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/10/25/octopress-on-heroku</id>
+    <id>http://lite.github.com/blog/2011/10/25/octopress-on-heroku</id>
     <content type="html"><![CDATA[<p><a href="http://octopress.org/docs/blogging/">blogging</a></p>
 
 <pre><code>rake generate

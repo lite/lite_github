@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Lite]]></title>
-  <link href="http://yiong.heroku.com/atom.xml" rel="self"/>
-  <link href="http://yiong.heroku.com/"/>
-  <updated>2012-02-17T05:05:29-05:00</updated>
-  <id>http://yiong.heroku.com/</id>
+  <link href="http://lite.github.com/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2012-05-09T06:53:14-04:00</updated>
+  <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
     
@@ -14,10 +14,39 @@
 
   
   <entry>
+    <title type="html"><![CDATA[git tools]]></title>
+    <link href="http://lite.github.com/blog/2012/05/09/git-tools/"/>
+    <updated>2012-05-09T06:28:00-04:00</updated>
+    <id>http://lite.github.com/blog/2012/05/09/git-tools</id>
+    <content type="html"><![CDATA[<p>git rm deleted files</p>
+
+<pre><code>git status -s | grep "^ D" | awk '{print $2}' | xargs git rm
+</code></pre>
+
+<p>git tools</p>
+
+<ul>
+<li><a href="http://github.com/nvie/gitflow">gitflow</a></li>
+<li><a href="http://repo.or.cz/w/topgit.git">topgit</a></li>
+<li><a href="http://github.com/jonas/tig">tig</a></li>
+</ul>
+
+
+<p>git docs</p>
+
+<ul>
+<li><a href="http://help.github.com/send-pull-requests/">github pull-requests</a></li>
+<li><a href="http://nvie.com/posts/a-successful-git-branching-model/">a successful git branching model</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[archlinux on vmware]]></title>
-    <link href="http://yiong.heroku.com/blog/2012/02/17/archlinux-on-vmware/"/>
+    <link href="http://lite.github.com/blog/2012/02/17/archlinux-on-vmware/"/>
     <updated>2012-02-17T04:35:00-05:00</updated>
-    <id>http://yiong.heroku.com/blog/2012/02/17/archlinux-on-vmware</id>
+    <id>http://lite.github.com/blog/2012/02/17/archlinux-on-vmware</id>
     <content type="html"><![CDATA[<h2>Enable networking</h2>
 
 <p>append to /etc/rc.conf</p>
@@ -47,9 +76,9 @@ ROUTES=(!gateway)
   
   <entry>
     <title type="html"><![CDATA[slash]]></title>
-    <link href="http://yiong.heroku.com/blog/2012/02/15/slash/"/>
+    <link href="http://lite.github.com/blog/2012/02/15/slash/"/>
     <updated>2012-02-15T18:45:00-05:00</updated>
-    <id>http://yiong.heroku.com/blog/2012/02/15/slash</id>
+    <id>http://lite.github.com/blog/2012/02/15/slash</id>
     <content type="html"><![CDATA[<p><a href="http://zespia.tw/Octopress-Theme-Slash/index_tw.html">Octopress themes - Slash</a></p>
 
 <pre><code>cd octopress
@@ -62,9 +91,9 @@ rake generate
   
   <entry>
     <title type="html"><![CDATA[zte_ct_x920 on ubuntu]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/12/28/zte-ct-x920-on-ubuntu/"/>
+    <link href="http://lite.github.com/blog/2011/12/28/zte-ct-x920-on-ubuntu/"/>
     <updated>2011-12-28T16:51:00-05:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/12/28/zte-ct-x920-on-ubuntu</id>
+    <id>http://lite.github.com/blog/2011/12/28/zte-ct-x920-on-ubuntu</id>
     <content type="html"><![CDATA[<p><a href="http://blog.163.com/dengjingniurou@126/blog/static/5398919620111112111659617/">android udev</a></p>
 
 <p>adb devices</p>
@@ -105,9 +134,9 @@ sudo /etc/init.d/udev start</p>
   
   <entry>
     <title type="html"><![CDATA[ginatra]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/12/19/ginatra/"/>
+    <link href="http://lite.github.com/blog/2011/12/19/ginatra/"/>
     <updated>2011-12-19T09:10:00-05:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/12/19/ginatra</id>
+    <id>http://lite.github.com/blog/2011/12/19/ginatra</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/lenary/ginatra">ginatra</a></p>
 
 <p>setup</p>
@@ -136,9 +165,9 @@ ginatra daemon status
   
   <entry>
     <title type="html"><![CDATA[dnscrypt]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/12/16/dnscrypt/"/>
+    <link href="http://lite.github.com/blog/2011/12/16/dnscrypt/"/>
     <updated>2011-12-16T22:56:00-05:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/12/16/dnscrypt</id>
+    <id>http://lite.github.com/blog/2011/12/16/dnscrypt</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/opendns/dnscrypt-proxy">dnscrypt</a></p>
 
 <p>download</p>
@@ -164,9 +193,9 @@ sudo dnscrypt-proxy --daemonize
   
   <entry>
     <title type="html"><![CDATA[chef_on_ec2]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/11/08/chef-on-ec2/"/>
+    <link href="http://lite.github.com/blog/2011/11/08/chef-on-ec2/"/>
     <updated>2011-11-08T00:17:00-05:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/11/08/chef-on-ec2</id>
+    <id>http://lite.github.com/blog/2011/11/08/chef-on-ec2</id>
     <content type="html"><![CDATA[<p><a href="http://console.aws.amazon.com/ec2/home?region=us-west-1&amp;#s=SecurityGroups">aws security groups</a></p>
 
 <pre><code>22 (SSH)  0.0.0.0/0 Delete
@@ -247,9 +276,9 @@ knife cookbook upload aws apt apache2
   
   <entry>
     <title type="html"><![CDATA[vagrant and veewee]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/10/31/vagrant-and-veewee/"/>
+    <link href="http://lite.github.com/blog/2011/10/31/vagrant-and-veewee/"/>
     <updated>2011-10-31T23:51:00-04:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/10/31/vagrant-and-veewee</id>
+    <id>http://lite.github.com/blog/2011/10/31/vagrant-and-veewee</id>
     <content type="html"><![CDATA[<p><a href="http://vagrantup.comi">vagrant</a></p>
 
 <p><a href="https://github.com/jedi4ever/veewee">veewee</a></p>
@@ -271,9 +300,9 @@ vagrant ssh
   
   <entry>
     <title type="html"><![CDATA[showoff on heroku]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/10/27/showoff-on-heroku/"/>
+    <link href="http://lite.github.com/blog/2011/10/27/showoff-on-heroku/"/>
     <updated>2011-10-27T20:46:00-04:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/10/27/showoff-on-heroku</id>
+    <id>http://lite.github.com/blog/2011/10/27/showoff-on-heroku</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/schacon/showoff">showoff</a></p>
 
 <pre><code>heroku config:add SHOWOFF_EVAL_RUBY=1
@@ -293,9 +322,9 @@ showoff heroku slide
   
   <entry>
     <title type="html"><![CDATA[octopress on heroku]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/10/25/octopress-on-heroku/"/>
+    <link href="http://lite.github.com/blog/2011/10/25/octopress-on-heroku/"/>
     <updated>2011-10-25T00:56:00-04:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/10/25/octopress-on-heroku</id>
+    <id>http://lite.github.com/blog/2011/10/25/octopress-on-heroku</id>
     <content type="html"><![CDATA[<p><a href="http://octopress.org/docs/blogging/">blogging</a></p>
 
 <pre><code>rake generate

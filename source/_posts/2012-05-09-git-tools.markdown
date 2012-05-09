@@ -1,0 +1,22 @@
+---
+layout: post
+title: "git tools"
+date: 2012-05-09 06:28
+comments: true
+categories: [git] 
+---
+
+git rm deleted files
+
+    git status -s | grep "^ D" | awk '{print $2}' | xargs git rm
+
+git tools
+
++ [gitflow](http://github.com/nvie/gitflow)
++ [topgit](http://repo.or.cz/w/topgit.git)
++ [tig](http://github.com/jonas/tig)
+
+git docs
+
++ [github pull-requests](http://help.github.com/send-pull-requests/)
++ [a successful git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
