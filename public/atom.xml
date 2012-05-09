@@ -4,7 +4,11 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
+<<<<<<< HEAD
   <updated>2012-05-09T06:53:14-04:00</updated>
+=======
+  <updated>2012-03-13T06:39:53-04:00</updated>
+>>>>>>> 97d3dd2dd5c208427e13a54fe75a66067c7e4aa1
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -14,6 +18,7 @@
 
   
   <entry>
+<<<<<<< HEAD
     <title type="html"><![CDATA[git tools]]></title>
     <link href="http://lite.github.com/blog/2012/05/09/git-tools/"/>
     <updated>2012-05-09T06:28:00-04:00</updated>
@@ -39,6 +44,27 @@
 <li><a href="http://nvie.com/posts/a-successful-git-branching-model/">a successful git branching model</a></li>
 </ul>
 
+=======
+    <title type="html"><![CDATA[Bruce Schneier vs Chuck Norris]]></title>
+    <link href="http://lite.github.com/blog/2012/03/13/bruce-schneier-vs-chuck-norris/"/>
+    <updated>2012-03-13T06:34:00-04:00</updated>
+    <id>http://lite.github.com/blog/2012/03/13/bruce-schneier-vs-chuck-norris</id>
+    <content type="html"><![CDATA[<ul>
+<li><p><a href="http://www.schneierfacts.com/facts/top">Bruce Schneier</a></p></li>
+<li><p><a href="http://www.thechucknorrisfacts.com/">Chuck Norris</a></p></li>
+</ul>
+
+
+<p>Facts:</p>
+
+<pre><code>Vs lbh nfxrq Oehpr Fpuarvre gb qrpelcg guvf, ur'q pehfu lbhe fxhyy jvgu uvf ynhtu.
+</code></pre>
+
+<p>Decrypted by <a href="http://www.retards.org/projects/rot13/">ROT13</a></p>
+
+<pre><code>If you asked Bruce Schneier to decrypt this, he'd crush your skull with his laugh.
+</code></pre>
+>>>>>>> 97d3dd2dd5c208427e13a54fe75a66067c7e4aa1
 ]]></content>
   </entry>
   
