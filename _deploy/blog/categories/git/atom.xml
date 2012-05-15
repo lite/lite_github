@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: git | Lite]]></title>
-  <link href="http://yiong.heroku.com/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://yiong.heroku.com/"/>
-  <updated>2012-02-17T05:05:29-05:00</updated>
-  <id>http://yiong.heroku.com/</id>
+  <link href="http://lite.github.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2012-05-15T03:59:40-04:00</updated>
+  <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
     
@@ -14,10 +14,39 @@
 
   
   <entry>
+    <title type="html"><![CDATA[git tools]]></title>
+    <link href="http://lite.github.com/blog/2012/05/09/git-tools/"/>
+    <updated>2012-05-09T06:28:00-04:00</updated>
+    <id>http://lite.github.com/blog/2012/05/09/git-tools</id>
+    <content type="html"><![CDATA[<p>git rm deleted files</p>
+
+<pre><code>git status -s | grep "^ D" | awk '{print $2}' | xargs git rm
+</code></pre>
+
+<p>git tools</p>
+
+<ul>
+<li><a href="http://github.com/nvie/gitflow">gitflow</a></li>
+<li><a href="http://repo.or.cz/w/topgit.git">topgit</a></li>
+<li><a href="http://github.com/jonas/tig">tig</a></li>
+</ul>
+
+
+<p>git docs</p>
+
+<ul>
+<li><a href="http://help.github.com/send-pull-requests/">github pull-requests</a></li>
+<li><a href="http://nvie.com/posts/a-successful-git-branching-model/">a successful git branching model</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[ginatra]]></title>
-    <link href="http://yiong.heroku.com/blog/2011/12/19/ginatra/"/>
+    <link href="http://lite.github.com/blog/2011/12/19/ginatra/"/>
     <updated>2011-12-19T09:10:00-05:00</updated>
-    <id>http://yiong.heroku.com/blog/2011/12/19/ginatra</id>
+    <id>http://lite.github.com/blog/2011/12/19/ginatra</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/lenary/ginatra">ginatra</a></p>
 
 <p>setup</p>
