@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2012-05-15T03:59:40-04:00</updated>
+  <updated>2012-08-09T00:26:37+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -14,9 +14,125 @@
 
   
   <entry>
+    <title type="html"><![CDATA[brew tap]]></title>
+    <link href="http://lite.github.com/blog/2012/08/08/brew-tap/"/>
+    <updated>2012-08-08T22:23:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/08/08/brew-tap</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/mxcl/homebrew/wiki/Interesting-Taps-%26-Branches">Interesting Taps &amp; Branches</a></p>
+
+<pre><code>brew tap larsimmisch/avr
+brew install avr-libc
+</code></pre>
+
+<p>install proxychains(or tsocks)</p>
+
+<pre><code>brew tap lite/alt
+brew install proxychains
+</code></pre>
+
+<p>curl lcms when installing imagemagick</p>
+
+<pre><code>brew edit lcms
+url 'http://www.littlecms.com/1/lcms-1.19.tar.gz'
+
+brew edit imagemagick
+url 'http://studio.imagemagick.net/download/ImageMagick-6.7.8-8.tar.bz2'
+
+git push git@github.com:lite/homebrew.git
+brew install imagemagick
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[emacs-live]]></title>
+    <link href="http://lite.github.com/blog/2012/07/04/emacs-live/"/>
+    <updated>2012-07-04T06:55:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/07/04/emacs-live</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/overtone/emacs-live">emacs-live</a></p>
+
+<p>Energy starts surging through your fingertips. Sparks fly, making
+the shadows grow and flicker ominously around you. You arch your
+back and open your eyes as if for the first time. The text appears
+more vibrant and colourful than you remember. Your fingers dance on
+the keyboard commanding the cursor with a joyful precision and
+control.</p>
+
+<p>You lean back and marvel as a shimmering swirl of syntactic and
+symantic structures project out of the screen and intertwine with a
+fractal beauty. You watch as meaning recursively unfolds into deeper
+meaning live in front of your eyes. You feel a deep and lasting
+synchronicity form as the boundaries between you and your Emacs
+wash away. You and your Emacs Live.</p>
+
+<p>M-x start-hacking.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[code monkey]]></title>
+    <link href="http://lite.github.com/blog/2012/06/24/code-monkey/"/>
+    <updated>2012-06-24T07:15:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/06/24/code-monkey</id>
+    <content type="html"><![CDATA[<p><a href="http://v.youku.com/v_show/id_XMjk4OTI3NDc2.html">Code Monkey AMV</a></p>
+
+<p>Lyrics:</p>
+
+<pre><code>Code Monkey get up get coffee. Code Monkey go to job.
+Code monkey have boring meeting, boring manager Rob.
+Rob say Code Monkey very diligent. But his output stink.
+His code not functional or elegant. What do Code Monkey think?
+Code Monkey think maybe manager wanna write goddamn login page himself.
+Code Monkey not say it out loud.
+Code Monkey not crazy just proud.
+
+Chorus
+
+Code Monkey like Fritos.
+Code Monkey like Tab and Mountain Dew.
+Code Monkey very simple man
+Big warm fuzzy secret heart
+Code Monkey like you.
+Code Monkey like you.
+
+Code Monkey hang around at front desk
+Tell you sweater look nice
+Code Monkey offer buy you soda
+Bring you cup bring you ice
+You say no thank you for the soda 
+cause soda make you fat
+Anyway you busy with the telephone
+no time for chat.
+
+Code Monkey have long walk back to cubicle
+He sit down pretend to work.
+Code Monkey not thinking so straight.
+Code Monkey not feeling so great.
+
+Chorus
+
+Code Monkey like you lots.
+Code Monkey have every reason
+To get out this place.
+Code Monkey just keep on working
+See your soft pretty face
+Much rather wake up eat a coffee cake
+Take bath, take nap
+This job fulfilling in creative way
+Such a load of crap.
+Code Monkey think someday he have everything even pretty girl like you.
+Code Monkey just waiting for now.
+Code Monkey say someday, somehow.
+
+Chorus
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[git tools]]></title>
     <link href="http://lite.github.com/blog/2012/05/09/git-tools/"/>
-    <updated>2012-05-09T06:28:00-04:00</updated>
+    <updated>2012-05-09T06:28:00+08:00</updated>
     <id>http://lite.github.com/blog/2012/05/09/git-tools</id>
     <content type="html"><![CDATA[<p>git rm deleted files</p>
 
@@ -45,7 +161,7 @@
   <entry>
     <title type="html"><![CDATA[archlinux on vmware]]></title>
     <link href="http://lite.github.com/blog/2012/02/17/archlinux-on-vmware/"/>
-    <updated>2012-02-17T04:35:00-05:00</updated>
+    <updated>2012-02-17T04:35:00+08:00</updated>
     <id>http://lite.github.com/blog/2012/02/17/archlinux-on-vmware</id>
     <content type="html"><![CDATA[<h2>Enable networking</h2>
 
@@ -77,7 +193,7 @@ ROUTES=(!gateway)
   <entry>
     <title type="html"><![CDATA[slash]]></title>
     <link href="http://lite.github.com/blog/2012/02/15/slash/"/>
-    <updated>2012-02-15T18:45:00-05:00</updated>
+    <updated>2012-02-15T18:45:00+08:00</updated>
     <id>http://lite.github.com/blog/2012/02/15/slash</id>
     <content type="html"><![CDATA[<p><a href="http://zespia.tw/Octopress-Theme-Slash/index_tw.html">Octopress themes - Slash</a></p>
 
@@ -92,7 +208,7 @@ rake generate
   <entry>
     <title type="html"><![CDATA[zte_ct_x920 on ubuntu]]></title>
     <link href="http://lite.github.com/blog/2011/12/28/zte-ct-x920-on-ubuntu/"/>
-    <updated>2011-12-28T16:51:00-05:00</updated>
+    <updated>2011-12-28T16:51:00+08:00</updated>
     <id>http://lite.github.com/blog/2011/12/28/zte-ct-x920-on-ubuntu</id>
     <content type="html"><![CDATA[<p><a href="http://blog.163.com/dengjingniurou@126/blog/static/5398919620111112111659617/">android udev</a></p>
 
@@ -135,7 +251,7 @@ sudo /etc/init.d/udev start</p>
   <entry>
     <title type="html"><![CDATA[ginatra]]></title>
     <link href="http://lite.github.com/blog/2011/12/19/ginatra/"/>
-    <updated>2011-12-19T09:10:00-05:00</updated>
+    <updated>2011-12-19T09:10:00+08:00</updated>
     <id>http://lite.github.com/blog/2011/12/19/ginatra</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/lenary/ginatra">ginatra</a></p>
 
@@ -166,7 +282,7 @@ ginatra daemon status
   <entry>
     <title type="html"><![CDATA[dnscrypt]]></title>
     <link href="http://lite.github.com/blog/2011/12/16/dnscrypt/"/>
-    <updated>2011-12-16T22:56:00-05:00</updated>
+    <updated>2011-12-16T22:56:00+08:00</updated>
     <id>http://lite.github.com/blog/2011/12/16/dnscrypt</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/opendns/dnscrypt-proxy">dnscrypt</a></p>
 
@@ -194,7 +310,7 @@ sudo dnscrypt-proxy --daemonize
   <entry>
     <title type="html"><![CDATA[chef_on_ec2]]></title>
     <link href="http://lite.github.com/blog/2011/11/08/chef-on-ec2/"/>
-    <updated>2011-11-08T00:17:00-05:00</updated>
+    <updated>2011-11-08T00:17:00+08:00</updated>
     <id>http://lite.github.com/blog/2011/11/08/chef-on-ec2</id>
     <content type="html"><![CDATA[<p><a href="http://console.aws.amazon.com/ec2/home?region=us-west-1&amp;#s=SecurityGroups">aws security groups</a></p>
 
@@ -277,7 +393,7 @@ knife cookbook upload aws apt apache2
   <entry>
     <title type="html"><![CDATA[vagrant and veewee]]></title>
     <link href="http://lite.github.com/blog/2011/10/31/vagrant-and-veewee/"/>
-    <updated>2011-10-31T23:51:00-04:00</updated>
+    <updated>2011-10-31T23:51:00+08:00</updated>
     <id>http://lite.github.com/blog/2011/10/31/vagrant-and-veewee</id>
     <content type="html"><![CDATA[<p><a href="http://vagrantup.comi">vagrant</a></p>
 
@@ -301,7 +417,7 @@ vagrant ssh
   <entry>
     <title type="html"><![CDATA[showoff on heroku]]></title>
     <link href="http://lite.github.com/blog/2011/10/27/showoff-on-heroku/"/>
-    <updated>2011-10-27T20:46:00-04:00</updated>
+    <updated>2011-10-27T20:46:00+08:00</updated>
     <id>http://lite.github.com/blog/2011/10/27/showoff-on-heroku</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/schacon/showoff">showoff</a></p>
 
@@ -323,7 +439,7 @@ showoff heroku slide
   <entry>
     <title type="html"><![CDATA[octopress on heroku]]></title>
     <link href="http://lite.github.com/blog/2011/10/25/octopress-on-heroku/"/>
-    <updated>2011-10-25T00:56:00-04:00</updated>
+    <updated>2011-10-25T00:56:00+08:00</updated>
     <id>http://lite.github.com/blog/2011/10/25/octopress-on-heroku</id>
     <content type="html"><![CDATA[<p><a href="http://octopress.org/docs/blogging/">blogging</a></p>
 

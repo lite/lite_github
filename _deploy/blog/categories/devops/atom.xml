@@ -4,7 +4,7 @@
   <title><![CDATA[Category: devops | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/devops/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2012-05-15T03:59:40-04:00</updated>
+  <updated>2012-08-09T00:26:37+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[chef_on_ec2]]></title>
     <link href="http://lite.github.com/blog/2011/11/08/chef-on-ec2/"/>
-    <updated>2011-11-08T00:17:00-05:00</updated>
+    <updated>2011-11-08T00:17:00+08:00</updated>
     <id>http://lite.github.com/blog/2011/11/08/chef-on-ec2</id>
     <content type="html"><![CDATA[<p><a href="http://console.aws.amazon.com/ec2/home?region=us-west-1&amp;#s=SecurityGroups">aws security groups</a></p>
 
@@ -99,7 +99,7 @@ knife cookbook upload aws apt apache2
   <entry>
     <title type="html"><![CDATA[vagrant and veewee]]></title>
     <link href="http://lite.github.com/blog/2011/10/31/vagrant-and-veewee/"/>
-    <updated>2011-10-31T23:51:00-04:00</updated>
+    <updated>2011-10-31T23:51:00+08:00</updated>
     <id>http://lite.github.com/blog/2011/10/31/vagrant-and-veewee</id>
     <content type="html"><![CDATA[<p><a href="http://vagrantup.comi">vagrant</a></p>
 

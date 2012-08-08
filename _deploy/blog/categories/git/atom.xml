@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2012-05-15T03:59:40-04:00</updated>
+  <updated>2012-08-09T00:26:37+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[git tools]]></title>
     <link href="http://lite.github.com/blog/2012/05/09/git-tools/"/>
-    <updated>2012-05-09T06:28:00-04:00</updated>
+    <updated>2012-05-09T06:28:00+08:00</updated>
     <id>http://lite.github.com/blog/2012/05/09/git-tools</id>
     <content type="html"><![CDATA[<p>git rm deleted files</p>
 
@@ -45,7 +45,7 @@
   <entry>
     <title type="html"><![CDATA[ginatra]]></title>
     <link href="http://lite.github.com/blog/2011/12/19/ginatra/"/>
-    <updated>2011-12-19T09:10:00-05:00</updated>
+    <updated>2011-12-19T09:10:00+08:00</updated>
     <id>http://lite.github.com/blog/2011/12/19/ginatra</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/lenary/ginatra">ginatra</a></p>
 
