@@ -1,0 +1,10 @@
+{% if site.douban_user %}
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript" src="http://www.douban.com/service/badge/{{ site.douban_user }}/?show=collection&amp;n=8&amp;columns=2" ></script>
+  <p>Follow <a href="http://www.douban.com/people/{{ site.douban_user }}">@{{ site.douban_user }}</a></p>
+</section>
+{% endif %}
