@@ -1,9 +1,0 @@
-<section>
-  <h1>About Me</h1>
-  <p> I like <b>programming</b> & <b>walking</b>...</p>
-  <p>
-    <img src="/favicon.png" title="Lite" alt="Lite" />
-    <a href="http://github.com/lite">github</a>
-    <a href="https://www.facebook.com/litekok">facebook</a>
-  </p>
-</section>
