@@ -9,9 +9,7 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="Interesting Taps &amp; Branches brew tap larsimmisch/avr
-brew install avr-libc install proxychains(or tsocks) brew tap lite/alt
-brew install &hellip;">
+  <meta name="description" content="tcpdump tcpdump -x -vv -i en0 "tcp port 8001" SuSE: tcpdump port 8001 -X -vv expect ssh_config: host test user app100642705 hostname 10.1.2.15 port &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +72,81 @@ brew install &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2012/08/28/expect-split-and-tcpdump/">Expect-split-and-tcpdump</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-28T20:25:00+08:00" pubdate data-updated="true">Aug 28<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/08/28/expect-split-and-tcpdump/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>tcpdump</h1>
+
+<pre><code>tcpdump -x -vv  -i en0 "tcp port 8001"
+</code></pre>
+
+<p>SuSE:</p>
+
+<pre><code>tcpdump port 8001 -X -vv
+</code></pre>
+
+<h1>expect</h1>
+
+<p>ssh_config:</p>
+
+<pre><code>host test
+    user app100642705
+    hostname 10.1.2.15 
+    port 3322
+    identityfile pkey
+</code></pre>
+
+<p>myshell.sh:</p>
+
+<pre><code>#!/usr/bin/expect -f
+spawn ssh -F ssh_config test
+expect "*(yes/no)?" {
+    send "yes\r"
+}
+interact #expect eof
+</code></pre>
+
+<h1>split</h1>
+
+<pre><code>tar -czvf - test | split -b 50m - test.tar.gz
+cat test.tar.gz.a* &gt; - | tar -zxvf - 
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -648,120 +721,6 @@ sudo dnscrypt-proxy --daemonize
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2011/11/08/chef-on-ec2/">Chef_on_ec2</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-08T00:17:00+08:00" pubdate data-updated="true">Nov 8<span>th</span>, 2011</time>
-        
-         | <a href="/blog/2011/11/08/chef-on-ec2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://console.aws.amazon.com/ec2/home?region=us-west-1&amp;#s=SecurityGroups">aws security groups</a></p>
-
-<pre><code>22 (SSH)  0.0.0.0/0 Delete
-80 (HTTP) 0.0.0.0/0 Delete
-
-ssh-keygen -R www.fssle.com
-ssh -i fssle-ec2.pem ubuntu@www.fssle.com
-</code></pre>
-
-<p><a href="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key">aws access key</a></p>
-
-<pre><code>export AWS_ACCESS_KEY_ID=""
-export AWS_SECRET_ACCESS_KEY=""
-</code></pre>
-
-<p><a href="http://uec-images.ubuntu.com/server/releases/11.04/release/">ubuntu ec2 image</a></p>
-
-<pre><code>knife[:aws_access_key_id]     = "#{ENV['AWS_ACCESS_KEY_ID']}"
-knife[:aws_secret_access_key] = "#{ENV['AWS_SECRET_ACCESS_KEY']}"
-knife[:identity_file]         = 'fssle-ec2.pem'
-knife[:aws_ssh_key_id]        = "fssle-ec2"
-knife[:availability_zone]     = 'us-west-1a'
-knife[:region]                = 'us-west-1'
-knife[:aws_image_id]          = 'ami-43580406'
-
-knife ec2 server list
-knife ec2 server delete i-296cd36e
-knife ec2 server create -I ami-43580406 -f t1.micro -x ubuntu -G default 
-</code></pre>
-
-<p><a href="https://community.opscode.com/users/username/user_key/new">opscode user key</a></p>
-
-<pre><code>username.pem 
-knife.rb 
-org-validator.pem
-</code></pre>
-
-<ul>
-<li>chef</li>
-</ul>
-
-
-<blockquote><ul>
-<li>role</li>
-</ul>
-</blockquote>
-
-<pre><code>knife role list
-export EDITOR=vim &amp;&amp; knife role create base
-knife role edit base
-knife role show base
-knife role from file roles/base.rb
-</code></pre>
-
-<blockquote><ul>
-<li>cookbook</li>
-</ul>
-</blockquote>
-
-<pre><code>knife cookbook site download apt
-knife cookbook site download aws
-knife cookbook site download apache2
-
-knife cookbook create fssle
-knife cookbook list
-knife cookbook upload aws apt apache2
-</code></pre>
-
-<blockquote><ul>
-<li>ec2</li>
-</ul>
-</blockquote>
-
-<pre><code>knife ec2 server create "role[fssle]" -I ami-43580406 -f t1.micro -G default -region -S knife -i ./fssle-ec2.pem --ssh-user ubuntu 
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -787,6 +746,10 @@ knife cookbook upload aws apt apache2
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/28/expect-split-and-tcpdump/">expect-split-and-tcpdump</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/08/brew-tap/">brew tap</a>
       </li>
     
@@ -800,10 +763,6 @@ knife cookbook upload aws apt apache2
     
       <li class="post">
         <a href="/blog/2012/05/09/git-tools/">git tools</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/02/17/archlinux-on-vmware/">archlinux on vmware</a>
       </li>
     
   </ul>

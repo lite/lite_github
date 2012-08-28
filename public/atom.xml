@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2012-08-11T00:38:47+08:00</updated>
+  <updated>2012-08-28T21:16:31+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[expect-split-and-tcpdump]]></title>
+    <link href="http://lite.github.com/blog/2012/08/28/expect-split-and-tcpdump/"/>
+    <updated>2012-08-28T20:25:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/08/28/expect-split-and-tcpdump</id>
+    <content type="html"><![CDATA[<h1>tcpdump</h1>
+
+<pre><code>tcpdump -x -vv  -i en0 "tcp port 8001"
+</code></pre>
+
+<p>SuSE:</p>
+
+<pre><code>tcpdump port 8001 -X -vv
+</code></pre>
+
+<h1>expect</h1>
+
+<p>ssh_config:</p>
+
+<pre><code>host test
+    user app100642705
+    hostname 10.1.2.15 
+    port 3322
+    identityfile pkey
+</code></pre>
+
+<p>myshell.sh:</p>
+
+<pre><code>#!/usr/bin/expect -f
+spawn ssh -F ssh_config test
+expect "*(yes/no)?" {
+    send "yes\r"
+}
+interact #expect eof
+</code></pre>
+
+<h1>split</h1>
+
+<pre><code>tar -czvf - test | split -b 50m - test.tar.gz
+cat test.tar.gz.a* &gt; - | tar -zxvf - 
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[brew tap]]></title>
