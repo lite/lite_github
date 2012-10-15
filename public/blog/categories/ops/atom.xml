@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ops | Lite]]></title>
+  <link href="http://lite.github.com/blog/categories/ops/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2012-10-15T23:03:27+08:00</updated>
+  <id>http://lite.github.com/</id>
+  <author>
+    <name><![CDATA[Lite]]></name>
+    <email><![CDATA[litekok@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[gzip-on-nginx]]></title>
+    <link href="http://lite.github.com/blog/2012/10/15/gzip-on-nginx/"/>
+    <updated>2012-10-15T22:44:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/10/15/gzip-on-nginx</id>
+    <content type="html"><![CDATA[<p>add gzip support in conf/nginx.conf</p>
+
+<pre><code>gzip            on;
+gzip_comp_level 5;
+gzip_min_length 1024;
+gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/jpeg image/gif image/png;
+gzip_proxied    expired no-cache no-store private auth;
+gzip_disable    "MSIE [1-6]\.";
+</code></pre>
+
+<p>reload nginx</p>
+
+<pre><code>sbin/nginx -s reload
+</code></pre>
+
+<p>test by curl</p>
+
+<pre><code>curl -I --compressed http://fssle.com/8/config/txt/task.xml
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

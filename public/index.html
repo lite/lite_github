@@ -9,8 +9,10 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="Life’s too short to build something nobody wants – Ash Maurya, Running Lean
-Give someone a program, you frustrate them for a day; teach them how to &hellip;">
+  <meta name="description" content="add gzip support in conf/nginx.conf gzip on;
+gzip_comp_level 5;
+gzip_min_length 1024;
+gzip_types text/plain text/css application/json application/x- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +75,64 @@ Give someone a program, you frustrate them for a day; teach them how to &hellip;
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2012/10/15/gzip-on-nginx/">Gzip-on-nginx</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-15T22:44:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/10/15/gzip-on-nginx/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>add gzip support in conf/nginx.conf</p>
+
+<pre><code>gzip            on;
+gzip_comp_level 5;
+gzip_min_length 1024;
+gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/jpeg image/gif image/png;
+gzip_proxied    expired no-cache no-store private auth;
+gzip_disable    "MSIE [1-6]\.";
+</code></pre>
+
+<p>reload nginx</p>
+
+<pre><code>sbin/nginx -s reload
+</code></pre>
+
+<p>test by curl</p>
+
+<pre><code>curl -I --compressed http://fssle.com/8/config/txt/task.xml
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -674,68 +734,6 @@ sudo /etc/init.d/udev start</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2011/12/19/ginatra/">Ginatra</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-19T09:10:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2011</time>
-        
-         | <a href="/blog/2011/12/19/ginatra/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://github.com/lenary/ginatra">ginatra</a></p>
-
-<p>setup</p>
-
-<pre><code>sudo apt-get install python-pip
-sudo pip install pygments
-gem install ginatra
-</code></pre>
-
-<p>repo directory</p>
-
-<pre><code>ginatra setup
-ginatra directory add '~/git/repo'
-ginatra directory list
-</code></pre>
-
-<p>server</p>
-
-<pre><code>ginatra server start
-ginatra server stop
-ginatra daemon start
-ginatra daemon status
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -761,6 +759,10 @@ ginatra daemon status
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/10/15/gzip-on-nginx/">gzip-on-nginx</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/10/02/programmers-quotes/">programmers-quotes</a>
       </li>
     
@@ -774,10 +776,6 @@ ginatra daemon status
     
       <li class="post">
         <a href="/blog/2012/07/04/emacs-live/">emacs-live</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/24/code-monkey/">code monkey</a>
       </li>
     
   </ul>
