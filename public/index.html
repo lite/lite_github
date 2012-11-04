@@ -9,10 +9,7 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="add gzip support in conf/nginx.conf gzip on;
-gzip_comp_level 5;
-gzip_min_length 1024;
-gzip_types text/plain text/css application/json application/x- &hellip;">
+  <meta name="description" content="Create the repos groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn Enable 3690 port /etc/sysconfig/SuSEfirewall2 FW_SERVICES_EXT_TCP="22 80 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -94,7 +91,94 @@ gzip_types text/plain text/css application/json application/x- &hellip;">
   <header>
     
       <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/10/15/gzip-on-nginx/">Gzip-on-nginx</a></h1>
+        <h1 class="entry-title"><a href="/blog/2012/11/02/svnserve-on-suse/">Svnserve on SuSE</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-02T21:10:00+08:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2012</time>
+        
+         | <a href="/blog/2012/11/02/svnserve-on-suse/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Create the repos</p>
+
+<pre><code>groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn
+</code></pre>
+
+<p>Enable 3690 port /etc/sysconfig/SuSEfirewall2</p>
+
+<pre><code>FW_SERVICES_EXT_TCP="22 80 3306 3690"
+</code></pre>
+
+<p>Create the repos</p>
+
+<pre><code>svnadmin create /srv/svn/repos
+</code></pre>
+
+<p>Configuration</p>
+
+<pre><code>;/srv/svn/repos/conf/svnserve.conf   
+[general]
+anon-access = none
+auth-access = write
+password-db = passwd
+
+;/srv/svn/repos/conf/passwd
+[users]
+test = test
+
+;/etc/sysconfig/svnserve
+;The -R option enforces read-only access
+SVNSERVE_OPTIONS="-d -r /srv/svn/repos"
+</code></pre>
+
+<p>Start svnserve</p>
+
+<pre><code>chown -R svn:svn /srv/svn/
+chmod -R 755 /srv/svn/
+chkconfig svnserve
+service svnserve start
+</code></pre>
+
+<p>On svn client working</p>
+
+<pre><code>svn co --username test svn://192.168.1.21/ my-repos
+svn up
+svn merge ./ -r 5:4 
+svn st
+svn commit -m "rollback to r4"
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2012/10/15/gzip-on-nginx/">Gzip on Nginx</a></h1>
       
     
     
@@ -672,80 +756,6 @@ rake generate
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2011/12/28/zte-ct-x920-on-ubuntu/">Zte_ct_x920 on Ubuntu</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-28T16:51:00+08:00" pubdate data-updated="true">Dec 28<span>th</span>, 2011</time>
-        
-         | <a href="/blog/2011/12/28/zte-ct-x920-on-ubuntu/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://blog.163.com/dengjingniurou@126/blog/static/5398919620111112111659617/">android udev</a></p>
-
-<p>adb devices</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached
-</span><span class='line'>????????????    no permissions</span></code></pre></td></tr></table></div></figure>
-
-
-<p>lsusb</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Bus 001 Device 050: ID 19d2:ffda ONDA Communication S.p.A. </span></code></pre></td></tr></table></div></figure>
-
-
-<p>sudo vim /etc/udev/rules.d/51-Android.rules</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", MODE="0666"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>sudo chmod a+r /etc/udev/rules.d/51-Android.rules
-sudo /etc/init.d/udev stop
-sudo /etc/init.d/udev start</p>
-
-<p>then re-plug the cable</p>
-
-<p>adb devices</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached 
-</span><span class='line'>X920_CT device</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -771,7 +781,11 @@ sudo /etc/init.d/udev start</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/10/15/gzip-on-nginx/">gzip-on-nginx</a>
+        <a href="/blog/2012/11/02/svnserve-on-suse/">svnserve on SuSE</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/15/gzip-on-nginx/">gzip on nginx</a>
       </li>
     
       <li class="post">
@@ -784,10 +798,6 @@ sudo /etc/init.d/udev start</p>
     
       <li class="post">
         <a href="/blog/2012/08/08/brew-tap/">brew tap</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/04/emacs-live/">emacs-live</a>
       </li>
     
   </ul>

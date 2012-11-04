@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: ec2 - Lite</title>
+  <title>svnserve on SuSE - Lite</title>
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="Category: ec2">
+  <meta name="description" content="Create the repos groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn Enable 3690 port /etc/sysconfig/SuSEfirewall2 FW_SERVICES_EXT_TCP="22 80 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://lite.github.comblog/categories/ec2/">
+  <link rel="canonical" href="http://lite.github.com/blog/2012/11/02/svnserve-on-suse/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -83,36 +83,140 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Ec2</h1>
+    
+      
+        <h1 class="entry-title">Svnserve on SuSE</h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-02T21:10:00+08:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Create the repos</p>
 
-  
-  <h2>2011</h2>
+<pre><code>groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2011/11/08/chef-on-ec2/">chef_on_ec2</a></h1>
-<time datetime="2011-11-08T00:17:00+08:00" pubdate><span class='month'>Nov</span> <span class='day'>08</span> <span class='year'>2011</span></time>
+<p>Enable 3690 port /etc/sysconfig/SuSEfirewall2</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/chef/'>chef</a>, <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/ec2/'>ec2</a></span>
-</footer>
+<pre><code>FW_SERVICES_EXT_TCP="22 80 3306 3690"
+</code></pre>
 
+<p>Create the repos</p>
 
-</article>
+<pre><code>svnadmin create /srv/svn/repos
+</code></pre>
 
+<p>Configuration</p>
+
+<pre><code>;/srv/svn/repos/conf/svnserve.conf   
+[general]
+anon-access = none
+auth-access = write
+password-db = passwd
+
+;/srv/svn/repos/conf/passwd
+[users]
+test = test
+
+;/etc/sysconfig/svnserve
+;The -R option enforces read-only access
+SVNSERVE_OPTIONS="-d -r /srv/svn/repos"
+</code></pre>
+
+<p>Start svnserve</p>
+
+<pre><code>chown -R svn:svn /srv/svn/
+chmod -R 755 /srv/svn/
+chkconfig svnserve
+service svnserve start
+</code></pre>
+
+<p>On svn client working</p>
+
+<pre><code>svn co --username test svn://192.168.1.21/ my-repos
+svn up
+svn merge ./ -r 5:4 
+svn st
+svn commit -m "rollback to r4"
+</code></pre>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Lite</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-02T21:10:00+08:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/suse-svn/'>SuSE svn</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left articlenav" href="/blog/2012/10/15/gzip-on-nginx/" title="Previous Post: gzip on nginx">&laquo; gzip on nginx</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -215,7 +319,10 @@
       var disqus_shortname = 'fssle';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://lite.github.com/blog/2012/11/02/svnserve-on-suse/';
+        var disqus_url = 'http://lite.github.com/blog/2012/11/02/svnserve-on-suse/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

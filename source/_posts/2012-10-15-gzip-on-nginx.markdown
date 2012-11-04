@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "gzip-on-nginx"
+title: "gzip on nginx"
 date: 2012-10-15 22:44
 comments: true
 categories: [ops]

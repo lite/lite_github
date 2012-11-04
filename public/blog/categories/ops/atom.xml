@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ops | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/ops/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2012-10-24T02:05:03+08:00</updated>
+  <updated>2012-11-04T11:18:30+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[gzip-on-nginx]]></title>
+    <title type="html"><![CDATA[gzip on nginx]]></title>
     <link href="http://lite.github.com/blog/2012/10/15/gzip-on-nginx/"/>
     <updated>2012-10-15T22:44:00+08:00</updated>
     <id>http://lite.github.com/blog/2012/10/15/gzip-on-nginx</id>

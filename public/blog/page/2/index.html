@@ -9,10 +9,11 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="ginatra setup sudo apt-get install python-pip
-sudo pip install pygments
-gem install ginatra repo directory ginatra setup
-ginatra directory add '~/git &hellip;">
+  <meta name="description" content="android udev adb devices 1
+2
+List of devices attached
+???????????? no permissions lsusb 1
+Bus 001 Device 050: ID 19d2:ffda ONDA Communication S.p.A. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -87,6 +88,80 @@ ginatra directory add '~/git &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2011/12/28/zte-ct-x920-on-ubuntu/">Zte_ct_x920 on Ubuntu</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-28T16:51:00+08:00" pubdate data-updated="true">Dec 28<span>th</span>, 2011</time>
+        
+         | <a href="/blog/2011/12/28/zte-ct-x920-on-ubuntu/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://blog.163.com/dengjingniurou@126/blog/static/5398919620111112111659617/">android udev</a></p>
+
+<p>adb devices</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached
+</span><span class='line'>????????????    no permissions</span></code></pre></td></tr></table></div></figure>
+
+
+<p>lsusb</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Bus 001 Device 050: ID 19d2:ffda ONDA Communication S.p.A. </span></code></pre></td></tr></table></div></figure>
+
+
+<p>sudo vim /etc/udev/rules.d/51-Android.rules</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", MODE="0666"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>sudo chmod a+r /etc/udev/rules.d/51-Android.rules
+sudo /etc/init.d/udev stop
+sudo /etc/init.d/udev start</p>
+
+<p>then re-plug the cable</p>
+
+<p>adb devices</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached 
+</span><span class='line'>X920_CT device</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -508,7 +583,11 @@ git push heroku master
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/10/15/gzip-on-nginx/">gzip-on-nginx</a>
+        <a href="/blog/2012/11/02/svnserve-on-suse/">svnserve on SuSE</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/15/gzip-on-nginx/">gzip on nginx</a>
       </li>
     
       <li class="post">
@@ -521,10 +600,6 @@ git push heroku master
     
       <li class="post">
         <a href="/blog/2012/08/08/brew-tap/">brew tap</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/04/emacs-live/">emacs-live</a>
       </li>
     
   </ul>
