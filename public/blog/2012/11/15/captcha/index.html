@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>expect-split-and-tcpdump - Lite</title>
+  <title>captcha - Lite</title>
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="tcpdump tcpdump -x -vv -i en0 "tcp port 8001" SuSE: tcpdump port 8001 -X -vv expect ssh_config: host test user app100642705 hostname 10.1.2.15 port &hellip;">
+  <meta name="description" content="Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart 二值化 + 去干扰线 + 去噪 + 分割 + 旋转 + 识别
+中值滤镜 + PCA tesseract-ocr &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://lite.github.com/blog/2012/08/28/expect-split-and-tcpdump/">
+  <link rel="canonical" href="http://lite.github.com/blog/2012/11/15/captcha/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -88,7 +89,7 @@
   <header>
     
       
-        <h1 class="entry-title">Expect-split-and-tcpdump</h1>
+        <h1 class="entry-title">Captcha</h1>
       
     
     
@@ -105,7 +106,7 @@
   
 
 
-<time datetime="2012-08-28T20:25:00+08:00" pubdate data-updated="true">Aug 28<span>th</span>, 2012</time>
+<time datetime="2012-11-15T11:15:00+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -114,42 +115,21 @@
   </header>
 
 
-<div class="entry-content"><h1>tcpdump</h1>
+<div class="entry-content"><p>Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart</p>
 
-<pre><code>tcpdump -x -vv  -i en0 "tcp port 8001"
-</code></pre>
+<p>二值化 + 去干扰线 + 去噪 + 分割 + 旋转 + 识别
+中值滤镜 + PCA</p>
 
-<p>SuSE:</p>
+<ul>
+<li><a href="http://code.google.com/p/tesseract-ocr/">tesseract-ocr</a></li>
+<li><a href="http://www.80vul.com/webzine_0x02/PSTZine_0x02_0x09.html">如何识别高级的验证码</a></li>
+<li><a href="http://1.identify.sinaapp.com/?p=8">二维物体形状识别方法比较</a></li>
+<li><a href="http://www.eecs.berkeley.edu/Research/Projects/CS/vision/shape/">Recognition:Objects, Humans, Activities</a></li>
+<li><a href="http://caca.zoy.org/wiki/PWNtcha">Pwntcha</a></li>
+<li><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/table_of_content_imgproc/table_of_content_imgproc.html">OpenCV</a></li>
+<li><a href="http://blog.pluskid.org/wp-content/uploads/2010/01/captcha_src.zip">简单验证码的识别</a></li>
+</ul>
 
-<pre><code>tcpdump port 8001 -X -vv
-</code></pre>
-
-<h1>expect</h1>
-
-<p>ssh_config:</p>
-
-<pre><code>host test
-    user app100642705
-    hostname 10.1.2.15 
-    port 3322
-    identityfile pkey
-</code></pre>
-
-<p>myshell.sh:</p>
-
-<pre><code>#!/usr/bin/expect -f
-spawn ssh -F ssh_config test
-expect "*(yes/no)?" {
-    send "yes\r"
-}
-interact #expect eof
-</code></pre>
-
-<h1>split</h1>
-
-<pre><code>tar -czvf - test | split -b 50m - test.tar.gz
-cat test.tar.gz.a* &gt; - | tar -zxvf - 
-</code></pre>
 </div>
 
 
@@ -172,7 +152,7 @@ cat test.tar.gz.a* &gt; - | tar -zxvf -
   
 
 
-<time datetime="2012-08-28T20:25:00+08:00" pubdate data-updated="true">Aug 28<span>th</span>, 2012</time>
+<time datetime="2012-11-15T11:15:00+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2012</time>
       
 
 
@@ -187,10 +167,8 @@ cat test.tar.gz.a* &gt; - | tar -zxvf -
     
     <p class="meta">
       
-        <a class="basic-alignment left articlenav" href="/blog/2012/08/08/brew-tap/" title="Previous Post: brew tap">&laquo; brew tap</a>
+        <a class="basic-alignment left articlenav" href="/blog/2012/11/02/svnserve-on-suse/" title="Previous Post: svnserve on SuSE">&laquo; svnserve on SuSE</a>
       
-      
-        <a class="basic-alignment right articlenav" href="/blog/2012/10/02/programmers-quotes/" title="Next Post: programmers-quotes">programmers-quotes &raquo;</a>
       
     </p>
   </footer>
@@ -304,8 +282,8 @@ cat test.tar.gz.a* &gt; - | tar -zxvf -
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://lite.github.com/blog/2012/08/28/expect-split-and-tcpdump/';
-        var disqus_url = 'http://lite.github.com/blog/2012/08/28/expect-split-and-tcpdump/';
+        var disqus_identifier = 'http://lite.github.com/blog/2012/11/15/captcha/';
+        var disqus_url = 'http://lite.github.com/blog/2012/11/15/captcha/';
         var disqus_script = 'embed.js';
       
     (function () {

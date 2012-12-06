@@ -1,0 +1,20 @@
+---
+layout: post
+title: "captcha"
+date: 2012-11-15 11:15
+comments: true
+categories: 
+---
+
+Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart
+
+二值化 + 去干扰线 + 去噪 + 分割 + 旋转 + 识别
+中值滤镜 + PCA
+
+* [tesseract-ocr](http://code.google.com/p/tesseract-ocr/)
+* [如何识别高级的验证码](http://www.80vul.com/webzine_0x02/PSTZine_0x02_0x09.html)
+* [二维物体形状识别方法比较](http://1.identify.sinaapp.com/?p=8)
+* [Recognition:Objects, Humans, Activities](http://www.eecs.berkeley.edu/Research/Projects/CS/vision/shape/)
+* [Pwntcha](http://caca.zoy.org/wiki/PWNtcha)
+* [OpenCV](http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/table_of_content_imgproc/table_of_content_imgproc.html)
+* [简单验证码的识别](http://blog.pluskid.org/wp-content/uploads/2010/01/captcha_src.zip)

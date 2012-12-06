@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2012-11-04T11:18:30+08:00</updated>
+  <updated>2012-12-06T16:55:21+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[captcha]]></title>
+    <link href="http://lite.github.com/blog/2012/11/15/captcha/"/>
+    <updated>2012-11-15T11:15:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/11/15/captcha</id>
+    <content type="html"><![CDATA[<p>Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart</p>
+
+<p>二值化 + 去干扰线 + 去噪 + 分割 + 旋转 + 识别
+中值滤镜 + PCA</p>
+
+<ul>
+<li><a href="http://code.google.com/p/tesseract-ocr/">tesseract-ocr</a></li>
+<li><a href="http://www.80vul.com/webzine_0x02/PSTZine_0x02_0x09.html">如何识别高级的验证码</a></li>
+<li><a href="http://1.identify.sinaapp.com/?p=8">二维物体形状识别方法比较</a></li>
+<li><a href="http://www.eecs.berkeley.edu/Research/Projects/CS/vision/shape/">Recognition:Objects, Humans, Activities</a></li>
+<li><a href="http://caca.zoy.org/wiki/PWNtcha">Pwntcha</a></li>
+<li><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/table_of_content_imgproc/table_of_content_imgproc.html">OpenCV</a></li>
+<li><a href="http://blog.pluskid.org/wp-content/uploads/2010/01/captcha_src.zip">简单验证码的识别</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[svnserve on SuSE]]></title>
