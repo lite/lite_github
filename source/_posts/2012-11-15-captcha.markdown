@@ -3,7 +3,7 @@ layout: post
 title: "captcha"
 date: 2012-11-15 11:15
 comments: true
-categories: 
+categories: [captcha, opencv, ocr]
 ---
 
 Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart

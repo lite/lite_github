@@ -3,7 +3,7 @@ layout: post
 title: "expect-split-and-tcpdump"
 date: 2012-08-28 20:25
 comments: true
-categories: 
+categories: [shell]
 ---
 
 # tcpdump

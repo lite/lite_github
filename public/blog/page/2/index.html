@@ -9,10 +9,9 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="Octopress themes - Slash cd octopress
-git clone git@github.com:tommy351/Octopress-Theme-Slash.git .themes/slash
-rake install['slash']
-rake generate ">
+  <meta name="description" content="Enable networking append to /etc/rc.conf eth0="dhcp"
+INTERFACE=(eth0)
+ROUTES=(!gateway) run command &#8220;/etc/rc.d/network restart&#8221; Enable &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -87,6 +86,69 @@ rake generate ">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2012/02/17/archlinux-on-vmware/">Archlinux on Vmware</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-17T04:35:00+08:00" pubdate data-updated="true">Feb 17<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/02/17/archlinux-on-vmware/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Enable networking</h2>
+
+<p>append to /etc/rc.conf</p>
+
+<pre><code>eth0="dhcp"
+INTERFACE=(eth0)
+ROUTES=(!gateway)
+</code></pre>
+
+<p>run command &#8220;/etc/rc.d/network restart&#8221;</p>
+
+<h2>Enable pacman repo</h2>
+
+<p>append to &#8220;/etc/pacman.conf&#8221;</p>
+
+<pre><code>SigLevel=Optional TrustAll 
+</code></pre>
+
+<p>uncomment the repo in &#8220;/etc/pacman.d/mirrorlist&#8221;</p>
+
+<h2>Upgrade</h2>
+
+<pre><code>pacman -Syu
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -628,6 +690,10 @@ git push heroku master
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/12/06/gitolite-and-ec2/">Run your own Git server with Gitolite and Amazon EC2</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/11/15/captcha/">captcha</a>
       </li>
     
@@ -641,10 +707,6 @@ git push heroku master
     
       <li class="post">
         <a href="/blog/2012/10/02/programmers-quotes/">programmers-quotes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/28/expect-split-and-tcpdump/">expect-split-and-tcpdump</a>
       </li>
     
   </ul>

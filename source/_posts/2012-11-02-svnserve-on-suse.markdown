@@ -3,7 +3,7 @@ layout: post
 title: "svnserve on SuSE"
 date: 2012-11-02 21:10
 comments: true
-categories: [SuSE svn]
+categories: [SuSE, svn]
 ---
 
 Create the repos

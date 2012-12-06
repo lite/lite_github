@@ -3,7 +3,7 @@ layout: post
 title: "programmers-quotes"
 date: 2012-10-02 23:30
 comments: true
-categories: Quotes
+categories: [Quotes]
 ---
 
 + Life’s too short to build something nobody wants – Ash Maurya, Running Lean

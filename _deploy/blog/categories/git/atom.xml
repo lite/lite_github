@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2012-12-06T16:55:21+08:00</updated>
+  <updated>2012-12-06T17:09:40+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Run your own Git server with Gitolite and Amazon EC2]]></title>
+    <link href="http://lite.github.com/blog/2012/12/06/gitolite-and-ec2/"/>
+    <updated>2012-12-06T16:57:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/12/06/gitolite-and-ec2</id>
+    <content type="html"><![CDATA[<p><a href="http://edvanbeinum.com/run-your-own-git-server-with-gitolite-and-amazon-ec2">Run your own Git server with Gitolite and Amazon EC2</a></p>
+
+<p>Create user</p>
+
+<pre><code>useradd git -g wheel --create-home --shell /usr/bin/git-shell
+</code></pre>
+
+<p>AllowUsers git in sshd_config</p>
+
+<p>Install gitolite</p>
+
+<pre><code>sudo yum -y install perl-CPAN perl-Time-HiRes
+
+perl -MCPAN -e shell
+    o conf urllist http://cpan.yahoo.com/
+    o conf commit
+    install CPAN
+    reload cpan
+
+git clone git://github.com/sitaramc/gitolite
+mkdir -p $HOME/bin
+gitolite/install -to $HOME/bin
+bin/gitolite setup -pk YourName.pub
+</code></pre>
+
+<p>Testing git by ssh</p>
+
+<pre><code>ssh -i dli.pem ec2-user@aws
+ssh -Nqf -D 7070 -i dli.pem ec2-user@aws
+git clone aws:gitolite-admin.git
+git clone aws:testing.git
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[git tools]]></title>
