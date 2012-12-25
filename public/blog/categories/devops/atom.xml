@@ -4,7 +4,7 @@
   <title><![CDATA[Category: DevOps | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/devops/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2012-12-06T17:09:40+08:00</updated>
+  <updated>2012-12-26T01:15:22+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[QQwry and Nginx]]></title>
+    <link href="http://lite.github.com/blog/2012/12/25/qqwry-and-nginx/"/>
+    <updated>2012-12-25T14:50:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/12/25/qqwry-and-nginx</id>
+    <content type="html"><![CDATA[<p>clone the modules from github</p>
+
+<pre><code>git clone git://github.com/anjuke/ngx_http_qqwry_module.git
+git clone git://github.com/agentzh/echo-nginx-module.git
+</code></pre>
+
+<p>compile nginx</p>
+
+<pre><code>./configure --with-debug --add-module=./ngx_http_qqwry_module/ --add-module=./echo-nginx-module/
+make
+</code></pre>
+
+<p>download <a href="http://update.cz88.net/soft/qqwry.rar">qqwry</a>
+convert qqwry.dat.gbk to qqwry.dat(utf8), and copy to nginx/conf folder.</p>
+
+<pre><code>python qqwry_iconv.py
+</code></pre>
+
+<p>edit nginx.conf</p>
+
+<pre><code>http {
+    qqwry $remote_addr $qqwry_loc /conf/qqwry.dat;
+
+    server {
+        charset utf-8;
+
+        location /hello {
+            echo $remote_addr;
+            echo $qqwry_loc; 
+            if ($qqwry_loc ~ "浙江省北京市四川省成都市"){
+                echo "hello";
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>start nginx</p>
+
+<pre><code>objs/nginx -c conf/nginx.conf
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[gzip on nginx]]></title>
