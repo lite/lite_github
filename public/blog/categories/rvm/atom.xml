@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rvm | Lite]]></title>
+  <link href="http://lite.github.com/blog/categories/rvm/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2013-01-29T22:08:59+08:00</updated>
+  <id>http://lite.github.com/</id>
+  <author>
+    <name><![CDATA[Lite]]></name>
+    <email><![CDATA[litekok@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[thin with rvm as a system service]]></title>
+    <link href="http://lite.github.com/blog/2013/01/29/thin-with-rvm-as-a-system-service/"/>
+    <updated>2013-01-29T22:04:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/01/29/thin-with-rvm-as-a-system-service</id>
+    <content type="html"><![CDATA[<p>Install thin to /etc/init.d/thin</p>
+
+<pre><code>rvm wrapper ruby-1.9.2-p125 bootup thin
+sudo  ~/.rvm/bin/bootup_thin install
+</code></pre>
+
+<p>Edit DAEMON in /etc/init.d/thin</p>
+
+<pre><code>DAEMON=/usr/local/bin/bootup_thin
+</code></pre>
+
+<p>Enable thin system service at runlevel 3 and 5</p>
+
+<pre><code>sudo /sbin/chkconfig -s thin 35
+</code></pre>
+
+<p>Edit /etc/thin/thin.yml</p>
+
+<pre><code>pid: tmp/pids/thin.pid
+wait: 30
+port: 8000
+timeout: 30
+log: log/thin.log
+max_conns: 1024
+require: []
+environment: production
+max_persistent_conns: 512
+daemonize: true
+servers: 3
+socket: /tmp/thin.sock
+chdir: /home/dli/dth/redmine
+</code></pre>
+
+<p>Start service thin</p>
+
+<pre><code>sudo /sbin/service thin start
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

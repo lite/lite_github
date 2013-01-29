@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2012-12-26T01:15:22+08:00</updated>
+  <updated>2013-01-29T22:08:59+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[thin with rvm as a system service]]></title>
+    <link href="http://lite.github.com/blog/2013/01/29/thin-with-rvm-as-a-system-service/"/>
+    <updated>2013-01-29T22:04:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/01/29/thin-with-rvm-as-a-system-service</id>
+    <content type="html"><![CDATA[<p>Install thin to /etc/init.d/thin</p>
+
+<pre><code>rvm wrapper ruby-1.9.2-p125 bootup thin
+sudo  ~/.rvm/bin/bootup_thin install
+</code></pre>
+
+<p>Edit DAEMON in /etc/init.d/thin</p>
+
+<pre><code>DAEMON=/usr/local/bin/bootup_thin
+</code></pre>
+
+<p>Enable thin system service at runlevel 3 and 5</p>
+
+<pre><code>sudo /sbin/chkconfig -s thin 35
+</code></pre>
+
+<p>Edit /etc/thin/thin.yml</p>
+
+<pre><code>pid: tmp/pids/thin.pid
+wait: 30
+port: 8000
+timeout: 30
+log: log/thin.log
+max_conns: 1024
+require: []
+environment: production
+max_persistent_conns: 512
+daemonize: true
+servers: 3
+socket: /tmp/thin.sock
+chdir: /home/dli/dth/redmine
+</code></pre>
+
+<p>Start service thin</p>
+
+<pre><code>sudo /sbin/service thin start
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[QQwry and Nginx]]></title>
@@ -713,27 +758,6 @@ showoff heroku slide
 <p><a href="http://showoff.io/">showoff-io</a></p>
 
 <pre><code>show 9090
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[octopress on heroku]]></title>
-    <link href="http://lite.github.com/blog/2011/10/25/octopress-on-heroku/"/>
-    <updated>2011-10-25T00:56:00+08:00</updated>
-    <id>http://lite.github.com/blog/2011/10/25/octopress-on-heroku</id>
-    <content type="html"><![CDATA[<p><a href="http://octopress.org/docs/blogging/">blogging</a></p>
-
-<pre><code>rake generate
-rake preview
-</code></pre>
-
-<p><a href="http://octopress.org/docs/deploying/heroku/">heroku</a></p>
-
-<pre><code>heroku create lite
-git remote add heroku git@heroku.com:lite.git
-rake new_post[octopress]
-git push heroku master
 </code></pre>
 ]]></content>
   </entry>

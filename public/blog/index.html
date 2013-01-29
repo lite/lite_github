@@ -9,8 +9,8 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="clone the modules from github git clone git://github.com/anjuke/ngx_http_qqwry_module.git
-git clone git://github.com/agentzh/echo-nginx-module.git &hellip;">
+  <meta name="description" content="Install thin to /etc/init.d/thin rvm wrapper ruby-1.9.2-p125 bootup thin
+sudo ~/.rvm/bin/bootup_thin install Edit DAEMON in /etc/init.d/thin DAEMON=/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +84,80 @@ git clone git://github.com/agentzh/echo-nginx-module.git &hellip;">
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/">Thin With Rvm as a System Service</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-29T22:04:00+08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Install thin to /etc/init.d/thin</p>
+
+<pre><code>rvm wrapper ruby-1.9.2-p125 bootup thin
+sudo  ~/.rvm/bin/bootup_thin install
+</code></pre>
+
+<p>Edit DAEMON in /etc/init.d/thin</p>
+
+<pre><code>DAEMON=/usr/local/bin/bootup_thin
+</code></pre>
+
+<p>Enable thin system service at runlevel 3 and 5</p>
+
+<pre><code>sudo /sbin/chkconfig -s thin 35
+</code></pre>
+
+<p>Edit /etc/thin/thin.yml</p>
+
+<pre><code>pid: tmp/pids/thin.pid
+wait: 30
+port: 8000
+timeout: 30
+log: log/thin.log
+max_conns: 1024
+require: []
+environment: production
+max_persistent_conns: 512
+daemonize: true
+servers: 3
+socket: /tmp/thin.sock
+chdir: /home/dli/dth/redmine
+</code></pre>
+
+<p>Start service thin</p>
+
+<pre><code>sudo /sbin/service thin start
+</code></pre>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -683,95 +757,6 @@ wash away. You and your Emacs Live.</p>
 
 </article>
 
-
-    <article class="post">
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/06/24/code-monkey/">Code Monkey</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-24T07:15:00+08:00" pubdate data-updated="true">Jun 24<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/06/24/code-monkey/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://v.youku.com/v_show/id_XMjk4OTI3NDc2.html">Code Monkey AMV</a></p>
-
-<p>Lyrics:</p>
-
-<pre><code>Code Monkey get up get coffee. Code Monkey go to job.
-Code monkey have boring meeting, boring manager Rob.
-Rob say Code Monkey very diligent. But his output stink.
-His code not functional or elegant. What do Code Monkey think?
-Code Monkey think maybe manager wanna write goddamn login page himself.
-Code Monkey not say it out loud.
-Code Monkey not crazy just proud.
-
-Chorus
-
-Code Monkey like Fritos.
-Code Monkey like Tab and Mountain Dew.
-Code Monkey very simple man
-Big warm fuzzy secret heart
-Code Monkey like you.
-Code Monkey like you.
-
-Code Monkey hang around at front desk
-Tell you sweater look nice
-Code Monkey offer buy you soda
-Bring you cup bring you ice
-You say no thank you for the soda 
-cause soda make you fat
-Anyway you busy with the telephone
-no time for chat.
-
-Code Monkey have long walk back to cubicle
-He sit down pretend to work.
-Code Monkey not thinking so straight.
-Code Monkey not feeling so great.
-
-Chorus
-
-Code Monkey like you lots.
-Code Monkey have every reason
-To get out this place.
-Code Monkey just keep on working
-See your soft pretty face
-Much rather wake up eat a coffee cake
-Take bath, take nap
-This job fulfilling in creative way
-Such a load of crap.
-Code Monkey think someday he have everything even pretty girl like you.
-Code Monkey just waiting for now.
-Code Monkey say someday, somehow.
-
-Chorus
-</code></pre>
-</div>
-  
-  
-
-</article>
-
 <nav id="pagenavi">
     
     
@@ -783,7 +768,7 @@ Chorus
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Lite -
+  Copyright &copy; 2013 - Lite -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
