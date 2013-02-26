@@ -9,8 +9,9 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="clone the modules from github git clone git://github.com/anjuke/ngx_http_qqwry_module.git
-git clone git://github.com/agentzh/echo-nginx-module.git &hellip;">
+  <meta name="description" content="Install these packages by zypper zypper in kernel-devel zypper in kernel-desktop-devel
+zypper in kernel-source
+zypper in gcc Update /etc/modprobe.d/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +86,200 @@ git clone git://github.com/agentzh/echo-nginx-module.git &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/">Nvidia and openSUSE 12.2</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-26T22:59:00+08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Install these packages by zypper</p>
+
+<pre><code>zypper in kernel-devel 
+zypper in kernel-desktop-devel
+zypper in kernel-source
+zypper in gcc
+</code></pre>
+
+<p>Update /etc/modprobe.d/50-blacklist.conf</p>
+
+<pre><code>#blacklist nvidiafb
+blacklist nouveau
+</code></pre>
+
+<p>Install nvidia driver</p>
+
+<pre><code>sudo sh ./NVIDIA.run
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/02/03/iptables-and-jvm-thread/">Iptables and JVM Thread</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-03T13:12:00+08:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2013</time>
+        
+         | <a href="/blog/2013/02/03/iptables-and-jvm-thread/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.dd-wrt.com/wiki/index.php/Iptables_command">Iptables</a></p>
+
+<pre><code>iptables -L
+iptables -F
+
+iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -j REJECT 
+iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -s 8.8.0.0/16 -j ACCEPT
+
+iptables -I OUTPUT -p TCP -d 10.142.20.0/24 -j REJECT
+</code></pre>
+
+<p>[JVM thread limit]</p>
+
+<pre><code>-Xms   intial java heap size
+-Xmx   maximum java heap size
+-Xss   the stack size for each thread
+
+/proc/sys/kernel/pid_max
+/proc/sys/kernel/thread-max
+max_user_process（ulimit -u）
+/proc/sys/vm/max_map_count
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/">Thin With Rvm as a System Service</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-29T22:04:00+08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Install thin to /etc/init.d/thin</p>
+
+<pre><code>rvm wrapper ruby-1.9.2-p125 bootup thin
+sudo  ~/.rvm/bin/bootup_thin install
+</code></pre>
+
+<p>Edit DAEMON in /etc/init.d/thin</p>
+
+<pre><code>DAEMON=/usr/local/bin/bootup_thin
+</code></pre>
+
+<p>Enable thin system service at runlevel 3 and 5</p>
+
+<pre><code>sudo /sbin/chkconfig -s thin 35
+</code></pre>
+
+<p>Edit /etc/thin/thin.yml</p>
+
+<pre><code>pid: tmp/pids/thin.pid
+wait: 30
+port: 8000
+timeout: 30
+log: log/thin.log
+max_conns: 1024
+require: []
+environment: production
+max_persistent_conns: 512
+daemonize: true
+servers: 3
+socket: /tmp/thin.sock
+chdir: /home/dli/dth/redmine
+</code></pre>
+
+<p>Start service thin</p>
+
+<pre><code>sudo /sbin/service thin start
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -541,14 +736,12 @@ gzip_disable    "MSIE [1-6]\.";
   </header>
 
 
-  <div class="entry-content"><h1>tcpdump</h1>
+  <div class="entry-content"><h1><a href="http://danielmiessler.com/study/tcpdump/">tcpdump</a></h1>
 
-<pre><code>tcpdump -x -vv  -i en0 "tcp port 8001"
-</code></pre>
-
-<p>SuSE:</p>
-
-<pre><code>tcpdump port 8001 -X -vv
+<pre><code>tcpdump -x -vv  -i any "tcp port 8001"
+tcpdump -X -vv -s 4096  -w portrange.cap 'portrange 8001-8005'
+tcpdump -X -vv -s 4096  -w ip.cap -i any 'src 8.8.8.8 or dst 6.6.6.6'
+tcpdump -r host.cap -XX -s 4096 &gt; host.cap.txt  
 </code></pre>
 
 <h1>expect</h1>
@@ -584,215 +777,6 @@ cat test.tar.gz.a* &gt; - | tar -zxvf -
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/08/08/brew-tap/">Brew Tap</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-08T22:23:00+08:00" pubdate data-updated="true">Aug 8<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/08/08/brew-tap/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://github.com/mxcl/homebrew/wiki/Interesting-Taps-%26-Branches">Interesting Taps &amp; Branches</a></p>
-
-<pre><code>brew tap larsimmisch/avr
-brew install avr-libc
-</code></pre>
-
-<p>install proxychains(or tsocks)</p>
-
-<pre><code>brew tap lite/alt
-brew install proxychains
-</code></pre>
-
-<p>curl lcms when installing imagemagick</p>
-
-<pre><code>brew edit lcms
-url 'http://www.littlecms.com/1/lcms-1.19.tar.gz'
-
-brew edit imagemagick
-url 'http://studio.imagemagick.net/download/ImageMagick-6.7.8-8.tar.bz2'
-
-git push git@github.com:lite/homebrew.git
-brew install imagemagick
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/07/04/emacs-live/">Emacs-live</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-04T06:55:00+08:00" pubdate data-updated="true">Jul 4<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/07/04/emacs-live/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://github.com/overtone/emacs-live">emacs-live</a></p>
-
-<p>Energy starts surging through your fingertips. Sparks fly, making
-the shadows grow and flicker ominously around you. You arch your
-back and open your eyes as if for the first time. The text appears
-more vibrant and colourful than you remember. Your fingers dance on
-the keyboard commanding the cursor with a joyful precision and
-control.</p>
-
-<p>You lean back and marvel as a shimmering swirl of syntactic and
-symantic structures project out of the screen and intertwine with a
-fractal beauty. You watch as meaning recursively unfolds into deeper
-meaning live in front of your eyes. You feel a deep and lasting
-synchronicity form as the boundaries between you and your Emacs
-wash away. You and your Emacs Live.</p>
-
-<p>M-x start-hacking.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/06/24/code-monkey/">Code Monkey</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-24T07:15:00+08:00" pubdate data-updated="true">Jun 24<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/06/24/code-monkey/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://v.youku.com/v_show/id_XMjk4OTI3NDc2.html">Code Monkey AMV</a></p>
-
-<p>Lyrics:</p>
-
-<pre><code>Code Monkey get up get coffee. Code Monkey go to job.
-Code monkey have boring meeting, boring manager Rob.
-Rob say Code Monkey very diligent. But his output stink.
-His code not functional or elegant. What do Code Monkey think?
-Code Monkey think maybe manager wanna write goddamn login page himself.
-Code Monkey not say it out loud.
-Code Monkey not crazy just proud.
-
-Chorus
-
-Code Monkey like Fritos.
-Code Monkey like Tab and Mountain Dew.
-Code Monkey very simple man
-Big warm fuzzy secret heart
-Code Monkey like you.
-Code Monkey like you.
-
-Code Monkey hang around at front desk
-Tell you sweater look nice
-Code Monkey offer buy you soda
-Bring you cup bring you ice
-You say no thank you for the soda 
-cause soda make you fat
-Anyway you busy with the telephone
-no time for chat.
-
-Code Monkey have long walk back to cubicle
-He sit down pretend to work.
-Code Monkey not thinking so straight.
-Code Monkey not feeling so great.
-
-Chorus
-
-Code Monkey like you lots.
-Code Monkey have every reason
-To get out this place.
-Code Monkey just keep on working
-See your soft pretty face
-Much rather wake up eat a coffee cake
-Take bath, take nap
-This job fulfilling in creative way
-Such a load of crap.
-Code Monkey think someday he have everything even pretty girl like you.
-Code Monkey just waiting for now.
-Code Monkey say someday, somehow.
-
-Chorus
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -818,23 +802,23 @@ Chorus
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/">nvidia and openSUSE 12.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/03/iptables-and-jvm-thread/">Iptables and JVM thread</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/">thin with rvm as a system service</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/12/25/qqwry-and-nginx/">QQwry and Nginx</a>
       </li>
     
       <li class="post">
         <a href="/blog/2012/12/06/gitolite-and-ec2/">Run your own Git server with Gitolite and Amazon EC2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/11/15/captcha/">captcha</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/11/02/svnserve-on-suse/">svnserve on SuSE</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/15/gzip-on-nginx/">gzip on nginx</a>
       </li>
     
   </ul>
@@ -888,7 +872,7 @@ Chorus
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Lite -
+  Copyright &copy; 2013 - Lite -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

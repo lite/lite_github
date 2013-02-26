@@ -4,7 +4,7 @@
   <title><![CDATA[Category: shell | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/shell/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-01-29T22:08:59+08:00</updated>
+  <updated>2013-02-26T23:24:46+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -18,14 +18,12 @@
     <link href="http://lite.github.com/blog/2012/08/28/expect-split-and-tcpdump/"/>
     <updated>2012-08-28T20:25:00+08:00</updated>
     <id>http://lite.github.com/blog/2012/08/28/expect-split-and-tcpdump</id>
-    <content type="html"><![CDATA[<h1>tcpdump</h1>
+    <content type="html"><![CDATA[<h1><a href="http://danielmiessler.com/study/tcpdump/">tcpdump</a></h1>
 
-<pre><code>tcpdump -x -vv  -i en0 "tcp port 8001"
-</code></pre>
-
-<p>SuSE:</p>
-
-<pre><code>tcpdump port 8001 -X -vv
+<pre><code>tcpdump -x -vv  -i any "tcp port 8001"
+tcpdump -X -vv -s 4096  -w portrange.cap 'portrange 8001-8005'
+tcpdump -X -vv -s 4096  -w ip.cap -i any 'src 8.8.8.8 or dst 6.6.6.6'
+tcpdump -r host.cap -XX -s 4096 &gt; host.cap.txt  
 </code></pre>
 
 <h1>expect</h1>

@@ -6,14 +6,13 @@ comments: true
 categories: [shell]
 ---
 
-# tcpdump
+# [tcpdump](http://danielmiessler.com/study/tcpdump/)
   
-    tcpdump -x -vv  -i en0 "tcp port 8001"
+    tcpdump -x -vv  -i any "tcp port 8001"
+    tcpdump -X -vv -s 4096  -w portrange.cap 'portrange 8001-8005'
+    tcpdump -X -vv -s 4096  -w ip.cap -i any 'src 8.8.8.8 or dst 6.6.6.6'
+    tcpdump -r host.cap -XX -s 4096 > host.cap.txt  
 
-SuSE:    
-
-    tcpdump port 8001 -X -vv
-    
 # expect
 
 ssh_config:

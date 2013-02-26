@@ -9,11 +9,11 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="blogging rake generate
-rake preview heroku heroku create lite
-git remote add heroku git@heroku.com:lite.git
-rake new_post[octopress]
-git push heroku &hellip;">
+  <meta name="description" content="vagrant veewee vagrant basebox templates
+mkdir iso
+vagrant basebox define 'fssle' 'ubuntu-11.04-server-i386'
+vagrant basebox build 'fssle'
+vagrant &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,6 +95,114 @@ git push heroku &hellip;">
   <header>
     
       <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2011/10/31/vagrant-and-veewee/">Vagrant and Veewee</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-31T23:51:00+08:00" pubdate data-updated="true">Oct 31<span>st</span>, 2011</time>
+        
+         | <a href="/blog/2011/10/31/vagrant-and-veewee/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://vagrantup.comi">vagrant</a></p>
+
+<p><a href="https://github.com/jedi4ever/veewee">veewee</a></p>
+
+<pre><code>vagrant basebox templates
+mkdir iso
+vagrant basebox define 'fssle' 'ubuntu-11.04-server-i386'
+vagrant basebox build 'fssle'
+vagrant basebox validate 'fssle'
+vagrant basebox export 'fssle'
+vagrant box add 'fssle' 'fssle'
+vagrant init 'fssle'
+vagrant up
+vagrant reload
+vagrant ssh
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2011/10/27/showoff-on-heroku/">Showoff on Heroku</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-27T20:46:00+08:00" pubdate data-updated="true">Oct 27<span>th</span>, 2011</time>
+        
+         | <a href="/blog/2011/10/27/showoff-on-heroku/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://github.com/schacon/showoff">showoff</a></p>
+
+<pre><code>heroku config:add SHOWOFF_EVAL_RUBY=1
+
+showoff create . -d ruby
+showoff add title -d ruby
+showoff serve
+showoff heroku slide
+</code></pre>
+
+<p><a href="http://showoff.io/">showoff-io</a></p>
+
+<pre><code>show 9090
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
         <h1 class="entry-title"><a href="/blog/2011/10/25/octopress-on-heroku/">Octopress on Heroku</a></h1>
       
     
@@ -166,6 +274,14 @@ git push heroku master
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/">nvidia and openSUSE 12.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/03/iptables-and-jvm-thread/">Iptables and JVM thread</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/">thin with rvm as a system service</a>
       </li>
     
@@ -175,14 +291,6 @@ git push heroku master
     
       <li class="post">
         <a href="/blog/2012/12/06/gitolite-and-ec2/">Run your own Git server with Gitolite and Amazon EC2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/11/15/captcha/">captcha</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/11/02/svnserve-on-suse/">svnserve on SuSE</a>
       </li>
     
   </ul>
