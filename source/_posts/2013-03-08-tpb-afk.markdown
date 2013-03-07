@@ -1,0 +1,15 @@
+---
+layout: post
+title: "TPB AFK"
+date: 2013-03-08 02:12
+comments: true
+categories: 
+---
+
+一部记录海盗湾的纪录片。有3125个用户付费下载，捐赠达到了45164美元，不包括DVD的收入。[“TPB APK”](http://watch.tpbafk.tv/)
+
+使用CC-BY-NC-SA版权[原因](http://www.tpbafk.tv/2013/01/why-i-chose-creative-commons-for-tpb-afk/)
+
+通过Kickstarter准备筹款25000美元，3天时间就筹到了，最终达到了51434美元[51434-thank-yous](http://www.tpbafk.tv/2010/10/51434-thank-yous/)
+
+很好的一篇博文：[纪录片《TPB AFK》与现行版权制度](http://www.ruanyifeng.com/blog/2013/02/tpb.html)

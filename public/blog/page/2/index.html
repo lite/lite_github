@@ -9,9 +9,8 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="Interesting Taps &amp; Branches brew tap larsimmisch/avr
-brew install avr-libc install proxychains(or tsocks) brew tap lite/alt
-brew install &hellip;">
+  <meta name="description" content="Life’s too short to build something nobody wants – Ash Maurya, Running Lean
+Give someone a program, you frustrate them for a day; teach them how to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +85,152 @@ brew install &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2012/10/02/programmers-quotes/">Programmers-quotes</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-02T23:30:00+08:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2012</time>
+        
+         | <a href="/blog/2012/10/02/programmers-quotes/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>Life’s too short to build something nobody wants – Ash Maurya, Running Lean</li>
+<li>Give someone a program, you frustrate them for a day; teach them how to program, you frustrate them for a lifetime. – David Leinweber</li>
+<li>There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies. — C.A.R. Hoare</li>
+<li>Actually, I’m trying to make Ruby natural, not simple. Ruby is simple in appearance, but is very complex inside, just like our human body. – Matz, Ruby</li>
+<li>Much of the essence of building a program is in fact the debugging of the specification. – Fred Brooks, The Mythical Man-Month</li>
+<li>The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time. – Tom Cargill</li>
+<li>Complication is What Happens When You Try to Solve a Problem You Don’t Understand – Andy Boothe</li>
+<li>Weeks of programming can save you hours of planning. – Unknown</li>
+<li>Controlling complexity is the essence of computer programming. — Brian Kernighan</li>
+<li>All problems in computer science can be solved by another level of indirection(abstraction) – David Wheeler</li>
+<li>…except for the problem of too many layers of indirection. – Kevlin Henney’s corollary</li>
+<li>Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning. — Rick Cook</li>
+<li>Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. — Brian W. Kernighan</li>
+<li>I’m not a great programmer; I’m just a good programmer with great habits. ― Kent Beck</li>
+<li>Most of you are familiar with the virtues of a programmer. There are three, of course: laziness, impatience, and hubris. – Larry Wall, Perl</li>
+<li>Any fool can write code that a computer can understand. Good programmers write code that humans can understand. – Martin Fowler</li>
+<li>Measuring programming progress by lines of code is like measuring aircraft building progress by weight. – Bill Gates</li>
+<li>It’s not a bug – it’s an undocumented feature. – Unknown</li>
+<li>The most depressing thing about life as a programmer, I think, is if you’re faced with a chunk of code that either someone else wrote or, worse still, you wrote yourself but you no longer dare to modify. That’s depressing. – Peyton Jones</li>
+<li>It works on my machine! – Most of programmers</li>
+<li>Talk is cheap. Show me the code. – Linus Torvalds</li>
+<li>I thought of objects being like biological cells and/or individual computers on a network, only able to communicate with messages — Alan Kay, Smalltalk</li>
+<li>When you choose a language, you’re choosing more than a set of technical trade-offs—you’re choosing a community. -Joshua Bloch</li>
+<li>Quality, Speed or Cheap. Pick two. – Unknown</li>
+<li>Developer testing isn’t primarily about verifying code. It’s about making great code. If you can’t test something, it might be your testing skills failing you but it’s probably your code code’s design. Testable code is almost always better code. – Chad Fowler</li>
+<li>We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. – Donald Knuth</li>
+<li>No code is faster than no code. – Merb core tenet</li>
+<li>If you’re the smartest person in the room, you’re in the wrong room. – Unknown</li>
+<li>How long would it take your organization to deploy a change (to production) that involves just one single line of code? Do you do this on a repeatable, reliable basis? – Mary Poppendieck</li>
+<li>Nine people can’t make a baby in a month.  — Fred Brooks, The Mythical Man-Month</li>
+<li>Good code is its own best documentation. As you’re about to add a comment, ask yourself, ‘How can I improve the code so that this comment isn’t needed?’ Improve the code and then document it to make it even clearer. – Steve McConnell, Code Complete</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2012/08/28/expect-split-and-tcpdump/">Expect-split-and-tcpdump</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-28T20:25:00+08:00" pubdate data-updated="true">Aug 28<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/08/28/expect-split-and-tcpdump/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1><a href="http://danielmiessler.com/study/tcpdump/">tcpdump</a></h1>
+
+<pre><code>tcpdump -x -vv  -i any "tcp port 8001"
+tcpdump -X -vv -s 4096  -w portrange.cap 'portrange 8001-8005'
+tcpdump -X -vv -s 4096  -w ip.cap -i any 'src 8.8.8.8 or dst 6.6.6.6'
+tcpdump -r host.cap -XX -s 4096 &gt; host.cap.txt  
+</code></pre>
+
+<h1>expect</h1>
+
+<p>ssh_config:</p>
+
+<pre><code>host test
+    user app100642705
+    hostname 10.1.2.15 
+    port 3322
+    identityfile pkey
+</code></pre>
+
+<p>myshell.sh:</p>
+
+<pre><code>#!/usr/bin/expect -f
+spawn ssh -F ssh_config test
+expect "*(yes/no)?" {
+    send "yes\r"
+}
+interact #expect eof
+</code></pre>
+
+<h1>split</h1>
+
+<pre><code>tar -czvf - test | split -b 50m - test.tar.gz
+cat test.tar.gz.a* &gt; - | tar -zxvf - 
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -601,179 +746,6 @@ ginatra daemon status
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2011/12/16/dnscrypt/">Dnscrypt</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-16T22:56:00+08:00" pubdate data-updated="true">Dec 16<span>th</span>, 2011</time>
-        
-         | <a href="/blog/2011/12/16/dnscrypt/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://github.com/opendns/dnscrypt-proxy">dnscrypt</a></p>
-
-<p>download</p>
-
-<pre><code>git clone git://github.com/opendns/dnscrypt-proxy.git
-</code></pre>
-
-<p>view README.markdown
-install</p>
-
-<pre><code>./autogen.sh &amp;&amp; ./configure &amp;&amp; make &amp;&amp; make check
-sudo make install
-</code></pre>
-
-<p>in file /etc/resolv.conf</p>
-
-<pre><code>nameserver 127.0.0.1
-sudo chattr +i /etc/resolv.conf
-sudo dnscrypt-proxy --daemonize
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2011/11/08/chef-on-ec2/">Chef_on_ec2</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-08T00:17:00+08:00" pubdate data-updated="true">Nov 8<span>th</span>, 2011</time>
-        
-         | <a href="/blog/2011/11/08/chef-on-ec2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://console.aws.amazon.com/ec2/home?region=us-west-1&amp;#s=SecurityGroups">aws security groups</a></p>
-
-<pre><code>22 (SSH)  0.0.0.0/0 Delete
-80 (HTTP) 0.0.0.0/0 Delete
-
-ssh-keygen -R www.fssle.com
-ssh -i fssle-ec2.pem ubuntu@www.fssle.com
-</code></pre>
-
-<p><a href="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key">aws access key</a></p>
-
-<pre><code>export AWS_ACCESS_KEY_ID=""
-export AWS_SECRET_ACCESS_KEY=""
-</code></pre>
-
-<p><a href="http://uec-images.ubuntu.com/server/releases/11.04/release/">ubuntu ec2 image</a></p>
-
-<pre><code>knife[:aws_access_key_id]     = "#{ENV['AWS_ACCESS_KEY_ID']}"
-knife[:aws_secret_access_key] = "#{ENV['AWS_SECRET_ACCESS_KEY']}"
-knife[:identity_file]         = 'fssle-ec2.pem'
-knife[:aws_ssh_key_id]        = "fssle-ec2"
-knife[:availability_zone]     = 'us-west-1a'
-knife[:region]                = 'us-west-1'
-knife[:aws_image_id]          = 'ami-43580406'
-
-knife ec2 server list
-knife ec2 server delete i-296cd36e
-knife ec2 server create -I ami-43580406 -f t1.micro -x ubuntu -G default 
-</code></pre>
-
-<p><a href="https://community.opscode.com/users/username/user_key/new">opscode user key</a></p>
-
-<pre><code>username.pem 
-knife.rb 
-org-validator.pem
-</code></pre>
-
-<ul>
-<li>chef</li>
-</ul>
-
-
-<blockquote><ul>
-<li>role</li>
-</ul>
-</blockquote>
-
-<pre><code>knife role list
-export EDITOR=vim &amp;&amp; knife role create base
-knife role edit base
-knife role show base
-knife role from file roles/base.rb
-</code></pre>
-
-<blockquote><ul>
-<li>cookbook</li>
-</ul>
-</blockquote>
-
-<pre><code>knife cookbook site download apt
-knife cookbook site download aws
-knife cookbook site download apache2
-
-knife cookbook create fssle
-knife cookbook list
-knife cookbook upload aws apt apache2
-</code></pre>
-
-<blockquote><ul>
-<li>ec2</li>
-</ul>
-</blockquote>
-
-<pre><code>knife ec2 server create "role[fssle]" -I ami-43580406 -f t1.micro -G default -region -S knife -i ./fssle-ec2.pem --ssh-user ubuntu 
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -801,6 +773,14 @@ knife cookbook upload aws apt apache2
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/03/08/tpb-afk/">TPB AFK</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/04/pureftpd-and-nxserver/">pureftpd and nxserver</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/">nvidia and openSUSE 12.2</a>
       </li>
     
@@ -810,14 +790,6 @@ knife cookbook upload aws apt apache2
     
       <li class="post">
         <a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/">thin with rvm as a system service</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/25/qqwry-and-nginx/">QQwry and Nginx</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/06/gitolite-and-ec2/">Run your own Git server with Gitolite and Amazon EC2</a>
       </li>
     
   </ul>
