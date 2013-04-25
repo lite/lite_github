@@ -9,7 +9,10 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="一部记录海盗湾的纪录片。有3125个用户付费下载，捐赠达到了45164美元，不包括DVD的收入。“TPB APK” 使用CC-BY-NC-SA版权原因 通过Kickstarter准备筹款25000美元，3天时间就筹到了，最终达到了51434美元51434-thank-yous 很好的一篇博文： &hellip;">
+  <meta name="description" content="Mount the data disk fdisk /dev/xvdb
+mkfs.ext3 /dev/xvdb1
+echo '/dev/xvdb1 /mnt ext3 defaults 0 0' &gt;&gt; /etc/fstab
+mount -a Install the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +86,70 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/04/25/nodejs-on-aliyun/">Nodejs on Aliyun</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-25T13:54:00+08:00" pubdate data-updated="true">Apr 25<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/04/25/nodejs-on-aliyun/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Mount the data disk</p>
+
+<pre><code>fdisk /dev/xvdb
+mkfs.ext3 /dev/xvdb1
+echo '/dev/xvdb1  /mnt ext3    defaults    0  0' &gt;&gt; /etc/fstab
+mount -a
+</code></pre>
+
+<p>Install the requirements by yum</p>
+
+<pre><code>sed -i "s/exclude=kernel*/#exclude=kernel*/g" /etc/yum.conf
+yum update
+yum install git gcc-c++ openssl-devel make
+</code></pre>
+
+<p>Install nodejs</p>
+
+<pre><code>wget -N http://nodejs.org/dist/node-latest.tar.gz
+tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
+./configure
+make install
+</code></pre>
+
+<p>Install coffeescript by npm</p>
+
+<pre><code>npm install coffeescript
+</code></pre>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -675,62 +742,6 @@ svn up
 svn merge ./ -r 5:4 
 svn st
 svn commit -m "rollback to r4"
-</code></pre>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/10/15/gzip-on-nginx/">Gzip on Nginx</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-15T22:44:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/10/15/gzip-on-nginx/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>add gzip support in conf/nginx.conf</p>
-
-<pre><code>gzip            on;
-gzip_comp_level 5;
-gzip_min_length 1024;
-gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/jpeg image/gif image/png;
-gzip_proxied    expired no-cache no-store private auth;
-gzip_disable    "MSIE [1-6]\.";
-</code></pre>
-
-<p>reload nginx</p>
-
-<pre><code>sbin/nginx -s reload
-</code></pre>
-
-<p>test by curl</p>
-
-<pre><code>curl -I --compressed http://fssle.com/8/config/txt/task.xml
 </code></pre>
 </div>
   

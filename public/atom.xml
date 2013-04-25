@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-03-08T02:20:42+08:00</updated>
+  <updated>2013-04-25T13:57:15+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[nodejs on aliyun]]></title>
+    <link href="http://lite.github.com/blog/2013/04/25/nodejs-on-aliyun/"/>
+    <updated>2013-04-25T13:54:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/04/25/nodejs-on-aliyun</id>
+    <content type="html"><![CDATA[<p>Mount the data disk</p>
+
+<pre><code>fdisk /dev/xvdb
+mkfs.ext3 /dev/xvdb1
+echo '/dev/xvdb1  /mnt ext3    defaults    0  0' &gt;&gt; /etc/fstab
+mount -a
+</code></pre>
+
+<p>Install the requirements by yum</p>
+
+<pre><code>sed -i "s/exclude=kernel*/#exclude=kernel*/g" /etc/yum.conf
+yum update
+yum install git gcc-c++ openssl-devel make
+</code></pre>
+
+<p>Install nodejs</p>
+
+<pre><code>wget -N http://nodejs.org/dist/node-latest.tar.gz
+tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
+./configure
+make install
+</code></pre>
+
+<p>Install coffeescript by npm</p>
+
+<pre><code>npm install coffeescript
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[TPB AFK]]></title>
@@ -693,37 +728,6 @@ sudo /etc/init.d/udev start</p>
 </pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached 
 </span><span class='line'>X920_CT device</span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ginatra]]></title>
-    <link href="http://lite.github.com/blog/2011/12/19/ginatra/"/>
-    <updated>2011-12-19T09:10:00+08:00</updated>
-    <id>http://lite.github.com/blog/2011/12/19/ginatra</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/lenary/ginatra">ginatra</a></p>
-
-<p>setup</p>
-
-<pre><code>sudo apt-get install python-pip
-sudo pip install pygments
-gem install ginatra
-</code></pre>
-
-<p>repo directory</p>
-
-<pre><code>ginatra setup
-ginatra directory add '~/git/repo'
-ginatra directory list
-</code></pre>
-
-<p>server</p>
-
-<pre><code>ginatra server start
-ginatra server stop
-ginatra daemon start
-ginatra daemon status
-</code></pre>
 ]]></content>
   </entry>
   
