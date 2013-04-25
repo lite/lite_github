@@ -26,6 +26,8 @@ Install nodejs
 	./configure
 	make install
 
-Install coffeescript by npm
+Install coffeescript and forever by npm
 
 	npm install coffeescript
+	npm install forever
+	forever start -w app.js
