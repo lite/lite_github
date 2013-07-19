@@ -12,7 +12,7 @@ nodejs < libevent < erlang
 	libevent: connect=10000,active connect=100,req=3719106,time=60,req/sec=61985.1,msec/req=1.61258
 	erlang:	  connect=10000,active connect=100,req=6377574,time=60,req/sec=106293,msec/req=0.939882
 
-node_test.js
+## node_test.js
 
 <pre><code>
 	var net = require('net');
@@ -24,7 +24,7 @@ node_test.js
 	server.listen(8000, "127.0.0.1");
 </code></pre>
 
-libevent_test.c
+## libevent_test.c
 
 <pre><code>
 	#include < stdlib.h>
@@ -130,14 +130,19 @@ libevent_test.c
 	}
 </code></pre>
 
-erlang_test.erl
+## erlang_test.erl
+
+In Eshell:
+
+	1>c(erlang_test).
+	2>erlang_test:start().
 
 <pre><code>
 	-module(erlang_test).
 	-export([start/0]).
 
 	start() ->
-	        {ok, Listen} = gen_tcp:listen(9000, [binary,
+	        {ok, Listen} = gen_tcp:listen(8000, [binary,
 	                                                %{packet, 4},
 	                                                {reuseaddr, true},
 	                                                {backlog, 2000},
