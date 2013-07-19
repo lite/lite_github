@@ -12,7 +12,7 @@ nodejs < libevent < erlang
 	libevent: connect=10000,active connect=100,req=3719106,time=60,req/sec=61985.1,msec/req=1.61258
 	erlang:	  connect=10000,active connect=100,req=6377574,time=60,req/sec=106293,msec/req=0.939882
 
-node-test.js
+node_test.js
 
 <pre><code>
 	var net = require('net');
@@ -24,7 +24,7 @@ node-test.js
 	server.listen(8000, "127.0.0.1");
 </code></pre>
 
-libevent-test.c
+libevent_test.c
 
 <pre><code>
 	#include < stdlib.h>
@@ -130,10 +130,10 @@ libevent-test.c
 	}
 </code></pre>
 
-erlang-test.erl
+erlang_test.erl
 
 <pre><code>
-	-module(echo_server).
+	-module(erlang_test).
 	-export([start/0]).
 
 	start() ->

@@ -216,7 +216,7 @@ libevent: connect=10000,active connect=100,req=3719106,time=60,req/sec=61985.1,m
 erlang:   connect=10000,active connect=100,req=6377574,time=60,req/sec=106293,msec/req=0.939882
 </code></pre>
 
-<p>node-test.js</p>
+<p>node_test.js</p>
 
 <pre><code>
     var net = require('net');
@@ -229,7 +229,7 @@ erlang:   connect=10000,active connect=100,req=6377574,time=60,req/sec=106293,ms
 </code></pre>
 
 
-<p>libevent-test.c</p>
+<p>libevent_test.c</p>
 
 <pre><code>
     #include < stdlib.h>
@@ -336,10 +336,10 @@ erlang:   connect=10000,active connect=100,req=6377574,time=60,req/sec=106293,ms
 </code></pre>
 
 
-<p>erlang-test.erl</p>
+<p>erlang_test.erl</p>
 
 <pre><code>
-    -module(echo_server).
+    -module(erlang_test).
     -export([start/0]).
 
     start() ->
