@@ -3,7 +3,7 @@ layout: post
 title: "nodejs, C libevent and erlang"
 date: 2013-05-16 00:41
 comments: true
-categories: 
+categories: [nodejs, erlang]
 ---
 
 nodejs < libevent < erlang

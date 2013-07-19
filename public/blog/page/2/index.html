@@ -1,126 +1,115 @@
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Lite</title>
-  <meta name="author" content="Lite">
+	<meta charset="utf-8">
+	<title>Lite</title>
+    <meta name="author" content="Lite">
+    
+	<meta name="description" content="Published on: Nov 15th, 2012 Tags: captcha, ocr, opencv Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart 二值化 + &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-  <meta name="description" content="Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart 二值化 + 去干扰线 + 去噪 + 分割 + 旋转 + 识别
-中值滤镜 + PCA tesseract-ocr &hellip;">
-  
+	<link href="/atom.xml" rel="alternate" title="Lite" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.ico" rel="shortcut icon">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-  
-  <link rel="canonical" href="http://lite.github.com/blog/page/2/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="Lite" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="/javascripts/jquery-tapir.js"></script>
 
-<!-- mathjax config similar to math.stackexchange -->
+    <!-- remove or comment it to disable ajaxification -->   
+    <script src="/javascripts/ajaxify.js"></script>
+   
+    
+    
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-286167-2']);
+		_gaq.push(['_trackPageview']);
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-286167-2']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 
 
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-</hgroup>
+
+<body>
+    <div id="wrapper">
+    <header id="header" class="inner"><!-- for more effects see _animate.scss -->
+<h1 class="animated bounceInDown">
+    <div id="headerbg">
+        Lite
+    </div>
+</h1>
+<br>
+
+<ul id="social-links" style="text-align:center">
+  
+  <!-- GitHub -->
+  <li>
+  <a href="https://github.com/lite" class="github" title="Github"></a>
+  </li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+
+<!-- use full url including 'index.html' for navigation bar if you are using ajax -->
+<ul id="nav">
+	<li id="ajax"><a href="/index.html">Home</a></li>
+	<li id="ajax"><a href="/blog/archives/index.html">Archives</a></li>
+    <li><a href="/atom.xml">RSS</a></li>
+    
+    <li>
+    <div id="dark">
+        <form method="get" action="/search.html" id="search">
+            <input name="query" type="text" placeholder="Search..." x-webkit-speech />
+        </form>
+    </div>
+    </li>
+        
+</ul>
+
+
+
 
 </header>
-  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:lite.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
 
-</nav> -->
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/15/captcha/">Captcha</a></h1>
-    
-    
-      <p class="meta">
+<div id="toload">
+<!-- begin toload --> 
+    <div id="content" class="inner">
         
 
 
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/11/15/captcha/">
+		
+			Captcha</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
 
 
 
@@ -130,16 +119,16 @@
   
 
 
-<time datetime="2012-11-15T11:15:00+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/11/15/captcha/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-11-15T11:15:00+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
 
 
-  <div class="entry-content"><p>Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart</p>
+	<a class='category' href='/blog/categories/captcha/'>captcha</a>, <a class='category' href='/blog/categories/ocr/'>ocr</a>, <a class='category' href='/blog/categories/opencv/'>opencv</a>
+
+
+</div>
+    </div>
+		<p>Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart</p>
 
 <p>二值化 + 去干扰线 + 去噪 + 分割 + 旋转 + 识别
 中值滤镜 + PCA</p>
@@ -154,23 +143,29 @@
 <li><a href="http://blog.pluskid.org/wp-content/uploads/2010/01/captcha_src.zip">简单验证码的识别</a></li>
 </ul>
 
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/11/15/captcha//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
 </div>
-  
-  
+</article>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/02/svnserve-on-suse/">Svnserve on SuSE</a></h1>
-    
-    
-      <p class="meta">
-        
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/11/02/svnserve-on-suse/">
+		
+			Svnserve on SuSE</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
 
 
 
@@ -182,16 +177,16 @@
   
 
 
-<time datetime="2012-11-02T21:10:00+08:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2012</time>
-        
-         | <a href="/blog/2012/11/02/svnserve-on-suse/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-11-02T21:10:00+08:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2012</time></div>
+      <div class="tags">Tags: 
 
 
-  <div class="entry-content"><p>Create the repos</p>
+	<a class='category' href='/blog/categories/suse/'>SuSE</a>, <a class='category' href='/blog/categories/svn/'>svn</a>
+
+
+</div>
+    </div>
+		<p>Create the repos</p>
 
 <pre><code>groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn
 </code></pre>
@@ -239,23 +234,29 @@ svn merge ./ -r 5:4
 svn st
 svn commit -m "rollback to r4"
 </code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/11/02/svnserve-on-suse//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
 </div>
-  
-  
+</article>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/15/gzip-on-nginx/">Gzip on Nginx</a></h1>
-    
-    
-      <p class="meta">
-        
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/10/15/gzip-on-nginx/">
+		
+			Gzip on Nginx</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
 
 
 
@@ -267,16 +268,16 @@ svn commit -m "rollback to r4"
   
 
 
-<time datetime="2012-10-15T22:44:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/10/15/gzip-on-nginx/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-10-15T22:44:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
 
 
-  <div class="entry-content"><p>add gzip support in conf/nginx.conf</p>
+	<a class='category' href='/blog/categories/devops/'>DevOps</a>
+
+
+</div>
+    </div>
+		<p>add gzip support in conf/nginx.conf</p>
 
 <pre><code>gzip            on;
 gzip_comp_level 5;
@@ -295,23 +296,29 @@ gzip_disable    "MSIE [1-6]\.";
 
 <pre><code>curl -I --compressed http://fssle.com/8/config/txt/task.xml
 </code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/10/15/gzip-on-nginx//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
 </div>
-  
-  
+</article>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/02/programmers-quotes/">Programmers-quotes</a></h1>
-    
-    
-      <p class="meta">
-        
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/10/02/programmers-quotes/">
+		
+			Programmers-quotes</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
 
 
 
@@ -323,16 +330,16 @@ gzip_disable    "MSIE [1-6]\.";
   
 
 
-<time datetime="2012-10-02T23:30:00+08:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2012</time>
-        
-         | <a href="/blog/2012/10/02/programmers-quotes/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-10-02T23:30:00+08:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2012</time></div>
+      <div class="tags">Tags: 
 
 
-  <div class="entry-content"><ul>
+	<a class='category' href='/blog/categories/quotes/'>Quotes</a>
+
+
+</div>
+    </div>
+		<ul>
 <li>Life’s too short to build something nobody wants – Ash Maurya, Running Lean</li>
 <li>Give someone a program, you frustrate them for a day; teach them how to program, you frustrate them for a lifetime. – David Leinweber</li>
 <li>There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies. — C.A.R. Hoare</li>
@@ -366,23 +373,29 @@ gzip_disable    "MSIE [1-6]\.";
 <li>Good code is its own best documentation. As you’re about to add a comment, ask yourself, ‘How can I improve the code so that this comment isn’t needed?’ Improve the code and then document it to make it even clearer. – Steve McConnell, Code Complete</li>
 </ul>
 
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/10/02/programmers-quotes//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
 </div>
-  
-  
+</article>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/28/expect-split-and-tcpdump/">Expect-split-and-tcpdump</a></h1>
-    
-    
-      <p class="meta">
-        
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/08/28/expect-split-and-tcpdump/">
+		
+			Expect-split-and-tcpdump</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
 
 
 
@@ -394,16 +407,16 @@ gzip_disable    "MSIE [1-6]\.";
   
 
 
-<time datetime="2012-08-28T20:25:00+08:00" pubdate data-updated="true">Aug 28<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/08/28/expect-split-and-tcpdump/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-08-28T20:25:00+08:00" pubdate data-updated="true">Aug 28<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
 
 
-  <div class="entry-content"><h1><a href="http://danielmiessler.com/study/tcpdump/">tcpdump</a></h1>
+	<a class='category' href='/blog/categories/shell/'>shell</a>
+
+
+</div>
+    </div>
+		<h1><a href="http://danielmiessler.com/study/tcpdump/">tcpdump</a></h1>
 
 <pre><code>tcpdump -x -vv  -i any "tcp port 8001"
 tcpdump -X -vv -s 4096  -w portrange.cap 'portrange 8001-8005'
@@ -437,23 +450,29 @@ interact #expect eof
 <pre><code>tar -czvf - test | split -b 50m - test.tar.gz
 cat test.tar.gz.a* &gt; - | tar -zxvf - 
 </code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/08/28/expect-split-and-tcpdump//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
 </div>
-  
-  
+</article>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/08/brew-tap/">Brew Tap</a></h1>
-    
-    
-      <p class="meta">
-        
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/08/08/brew-tap/">
+		
+			Brew Tap</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
 
 
 
@@ -465,16 +484,16 @@ cat test.tar.gz.a* &gt; - | tar -zxvf -
   
 
 
-<time datetime="2012-08-08T22:23:00+08:00" pubdate data-updated="true">Aug 8<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/08/08/brew-tap/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-08-08T22:23:00+08:00" pubdate data-updated="true">Aug 8<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
 
 
-  <div class="entry-content"><p><a href="https://github.com/mxcl/homebrew/wiki/Interesting-Taps-%26-Branches">Interesting Taps &amp; Branches</a></p>
+	<a class='category' href='/blog/categories/mac/'>Mac</a>, <a class='category' href='/blog/categories/homebrew/'>homebrew</a>
+
+
+</div>
+    </div>
+		<p><a href="https://github.com/mxcl/homebrew/wiki/Interesting-Taps-%26-Branches">Interesting Taps &amp; Branches</a></p>
 
 <pre><code>brew tap larsimmisch/avr
 brew install avr-libc
@@ -497,23 +516,29 @@ url 'http://studio.imagemagick.net/download/ImageMagick-6.7.8-8.tar.bz2'
 git push git@github.com:lite/homebrew.git
 brew install imagemagick
 </code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/08/08/brew-tap//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
 </div>
-  
-  
+</article>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/04/emacs-live/">Emacs-live</a></h1>
-    
-    
-      <p class="meta">
-        
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/07/04/emacs-live/">
+		
+			Emacs-live</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
 
 
 
@@ -525,16 +550,16 @@ brew install imagemagick
   
 
 
-<time datetime="2012-07-04T06:55:00+08:00" pubdate data-updated="true">Jul 4<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/07/04/emacs-live/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-07-04T06:55:00+08:00" pubdate data-updated="true">Jul 4<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
 
 
-  <div class="entry-content"><p><a href="https://github.com/overtone/emacs-live">emacs-live</a></p>
+	<a class='category' href='/blog/categories/fun/'>fun</a>
+
+
+</div>
+    </div>
+		<p><a href="https://github.com/overtone/emacs-live">emacs-live</a></p>
 
 <p>Energy starts surging through your fingertips. Sparks fly, making
 the shadows grow and flicker ominously around you. You arch your
@@ -551,23 +576,29 @@ synchronicity form as the boundaries between you and your Emacs
 wash away. You and your Emacs Live.</p>
 
 <p>M-x start-hacking.</p>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/07/04/emacs-live//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
 </div>
-  
-  
+</article>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/24/code-monkey/">Code Monkey</a></h1>
-    
-    
-      <p class="meta">
-        
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/06/24/code-monkey/">
+		
+			Code Monkey</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
 
 
 
@@ -579,16 +610,16 @@ wash away. You and your Emacs Live.</p>
   
 
 
-<time datetime="2012-06-24T07:15:00+08:00" pubdate data-updated="true">Jun 24<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/06/24/code-monkey/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-06-24T07:15:00+08:00" pubdate data-updated="true">Jun 24<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
 
 
-  <div class="entry-content"><p><a href="http://v.youku.com/v_show/id_XMjk4OTI3NDc2.html">Code Monkey AMV</a></p>
+	<a class='category' href='/blog/categories/fun/'>fun</a>
+
+
+</div>
+    </div>
+		<p><a href="http://v.youku.com/v_show/id_XMjk4OTI3NDc2.html">Code Monkey AMV</a></p>
 
 <p>Lyrics:</p>
 
@@ -640,23 +671,29 @@ Code Monkey say someday, somehow.
 
 Chorus
 </code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/06/24/code-monkey//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
 </div>
-  
-  
+</article>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/09/git-tools/">Git Tools</a></h1>
-    
-    
-      <p class="meta">
-        
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/05/09/git-tools/">
+		
+			Git Tools</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
 
 
 
@@ -668,16 +705,16 @@ Chorus
   
 
 
-<time datetime="2012-05-09T06:28:00+08:00" pubdate data-updated="true">May 9<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/05/09/git-tools/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-05-09T06:28:00+08:00" pubdate data-updated="true">May 9<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
 
 
-  <div class="entry-content"><p>git rm deleted files</p>
+	<a class='category' href='/blog/categories/git/'>git</a>
+
+
+</div>
+    </div>
+		<p>git rm deleted files</p>
 
 <pre><code>git status -s | grep "^ D" | awk '{print $2}' | xargs git rm
 </code></pre>
@@ -698,23 +735,29 @@ Chorus
 <li><a href="http://nvie.com/posts/a-successful-git-branching-model/">a successful git branching model</a></li>
 </ul>
 
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/05/09/git-tools//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
 </div>
-  
-  
+</article>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/02/17/archlinux-on-vmware/">Archlinux on Vmware</a></h1>
-    
-    
-      <p class="meta">
-        
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/02/17/archlinux-on-vmware/">
+		
+			Archlinux on Vmware</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
 
 
 
@@ -726,16 +769,16 @@ Chorus
   
 
 
-<time datetime="2012-02-17T04:35:00+08:00" pubdate data-updated="true">Feb 17<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/02/17/archlinux-on-vmware/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-02-17T04:35:00+08:00" pubdate data-updated="true">Feb 17<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
 
 
-  <div class="entry-content"><h2>Enable networking</h2>
+	<a class='category' href='/blog/categories/archlinux/'>Archlinux</a>, <a class='category' href='/blog/categories/vmware/'>Vmware</a>
+
+
+</div>
+    </div>
+		<h2>Enable networking</h2>
 
 <p>append to /etc/rc.conf</p>
 
@@ -759,118 +802,48 @@ ROUTES=(!gateway)
 
 <pre><code>pacman -Syu
 </code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/02/17/archlinux-on-vmware//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
 </div>
-  
-  
+</article>
 
-
-    </article>
-  
-  <div class="pagination">
+<nav id="pagenavi">
     
-      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+        <a href="/" class="prev">Prev</a>
     
-    <a href="archives">Blog Archives</a>
     
-    <a class="next" href="/">Newer &rarr;</a>
+        <a href="/blog/page/3/" class="next">Next</a>
     
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <ul id="recent_posts">
-      <li class="post">
-      <a href="http://lite.github.com" alt="Home"><img src="/images/Home.png"></a>
-      <a href="http://lite.github.com/archives/" alt="Archives"><img src="/images/Calendar.png"></a>
-      
-      <a href="mailto:litekok@gmail.com" alt="E-Mail"><img src="/images/Envelope.png"></a>
-      
-      <a href="http://lite.github.com/atom.xml" alt="subscribe feed"><img src="/images/rss.png"></a>
-      </li>
-  </ul>
-</section>
-<section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/06/17/six-thinking-hats/">六顶思考帽</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/16/erlang-kernel-poll/">nodejs, C libevent and erlang</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/25/nodejs-on-aliyun/">nodejs on aliyun</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/08/tpb-afk/">TPB AFK</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/04/pureftpd-and-nxserver/">pureftpd and nxserver</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>Latest Douban</h1>
-  <script type="text/javascript" src="http://www.douban.com/service/badge/litekok/?show=collection&amp;n=8&amp;columns=2" ></script>
-</section>
-
-
-<section>
-  <h1>Latest Weibo</h1>
-  <iframe width="80%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2283001861&verifier=08ec6ff2&dpc=1"></iframe>
-</section>
-
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/lite">@lite</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'lite',
-            count: 4,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-  
-</aside>
+    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
+</nav>
 
     </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Lite -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
+    <footer id="footer">
+    <div style="display:inline">
+    Copyright &copy; 2013
 
-</footer>
-  
+    Lite
+. Powered by <a href="http://octopress.org">Octopress</a> | 
+    Theme <a href="http://github.com/panks/fabric">fabric</a> by <a href="http://panks.me">Pankaj Kumar</a>
+</div>
+
+
+    </footer>
+    <script src="/javascripts/fabric.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
 
 <script type="text/javascript">
       var disqus_shortname = 'fssle';
@@ -889,11 +862,14 @@ ROUTES=(!gateway)
 
 
 
-
-
-
-
-
-
+<!-- end toload --> 
+</div>
+</div>
+<script src="/javascripts/jquery.ui.totop.js" type="text/javascript"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+;(function($){$().UItoTop({easingType:'easeOutCirc'});})(jQuery); 
+/*]]>*/
+</script><!-- remove it to remove the scroll to top button -->
 </body>
 </html>

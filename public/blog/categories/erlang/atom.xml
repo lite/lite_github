@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: nodejs | Lite]]></title>
-  <link href="http://lite.github.com/blog/categories/nodejs/atom.xml" rel="self"/>
+  <title><![CDATA[Category: erlang | Lite]]></title>
+  <link href="http://lite.github.com/blog/categories/erlang/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
   <updated>2013-07-20T02:01:39+08:00</updated>
   <id>http://lite.github.com/</id>
@@ -177,43 +177,6 @@ erlang:   connect=10000,active connect=100,req=6377574,time=60,req/sec=106293,ms
         end.
 </code></pre>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[nodejs on aliyun]]></title>
-    <link href="http://lite.github.com/blog/2013/04/25/nodejs-on-aliyun/"/>
-    <updated>2013-04-25T13:54:00+08:00</updated>
-    <id>http://lite.github.com/blog/2013/04/25/nodejs-on-aliyun</id>
-    <content type="html"><![CDATA[<p>Mount the data disk</p>
-
-<pre><code>fdisk /dev/xvdb
-mkfs.ext3 /dev/xvdb1
-echo '/dev/xvdb1  /mnt ext3    defaults    0  0' &gt;&gt; /etc/fstab
-mount -a
-</code></pre>
-
-<p>Install the requirements by yum</p>
-
-<pre><code>sed -i "s/exclude=kernel*/#exclude=kernel*/g" /etc/yum.conf
-yum update
-yum install git gcc-c++ openssl-devel make
-</code></pre>
-
-<p>Install nodejs</p>
-
-<pre><code>wget -N http://nodejs.org/dist/node-latest.tar.gz
-tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
-./configure
-make install
-</code></pre>
-
-<p>Install coffeescript and forever by npm</p>
-
-<pre><code>npm install coffeescript
-npm install forever
-forever start -w app.js
-</code></pre>
 ]]></content>
   </entry>
   
