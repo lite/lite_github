@@ -4,7 +4,7 @@
   <title><![CDATA[Category: aliyun | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/aliyun/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-04-25T13:57:15+08:00</updated>
+  <updated>2013-07-20T01:52:13+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -41,9 +41,11 @@ tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
 make install
 </code></pre>
 
-<p>Install coffeescript by npm</p>
+<p>Install coffeescript and forever by npm</p>
 
 <pre><code>npm install coffeescript
+npm install forever
+forever start -w app.js
 </code></pre>
 ]]></content>
   </entry>

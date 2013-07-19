@@ -9,10 +9,11 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="Mount the data disk fdisk /dev/xvdb
-mkfs.ext3 /dev/xvdb1
-echo '/dev/xvdb1 /mnt ext3 defaults 0 0' &gt;&gt; /etc/fstab
-mount -a Install the &hellip;">
+  <meta name="description" content="爱德华·德波诺提出了一些促进横向思维的方法 对问题本身产生多种选择方案（类似于发散）；
+打破定势，提出富有挑战性的假设；
+对头脑中冒出的新主意不要急着做是非判断；
+反向思考，用与已建立的模式完全相反的方式思维，以产生新的思想；
+对他人的建议持开放态度，让一个人头脑中的主意刺激另一个人头脑里的东西， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,14 +25,48 @@ mount -a Install the &hellip;">
   <link rel="canonical" href="http://lite.github.com/blog/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Lite" type="application/atom+xml">
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 
   
   <script type="text/javascript">
@@ -51,21 +86,10 @@ mount -a Install the &hellip;">
 
 <body   >
   <header role="banner"><hgroup>
-  <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">kok</div>
-  	<div id="logoRight">}</div>
-  	<div class="clear"></div>
-  </div>
-  <h1><a href="/">Lite</a></h1>
-  
-    <h2>Beauty is Truth, Truth Beauty</h2>
-  
-  <div class="clear"></div>
 </hgroup>
 
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
@@ -82,7 +106,7 @@ mount -a Install the &hellip;">
   <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
-</nav>
+</nav> -->
   <div id="main">
     <div id="content">
       
@@ -91,9 +115,271 @@ mount -a Install the &hellip;">
     <article class="post">
   <header>
     
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2013/04/25/nodejs-on-aliyun/">Nodejs on Aliyun</a></h1>
-      
+      <h1 class="entry-title"><a href="/blog/2013/06/17/six-thinking-hats/">六顶思考帽</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-17T00:02:00+08:00" pubdate data-updated="true">Jun 17<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/06/17/six-thinking-hats/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>爱德华·德波诺提出了一些促进横向思维的方法</p>
+
+<ul>
+<li>对问题本身产生多种选择方案（类似于发散）；</li>
+<li>打破定势，提出富有挑战性的假设；</li>
+<li>对头脑中冒出的新主意不要急着做是非判断；</li>
+<li>反向思考，用与已建立的模式完全相反的方式思维，以产生新的思想；</li>
+<li>对他人的建议持开放态度，让一个人头脑中的主意刺激另一个人头脑里的东西，形成交叉刺激；</li>
+<li>扩大接触面，寻求随机信息刺激，以获得有益的联想和启发（如到图书馆随便找本书翻翻；从事一些非专业工作等）等等。</li>
+</ul>
+
+
+<p>代表的思维方式</p>
+
+<ul>
+<li>红帽子代表感性直觉式的思维方式;以感觉与情绪做判断；【我感觉&#8230;】</li>
+<li>白帽子代表中立客观式的思维方式;着重事实与资讯；【有什么情报或资讯？】</li>
+<li>黄帽子代表乐观积极型的思维方式;事物的正面因素；【我们从中获得什么利益？】</li>
+<li>黑帽子代表谨慎消极型的思维方式;着重事物的负面因素；【这是真的吗？】</li>
+<li>绿帽子代表跳跃式创造性思维方式;代表创意性思考；【有什么其他不同的想法吗？】</li>
+<li>蓝帽子代表冷静的逻辑性思维方式;冷静客观；【归纳的结论是&#8230;具体做法是&#8230;】</li>
+</ul>
+
+
+<p>两种使用方法</p>
+
+<ul>
+<li><p>平行思维法：</p>
+
+<p>  每个人戴自己的帽子按照自己习惯进行头脑风暴，也可任何指派角色。头脑风暴发起人自己必须戴蓝帽子</p></li>
+<li><p>转换思维法：</p>
+
+<p>  每个人都戴红色（找商业机会），再换白色（搜集信息论证）；再黄色（分析利益）；再黑色（分析风险），再绿色（建设性方案），最后再蓝色（逻辑性综合判断）。</p></li>
+</ul>
+
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/16/erlang-kernel-poll/">Nodejs, C Libevent and Erlang</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-16T00:41:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/05/16/erlang-kernel-poll/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>nodejs &lt; libevent &lt; erlang</p>
+
+<pre><code>node.js:  connect=10000,active connect=100,req=1378370,time=60,req/sec=22972.8,msec/req=4.35543
+libevent: connect=10000,active connect=100,req=3719106,time=60,req/sec=61985.1,msec/req=1.61258
+erlang:   connect=10000,active connect=100,req=6377574,time=60,req/sec=106293,msec/req=0.939882
+</code></pre>
+
+<p>node-test.js</p>
+
+<pre><code>
+    var net = require('net');
+    var cnt = 0;
+    var server = net.createServer(function (socket) {
+      socket.pipe(socket);
+    });
+
+    server.listen(8000, "127.0.0.1");
+</code></pre>
+
+
+<p>libevent-test.c</p>
+
+<pre><code>
+    #include < stdlib.h>
+    #include < unistd.h>
+    #include < netinet/in.h>  
+    #include < sys/socket.h>  
+    #include < sys/types.h>  
+    #include < sys/socket.h>
+    #include < event.h>  
+    #include < stdio.h>  
+    #include < time.h> 
+    #include < string.h>
+    #include < fcntl.h>
+
+    int buf_len = 2048;
+    int msg_len = 1024; 
+    int total = 0;
+
+    int setnonblock(int fd)
+    {       
+        int flags;       
+        flags = fcntl(fd, F_GETFL);       
+        if (flags < 0)               
+            return flags;       
+        flags |= O_NONBLOCK;       
+        if (fcntl(fd, F_SETFL, flags) < 0)               
+            return -1;       
+     
+        return 0;
+    }
+
+    void connection_echo(int fd, short event, void *arg)
+    {
+        struct event *ev = (struct event *)arg;
+        event_add(ev, NULL);
+
+        char buf[buf_len];
+        int read_len = read(fd, buf, msg_len);
+        write(fd, buf, read_len);
+    }
+
+    void connection_accept(int fd, short event, void *arg)   
+    { 
+        /* for debugging */ 
+        fprintf(stderr, "%s(): fd = %d, event = %d, total = %d.\n", __func__, fd, event, ++total);  
+
+        /* Accept a new connection. */ 
+        struct sockaddr_in s_in;  
+        socklen_t len = sizeof(s_in);  
+        int ns = accept(fd, (struct sockaddr *) &s_in, &len);  
+        if (ns < 0) {  
+            perror("accept");  
+            return;  
+        }  
+
+        setnonblock(ns);
+
+        /* Install echo server. */ 
+        struct event *ev = (struct event *)malloc(sizeof(struct event));  
+        event_set(ev, ns, EV_READ, connection_echo, ev);  
+        event_add(ev, NULL);  
+    } 
+
+    int main(void)  
+    {  
+        /* Request socket. */ 
+        int s = socket(PF_INET, SOCK_STREAM, 0);  
+        if (s < 0) {  
+            perror("socket");  
+            exit(1);  
+        }  
+
+        /* bind() */ 
+        struct sockaddr_in s_in;  
+        memset(&s_in, 0, sizeof(s_in));  
+        s_in.sin_family = AF_INET;  
+        s_in.sin_port = htons(8000);  
+        s_in.sin_addr.s_addr = INADDR_ANY;  
+        if (bind(s, (struct sockaddr *) &s_in, sizeof(s_in)) < 0) {  
+            perror("bind");  
+            exit(1);  
+        }  
+
+        /* listen() */ 
+        if (listen(s, 1000) < 0) {  
+            perror("listen");  
+            exit(1);  
+        }  
+
+        /* Initial libevent. */ 
+        event_init();  
+
+        /* Create event. */ 
+        struct event ev;  
+        event_set(&ev, s, EV_READ | EV_PERSIST, connection_accept, &ev);  
+
+        /* Add event. */ 
+        event_add(&ev, NULL);  
+
+        event_dispatch();  
+
+        return 0;  
+    }
+</code></pre>
+
+
+<p>erlang-test.erl</p>
+
+<pre><code>
+    -module(echo_server).
+    -export([start/0]).
+
+    start() ->
+            {ok, Listen} = gen_tcp:listen(9000, [binary,
+                                                    %{packet, 4},
+                                                    {reuseaddr, true},
+                                                    {backlog, 2000},
+                                                    {active, true}]),
+            spawn(fun() -> par_connect(Listen, 0) end).
+
+    par_connect(Listen, Count) ->
+            {ok, Socket} = gen_tcp:accept(Listen),
+            New = Count + 1,
+            io:format("Accept succ ~p~n", [New]),
+            spawn(fun() -> par_connect(Listen, New) end),
+            loop(Socket).
+
+
+    loop(Socket) ->
+        receive
+            {tcp, Socket, Bin} ->
+                gen_tcp:send(Socket, Bin),
+                loop(Socket);
+            {tcp_closed, Socket} ->
+                io:format("Server socket closed~n")
+        end.
+</code></pre>
+
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/04/25/nodejs-on-aliyun/">Nodejs on Aliyun</a></h1>
     
     
       <p class="meta">
@@ -141,9 +427,11 @@ tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
 make install
 </code></pre>
 
-<p>Install coffeescript by npm</p>
+<p>Install coffeescript and forever by npm</p>
 
 <pre><code>npm install coffeescript
+npm install forever
+forever start -w app.js
 </code></pre>
 </div>
   
@@ -155,9 +443,7 @@ make install
     <article class="post">
   <header>
     
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2013/03/08/tpb-afk/">TPB AFK</a></h1>
-      
+      <h1 class="entry-title"><a href="/blog/2013/03/08/tpb-afk/">TPB AFK</a></h1>
     
     
       <p class="meta">
@@ -199,9 +485,7 @@ make install
     <article class="post">
   <header>
     
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2013/03/04/pureftpd-and-nxserver/">Pureftpd and Nxserver</a></h1>
-      
+      <h1 class="entry-title"><a href="/blog/2013/03/04/pureftpd-and-nxserver/">Pureftpd and Nxserver</a></h1>
     
     
       <p class="meta">
@@ -281,9 +565,7 @@ PassivePortRange          30000 50000
     <article class="post">
   <header>
     
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/">Nvidia and openSUSE 12.2</a></h1>
-      
+      <h1 class="entry-title"><a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/">Nvidia and openSUSE 12.2</a></h1>
     
     
       <p class="meta">
@@ -336,9 +618,7 @@ blacklist nouveau
     <article class="post">
   <header>
     
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2013/02/03/iptables-and-jvm-thread/">Iptables and JVM Thread</a></h1>
-      
+      <h1 class="entry-title"><a href="/blog/2013/02/03/iptables-and-jvm-thread/">Iptables and JVM Thread</a></h1>
     
     
       <p class="meta">
@@ -395,9 +675,7 @@ max_user_process（ulimit -u）
     <article class="post">
   <header>
     
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/">Thin With Rvm as a System Service</a></h1>
-      
+      <h1 class="entry-title"><a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/">Thin With Rvm as a System Service</a></h1>
     
     
       <p class="meta">
@@ -469,9 +747,7 @@ chdir: /home/dli/dth/redmine
     <article class="post">
   <header>
     
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/12/25/qqwry-and-nginx/">QQwry and Nginx</a></h1>
-      
+      <h1 class="entry-title"><a href="/blog/2012/12/25/qqwry-and-nginx/">QQwry and Nginx</a></h1>
     
     
       <p class="meta">
@@ -547,9 +823,7 @@ convert qqwry.dat.gbk to qqwry.dat(utf8), and copy to nginx/conf folder.</p>
     <article class="post">
   <header>
     
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/12/06/gitolite-and-ec2/">Run Your Own Git Server With Gitolite and Amazon EC2</a></h1>
-      
+      <h1 class="entry-title"><a href="/blog/2012/12/06/gitolite-and-ec2/">Run Your Own Git Server With Gitolite and Amazon EC2</a></h1>
     
     
       <p class="meta">
@@ -605,143 +879,6 @@ bin/gitolite setup -pk YourName.pub
 ssh -Nqf -D 7070 -i dli.pem ec2-user@aws
 git clone aws:gitolite-admin.git
 git clone aws:testing.git
-</code></pre>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/11/15/captcha/">Captcha</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-15T11:15:00+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/11/15/captcha/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart</p>
-
-<p>二值化 + 去干扰线 + 去噪 + 分割 + 旋转 + 识别
-中值滤镜 + PCA</p>
-
-<ul>
-<li><a href="http://code.google.com/p/tesseract-ocr/">tesseract-ocr</a></li>
-<li><a href="http://www.80vul.com/webzine_0x02/PSTZine_0x02_0x09.html">如何识别高级的验证码</a></li>
-<li><a href="http://1.identify.sinaapp.com/?p=8">二维物体形状识别方法比较</a></li>
-<li><a href="http://www.eecs.berkeley.edu/Research/Projects/CS/vision/shape/">Recognition:Objects, Humans, Activities</a></li>
-<li><a href="http://caca.zoy.org/wiki/PWNtcha">Pwntcha</a></li>
-<li><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/table_of_content_imgproc/table_of_content_imgproc.html">OpenCV</a></li>
-<li><a href="http://blog.pluskid.org/wp-content/uploads/2010/01/captcha_src.zip">简单验证码的识别</a></li>
-</ul>
-
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/11/02/svnserve-on-suse/">Svnserve on SuSE</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-02T21:10:00+08:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2012</time>
-        
-         | <a href="/blog/2012/11/02/svnserve-on-suse/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Create the repos</p>
-
-<pre><code>groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn
-</code></pre>
-
-<p>Enable 3690 port /etc/sysconfig/SuSEfirewall2</p>
-
-<pre><code>FW_SERVICES_EXT_TCP="22 80 3306 3690"
-</code></pre>
-
-<p>Create the repos</p>
-
-<pre><code>svnadmin create /srv/svn/repos
-</code></pre>
-
-<p>Configuration</p>
-
-<pre><code>;/srv/svn/repos/conf/svnserve.conf   
-[general]
-anon-access = none
-auth-access = write
-password-db = passwd
-
-;/srv/svn/repos/conf/passwd
-[users]
-test = test
-
-;/etc/sysconfig/svnserve
-;The -R option enforces read-only access
-SVNSERVE_OPTIONS="-d -r /srv/svn/repos"
-</code></pre>
-
-<p>Start svnserve</p>
-
-<pre><code>chown -R svn:svn /srv/svn/
-chmod -R 755 /srv/svn/
-chkconfig svnserve
-service svnserve start
-</code></pre>
-
-<p>On svn client working</p>
-
-<pre><code>svn co --username test svn://192.168.1.21/ my-repos
-svn up
-svn merge ./ -r 5:4 
-svn st
-svn commit -m "rollback to r4"
 </code></pre>
 </div>
   

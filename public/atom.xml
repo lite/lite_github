@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-04-25T13:57:15+08:00</updated>
+  <updated>2013-07-20T01:52:13+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,216 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[六顶思考帽]]></title>
+    <link href="http://lite.github.com/blog/2013/06/17/six-thinking-hats/"/>
+    <updated>2013-06-17T00:02:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/06/17/six-thinking-hats</id>
+    <content type="html"><![CDATA[<p>爱德华·德波诺提出了一些促进横向思维的方法</p>
+
+<ul>
+<li>对问题本身产生多种选择方案（类似于发散）；</li>
+<li>打破定势，提出富有挑战性的假设；</li>
+<li>对头脑中冒出的新主意不要急着做是非判断；</li>
+<li>反向思考，用与已建立的模式完全相反的方式思维，以产生新的思想；</li>
+<li>对他人的建议持开放态度，让一个人头脑中的主意刺激另一个人头脑里的东西，形成交叉刺激；</li>
+<li>扩大接触面，寻求随机信息刺激，以获得有益的联想和启发（如到图书馆随便找本书翻翻；从事一些非专业工作等）等等。</li>
+</ul>
+
+
+<p>代表的思维方式</p>
+
+<ul>
+<li>红帽子代表感性直觉式的思维方式;以感觉与情绪做判断；【我感觉&#8230;】</li>
+<li>白帽子代表中立客观式的思维方式;着重事实与资讯；【有什么情报或资讯？】</li>
+<li>黄帽子代表乐观积极型的思维方式;事物的正面因素；【我们从中获得什么利益？】</li>
+<li>黑帽子代表谨慎消极型的思维方式;着重事物的负面因素；【这是真的吗？】</li>
+<li>绿帽子代表跳跃式创造性思维方式;代表创意性思考；【有什么其他不同的想法吗？】</li>
+<li>蓝帽子代表冷静的逻辑性思维方式;冷静客观；【归纳的结论是&#8230;具体做法是&#8230;】</li>
+</ul>
+
+
+<p>两种使用方法</p>
+
+<ul>
+<li><p>平行思维法：</p>
+
+<p>  每个人戴自己的帽子按照自己习惯进行头脑风暴，也可任何指派角色。头脑风暴发起人自己必须戴蓝帽子</p></li>
+<li><p>转换思维法：</p>
+
+<p>  每个人都戴红色（找商业机会），再换白色（搜集信息论证）；再黄色（分析利益）；再黑色（分析风险），再绿色（建设性方案），最后再蓝色（逻辑性综合判断）。</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[nodejs, C libevent and erlang]]></title>
+    <link href="http://lite.github.com/blog/2013/05/16/erlang-kernel-poll/"/>
+    <updated>2013-05-16T00:41:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/05/16/erlang-kernel-poll</id>
+    <content type="html"><![CDATA[<p>nodejs &lt; libevent &lt; erlang</p>
+
+<pre><code>node.js:  connect=10000,active connect=100,req=1378370,time=60,req/sec=22972.8,msec/req=4.35543
+libevent: connect=10000,active connect=100,req=3719106,time=60,req/sec=61985.1,msec/req=1.61258
+erlang:   connect=10000,active connect=100,req=6377574,time=60,req/sec=106293,msec/req=0.939882
+</code></pre>
+
+<p>node-test.js</p>
+
+<pre><code>
+    var net = require('net');
+    var cnt = 0;
+    var server = net.createServer(function (socket) {
+      socket.pipe(socket);
+    });
+
+    server.listen(8000, "127.0.0.1");
+</code></pre>
+
+
+<p>libevent-test.c</p>
+
+<pre><code>
+    #include < stdlib.h>
+    #include < unistd.h>
+    #include < netinet/in.h>  
+    #include < sys/socket.h>  
+    #include < sys/types.h>  
+    #include < sys/socket.h>
+    #include < event.h>  
+    #include < stdio.h>  
+    #include < time.h> 
+    #include < string.h>
+    #include < fcntl.h>
+
+    int buf_len = 2048;
+    int msg_len = 1024; 
+    int total = 0;
+
+    int setnonblock(int fd)
+    {       
+        int flags;       
+        flags = fcntl(fd, F_GETFL);       
+        if (flags < 0)               
+            return flags;       
+        flags |= O_NONBLOCK;       
+        if (fcntl(fd, F_SETFL, flags) < 0)               
+            return -1;       
+     
+        return 0;
+    }
+
+    void connection_echo(int fd, short event, void *arg)
+    {
+        struct event *ev = (struct event *)arg;
+        event_add(ev, NULL);
+
+        char buf[buf_len];
+        int read_len = read(fd, buf, msg_len);
+        write(fd, buf, read_len);
+    }
+
+    void connection_accept(int fd, short event, void *arg)   
+    { 
+        /* for debugging */ 
+        fprintf(stderr, "%s(): fd = %d, event = %d, total = %d.\n", __func__, fd, event, ++total);  
+
+        /* Accept a new connection. */ 
+        struct sockaddr_in s_in;  
+        socklen_t len = sizeof(s_in);  
+        int ns = accept(fd, (struct sockaddr *) &s_in, &len);  
+        if (ns < 0) {  
+            perror("accept");  
+            return;  
+        }  
+
+        setnonblock(ns);
+
+        /* Install echo server. */ 
+        struct event *ev = (struct event *)malloc(sizeof(struct event));  
+        event_set(ev, ns, EV_READ, connection_echo, ev);  
+        event_add(ev, NULL);  
+    } 
+
+    int main(void)  
+    {  
+        /* Request socket. */ 
+        int s = socket(PF_INET, SOCK_STREAM, 0);  
+        if (s < 0) {  
+            perror("socket");  
+            exit(1);  
+        }  
+
+        /* bind() */ 
+        struct sockaddr_in s_in;  
+        memset(&s_in, 0, sizeof(s_in));  
+        s_in.sin_family = AF_INET;  
+        s_in.sin_port = htons(8000);  
+        s_in.sin_addr.s_addr = INADDR_ANY;  
+        if (bind(s, (struct sockaddr *) &s_in, sizeof(s_in)) < 0) {  
+            perror("bind");  
+            exit(1);  
+        }  
+
+        /* listen() */ 
+        if (listen(s, 1000) < 0) {  
+            perror("listen");  
+            exit(1);  
+        }  
+
+        /* Initial libevent. */ 
+        event_init();  
+
+        /* Create event. */ 
+        struct event ev;  
+        event_set(&ev, s, EV_READ | EV_PERSIST, connection_accept, &ev);  
+
+        /* Add event. */ 
+        event_add(&ev, NULL);  
+
+        event_dispatch();  
+
+        return 0;  
+    }
+</code></pre>
+
+
+<p>erlang-test.erl</p>
+
+<pre><code>
+    -module(echo_server).
+    -export([start/0]).
+
+    start() ->
+            {ok, Listen} = gen_tcp:listen(9000, [binary,
+                                                    %{packet, 4},
+                                                    {reuseaddr, true},
+                                                    {backlog, 2000},
+                                                    {active, true}]),
+            spawn(fun() -> par_connect(Listen, 0) end).
+
+    par_connect(Listen, Count) ->
+            {ok, Socket} = gen_tcp:accept(Listen),
+            New = Count + 1,
+            io:format("Accept succ ~p~n", [New]),
+            spawn(fun() -> par_connect(Listen, New) end),
+            loop(Socket).
+
+
+    loop(Socket) ->
+        receive
+            {tcp, Socket, Bin} ->
+                gen_tcp:send(Socket, Bin),
+                loop(Socket);
+            {tcp_closed, Socket} ->
+                io:format("Server socket closed~n")
+        end.
+</code></pre>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[nodejs on aliyun]]></title>
@@ -41,9 +251,11 @@ tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
 make install
 </code></pre>
 
-<p>Install coffeescript by npm</p>
+<p>Install coffeescript and forever by npm</p>
 
 <pre><code>npm install coffeescript
+npm install forever
+forever start -w app.js
 </code></pre>
 ]]></content>
   </entry>
@@ -670,64 +882,6 @@ ROUTES=(!gateway)
 
 <pre><code>pacman -Syu
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[slash]]></title>
-    <link href="http://lite.github.com/blog/2012/02/15/slash/"/>
-    <updated>2012-02-15T18:45:00+08:00</updated>
-    <id>http://lite.github.com/blog/2012/02/15/slash</id>
-    <content type="html"><![CDATA[<p><a href="http://zespia.tw/Octopress-Theme-Slash/index_tw.html">Octopress themes - Slash</a></p>
-
-<pre><code>cd octopress
-git clone git@github.com:tommy351/Octopress-Theme-Slash.git .themes/slash
-rake install['slash']
-rake generate
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[zte_ct_x920 on ubuntu]]></title>
-    <link href="http://lite.github.com/blog/2011/12/28/zte-ct-x920-on-ubuntu/"/>
-    <updated>2011-12-28T16:51:00+08:00</updated>
-    <id>http://lite.github.com/blog/2011/12/28/zte-ct-x920-on-ubuntu</id>
-    <content type="html"><![CDATA[<p><a href="http://blog.163.com/dengjingniurou@126/blog/static/5398919620111112111659617/">android udev</a></p>
-
-<p>adb devices</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached
-</span><span class='line'>????????????    no permissions</span></code></pre></td></tr></table></div></figure>
-
-
-<p>lsusb</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Bus 001 Device 050: ID 19d2:ffda ONDA Communication S.p.A. </span></code></pre></td></tr></table></div></figure>
-
-
-<p>sudo vim /etc/udev/rules.d/51-Android.rules</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", MODE="0666"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>sudo chmod a+r /etc/udev/rules.d/51-Android.rules
-sudo /etc/init.d/udev stop
-sudo /etc/init.d/udev start</p>
-
-<p>then re-plug the cable</p>
-
-<p>adb devices</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached 
-</span><span class='line'>X920_CT device</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   

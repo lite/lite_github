@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-04-25T13:57:15+08:00</updated>
+  <updated>2013-07-17T00:15:51+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Six Thinking Hats]]></title>
+    <link href="http://lite.github.com/blog/2013/07/17/six-thinking-hats/"/>
+    <updated>2013-07-17T00:02:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/07/17/six-thinking-hats</id>
+    <content type="html"><![CDATA[<p>爱德华·德波诺提出了一些促进横向思维的方法：
+第一，对问题本身产生多种选择方案（类似于发散）；
+第二，打破定势，提出富有挑战性的假设；
+第三，对头脑中冒出的新主意不要急着做是非判断；
+第四，反向思考，用与已建立的模式完全相反的方式思维，以产生新的思想；
+第五，对他人的建议持开放态度，让一个人头脑中的主意刺激另一个人头脑里的东西，形成交叉刺激；
+第六，扩大接触面，寻求随机信息刺激，以获得有益的联想和启发（如到图书馆随便找本书翻翻；从事一些非专业工作等）等等。</p>
+
+<p>红帽子代表感性直觉式的思维方式；
+白帽子代表中立客观式的思维方式；
+黄帽子代表乐观积极型的思维方式；
+黑帽子代表谨慎消极型的思维方式；
+绿帽子代表跳跃式创造性思维方式；
+蓝帽子代表冷静的逻辑性思维方式。</p>
+
+<p>两种使用方法：
+1、平行思维法：每个人戴自己的帽子按照自己习惯进行头脑风暴，也可任何指派角色。头脑风暴发起人自己必须戴蓝帽子
+2、转换思维法：每个人都戴红色（找商业机会），再换白色（搜集信息论证）；再黄色（分析利益）；再黑色（分析风险），再绿色（建设性方案），最后再蓝色（逻辑性综合判断）。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[nodejs on aliyun]]></title>
@@ -41,9 +67,11 @@ tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
 make install
 </code></pre>
 
-<p>Install coffeescript by npm</p>
+<p>Install coffeescript and forever by npm</p>
 
 <pre><code>npm install coffeescript
+npm install forever
+forever start -w app.js
 </code></pre>
 ]]></content>
   </entry>
@@ -685,49 +713,6 @@ git clone git@github.com:tommy351/Octopress-Theme-Slash.git .themes/slash
 rake install['slash']
 rake generate
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[zte_ct_x920 on ubuntu]]></title>
-    <link href="http://lite.github.com/blog/2011/12/28/zte-ct-x920-on-ubuntu/"/>
-    <updated>2011-12-28T16:51:00+08:00</updated>
-    <id>http://lite.github.com/blog/2011/12/28/zte-ct-x920-on-ubuntu</id>
-    <content type="html"><![CDATA[<p><a href="http://blog.163.com/dengjingniurou@126/blog/static/5398919620111112111659617/">android udev</a></p>
-
-<p>adb devices</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached
-</span><span class='line'>????????????    no permissions</span></code></pre></td></tr></table></div></figure>
-
-
-<p>lsusb</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Bus 001 Device 050: ID 19d2:ffda ONDA Communication S.p.A. </span></code></pre></td></tr></table></div></figure>
-
-
-<p>sudo vim /etc/udev/rules.d/51-Android.rules</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", MODE="0666"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>sudo chmod a+r /etc/udev/rules.d/51-Android.rules
-sudo /etc/init.d/udev stop
-sudo /etc/init.d/udev start</p>
-
-<p>then re-plug the cable</p>
-
-<p>adb devices</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached 
-</span><span class='line'>X920_CT device</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   

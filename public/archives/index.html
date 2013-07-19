@@ -9,10 +9,10 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="Blog Archive 2013 nodejs on aliyun
-Apr 25 2013 posted in aliyun, nodejs TPB AFK
-Mar 08 2013 pureftpd and nxserver
-Mar 04 2013 nvidia and openSUSE 12 &hellip;">
+  <meta name="description" content="Blog Archive 2013 六顶思考帽
+Jun 17 2013 posted in Thinking nodejs, C libevent and erlang
+May 16 2013 nodejs on aliyun
+Apr 25 2013 posted in aliyun, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,14 +24,48 @@ Mar 04 2013 nvidia and openSUSE 12 &hellip;">
   <link rel="canonical" href="http://lite.github.com/archives/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Lite" type="application/atom+xml">
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 
   
   <script type="text/javascript">
@@ -51,21 +85,10 @@ Mar 04 2013 nvidia and openSUSE 12 &hellip;">
 
 <body   >
   <header role="banner"><hgroup>
-  <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">kok</div>
-  	<div id="logoRight">}</div>
-  	<div class="clear"></div>
-  </div>
-  <h1><a href="/">Lite</a></h1>
-  
-    <h2>Beauty is Truth, Truth Beauty</h2>
-  
-  <div class="clear"></div>
 </hgroup>
 
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
@@ -82,7 +105,7 @@ Mar 04 2013 nvidia and openSUSE 12 &hellip;">
   <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
-</nav>
+</nav> -->
   <div id="main">
     <div id="content">
       <div>
@@ -99,6 +122,30 @@ Mar 04 2013 nvidia and openSUSE 12 &hellip;">
 
   
   <h2>2013</h2>
+
+<article>
+  
+<h1><a href="/blog/2013/06/17/six-thinking-hats/">六顶思考帽</a></h1>
+<time datetime="2013-06-17T00:02:00+08:00" pubdate><span class='month'>Jun</span> <span class='day'>17</span> <span class='year'>2013</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/thinking/'>Thinking</a></span>
+</footer>
+
+
+</article>
+
+
+
+<article>
+  
+<h1><a href="/blog/2013/05/16/erlang-kernel-poll/">nodejs, C libevent and erlang</a></h1>
+<time datetime="2013-05-16T00:41:00+08:00" pubdate><span class='month'>May</span> <span class='day'>16</span> <span class='year'>2013</span></time>
+
+
+</article>
+
+
 
 <article>
   
@@ -466,14 +513,24 @@ Mar 04 2013 nvidia and openSUSE 12 &hellip;">
       <li class="post">
       <a href="http://lite.github.com" alt="Home"><img src="/images/Home.png"></a>
       <a href="http://lite.github.com/archives/" alt="Archives"><img src="/images/Calendar.png"></a>
+      
       <a href="mailto:litekok@gmail.com" alt="E-Mail"><img src="/images/Envelope.png"></a>
-      <a href="http://lite.github.com/atom.xml" alt="subscribe feed"><img src="/images/RSS.png"></a>
+      
+      <a href="http://lite.github.com/atom.xml" alt="subscribe feed"><img src="/images/rss.png"></a>
       </li>
   </ul>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/06/17/six-thinking-hats/">六顶思考帽</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/16/erlang-kernel-poll/">nodejs, C libevent and erlang</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/04/25/nodejs-on-aliyun/">nodejs on aliyun</a>
@@ -485,14 +542,6 @@ Mar 04 2013 nvidia and openSUSE 12 &hellip;">
     
       <li class="post">
         <a href="/blog/2013/03/04/pureftpd-and-nxserver/">pureftpd and nxserver</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/">nvidia and openSUSE 12.2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/03/iptables-and-jvm-thread/">Iptables and JVM thread</a>
       </li>
     
   </ul>

@@ -1,4 +1,4 @@
-{% if site.twitter_user %}
+{% if site.twitter_user and site.twitter_tweet_count > 0 %}
 <div id="banner" class="inner">
 	<div class="container">
 		<ul class="feed"></ul>
@@ -13,4 +13,3 @@
 	})(jQuery);
 </script>
 {% endif %}
-

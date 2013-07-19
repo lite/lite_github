@@ -9,10 +9,12 @@
   <meta name="author" content="Lite">
 
   
-  <meta name="description" content="Mount the data disk fdisk /dev/xvdb
-mkfs.ext3 /dev/xvdb1
-echo '/dev/xvdb1 /mnt ext3 defaults 0 0' &gt;&gt; /etc/fstab
-mount -a Install the &hellip;">
+  <meta name="description" content="爱德华·德波诺提出了一些促进横向思维的方法：
+第一，对问题本身产生多种选择方案（类似于发散）；
+第二，打破定势，提出富有挑战性的假设；
+第三，对头脑中冒出的新主意不要急着做是非判断；
+第四，反向思考，用与已建立的模式完全相反的方式思维，以产生新的思想；
+第五，对他人的建议持开放态度， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -94,6 +96,63 @@ mount -a Install the &hellip;">
   <header>
     
       <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/07/17/six-thinking-hats/">Six Thinking Hats</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-17T00:02:00+08:00" pubdate data-updated="true">Jul 17<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/07/17/six-thinking-hats/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>爱德华·德波诺提出了一些促进横向思维的方法：
+第一，对问题本身产生多种选择方案（类似于发散）；
+第二，打破定势，提出富有挑战性的假设；
+第三，对头脑中冒出的新主意不要急着做是非判断；
+第四，反向思考，用与已建立的模式完全相反的方式思维，以产生新的思想；
+第五，对他人的建议持开放态度，让一个人头脑中的主意刺激另一个人头脑里的东西，形成交叉刺激；
+第六，扩大接触面，寻求随机信息刺激，以获得有益的联想和启发（如到图书馆随便找本书翻翻；从事一些非专业工作等）等等。</p>
+
+<p>红帽子代表感性直觉式的思维方式；
+白帽子代表中立客观式的思维方式；
+黄帽子代表乐观积极型的思维方式；
+黑帽子代表谨慎消极型的思维方式；
+绿帽子代表跳跃式创造性思维方式；
+蓝帽子代表冷静的逻辑性思维方式。</p>
+
+<p>两种使用方法：
+1、平行思维法：每个人戴自己的帽子按照自己习惯进行头脑风暴，也可任何指派角色。头脑风暴发起人自己必须戴蓝帽子
+2、转换思维法：每个人都戴红色（找商业机会），再换白色（搜集信息论证）；再黄色（分析利益）；再黑色（分析风险），再绿色（建设性方案），最后再蓝色（逻辑性综合判断）。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
         <h1 class="entry-title"><a href="/blog/2013/04/25/nodejs-on-aliyun/">Nodejs on Aliyun</a></h1>
       
     
@@ -143,9 +202,11 @@ tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
 make install
 </code></pre>
 
-<p>Install coffeescript by npm</p>
+<p>Install coffeescript and forever by npm</p>
 
 <pre><code>npm install coffeescript
+npm install forever
+forever start -w app.js
 </code></pre>
 </div>
   
@@ -683,93 +744,6 @@ git clone aws:testing.git
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/11/02/svnserve-on-suse/">Svnserve on SuSE</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-02T21:10:00+08:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2012</time>
-        
-         | <a href="/blog/2012/11/02/svnserve-on-suse/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Create the repos</p>
-
-<pre><code>groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn
-</code></pre>
-
-<p>Enable 3690 port /etc/sysconfig/SuSEfirewall2</p>
-
-<pre><code>FW_SERVICES_EXT_TCP="22 80 3306 3690"
-</code></pre>
-
-<p>Create the repos</p>
-
-<pre><code>svnadmin create /srv/svn/repos
-</code></pre>
-
-<p>Configuration</p>
-
-<pre><code>;/srv/svn/repos/conf/svnserve.conf   
-[general]
-anon-access = none
-auth-access = write
-password-db = passwd
-
-;/srv/svn/repos/conf/passwd
-[users]
-test = test
-
-;/etc/sysconfig/svnserve
-;The -R option enforces read-only access
-SVNSERVE_OPTIONS="-d -r /srv/svn/repos"
-</code></pre>
-
-<p>Start svnserve</p>
-
-<pre><code>chown -R svn:svn /srv/svn/
-chmod -R 755 /srv/svn/
-chkconfig svnserve
-service svnserve start
-</code></pre>
-
-<p>On svn client working</p>
-
-<pre><code>svn co --username test svn://192.168.1.21/ my-repos
-svn up
-svn merge ./ -r 5:4 
-svn st
-svn commit -m "rollback to r4"
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -795,6 +769,10 @@ svn commit -m "rollback to r4"
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/17/six-thinking-hats/">Six Thinking Hats</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/04/25/nodejs-on-aliyun/">nodejs on aliyun</a>
       </li>
     
@@ -808,10 +786,6 @@ svn commit -m "rollback to r4"
     
       <li class="post">
         <a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/">nvidia and openSUSE 12.2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/03/iptables-and-jvm-thread/">Iptables and JVM thread</a>
       </li>
     
   </ul>
