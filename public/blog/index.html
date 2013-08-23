@@ -6,10 +6,7 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Jun 17th, 2013 Tags: Thinking 爱德华·德波诺提出了一些促进横向思维的方法 对问题本身产生多种选择方案（类似于发散）；
-打破定势，提出富有挑战性的假设；
-对头脑中冒出的新主意不要急着做是非判断；
-反向思考，用与已建立的模式完全相反的方式思维 &hellip;">
+	<meta name="description" content="Published on: Aug 23rd, 2013 Tags: Unity3D 前段时间作者慷慨地赠送了一个license, 为了表示感谢，在此做强烈推荐。 TexturePacker是手机游戏开发中非常得力的工具,可以非常方便的把许多的图像资源合成一张大图,方便管理资源和提升性能, &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -99,6 +96,54 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/08/23/texturepacker-and-tang-in-unity3d/">
+		
+			TexturePacker和Unity3D插件Tang</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-23T23:13:00+08:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/unity3d/'>Unity3D</a>
+
+
+</div>
+    </div>
+		<p>前段时间作者慷慨地赠送了一个license, 为了表示感谢，在此做强烈推荐。</p>
+
+<p>TexturePacker是手机游戏开发中非常得力的工具,可以非常方便的把许多的图像资源合成一张大图,方便管理资源和提升性能,其中裁剪和旋转的功能非常实用。更详细请访问官方网站：<a href="http://www.codeandweb.com/texturepacker">Code&#8217;n&#8217;Web</a></p>
+
+<p>使用TexturePakcer，可以在Unity3d加入自己的一些处理，让游戏的开发更加自动化。同事写了一个简单的Unity3D插件Tang。该插件参考了 <a href="http://u3d.as/content/wyrm-tale-games/orthello-2d-framework/1Z9">Orthello 2D Framework</a> 的部分做法，AtlasCocos2DParser类用于解析TexturePacker所生成的数据文件。其核心代码开放在 <a href="https://github.com/zhongzichang/tang">github</a>，欢迎大家试用，Fork或提交代码。</p>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/08/23/texturepacker-and-tang-in-unity3d//blog/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -866,81 +911,6 @@ convert qqwry.dat.gbk to qqwry.dat(utf8), and copy to nginx/conf folder.</p>
 <div class="meta">
 	
 		<span class="comments"><a href="/blog/2012/12/25/qqwry-and-nginx//blog/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/06/gitolite-and-ec2/">
-		
-			Run Your Own Git Server With Gitolite and Amazon EC2</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-06T16:57:00+08:00" pubdate data-updated="true">Dec 6<span>th</span>, 2012</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/ec2/'>ec2</a>, <a class='category' href='/blog/categories/git/'>git</a>
-
-
-</div>
-    </div>
-		<p><a href="http://edvanbeinum.com/run-your-own-git-server-with-gitolite-and-amazon-ec2">Run your own Git server with Gitolite and Amazon EC2</a></p>
-
-<p>Create user</p>
-
-<pre><code>useradd git -g wheel --create-home --shell /usr/bin/git-shell
-</code></pre>
-
-<p>AllowUsers git in sshd_config</p>
-
-<p>Install gitolite</p>
-
-<pre><code>sudo yum -y install perl-CPAN perl-Time-HiRes
-
-perl -MCPAN -e shell
-    o conf urllist http://cpan.yahoo.com/
-    o conf commit
-    install CPAN
-    reload cpan
-
-git clone git://github.com/sitaramc/gitolite
-mkdir -p $HOME/bin
-gitolite/install -to $HOME/bin
-bin/gitolite setup -pk YourName.pub
-</code></pre>
-
-<p>Testing git by ssh</p>
-
-<pre><code>ssh -i dli.pem ec2-user@aws
-ssh -Nqf -D 7070 -i dli.pem ec2-user@aws
-git clone aws:gitolite-admin.git
-git clone aws:testing.git
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/12/06/gitolite-and-ec2//blog/index.html#disqus_thread">Comments</a></span>
 	
 </div>
 </article>

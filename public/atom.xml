@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-07-20T02:47:43+08:00</updated>
+  <updated>2013-08-24T00:16:17+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[TexturePacker和Unity3D插件Tang]]></title>
+    <link href="http://lite.github.com/blog/2013/08/23/texturepacker-and-tang-in-unity3d/"/>
+    <updated>2013-08-23T23:13:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/08/23/texturepacker-and-tang-in-unity3d</id>
+    <content type="html"><![CDATA[<p>前段时间作者慷慨地赠送了一个license, 为了表示感谢，在此做强烈推荐。</p>
+
+<p>TexturePacker是手机游戏开发中非常得力的工具,可以非常方便的把许多的图像资源合成一张大图,方便管理资源和提升性能,其中裁剪和旋转的功能非常实用。更详细请访问官方网站：<a href="http://www.codeandweb.com/texturepacker">Code&#8217;n&#8217;Web</a></p>
+
+<p>使用TexturePakcer，可以在Unity3d加入自己的一些处理，让游戏的开发更加自动化。同事写了一个简单的Unity3D插件Tang。该插件参考了 <a href="http://u3d.as/content/wyrm-tale-games/orthello-2d-framework/1Z9">Orthello 2D Framework</a> 的部分做法，AtlasCocos2DParser类用于解析TexturePacker所生成的数据文件。其核心代码开放在 <a href="https://github.com/zhongzichang/tang">github</a>，欢迎大家试用，Fork或提交代码。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[六顶思考帽]]></title>
@@ -856,38 +869,6 @@ Chorus
 <li><a href="http://nvie.com/posts/a-successful-git-branching-model/">a successful git branching model</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[archlinux on vmware]]></title>
-    <link href="http://lite.github.com/blog/2012/02/17/archlinux-on-vmware/"/>
-    <updated>2012-02-17T04:35:00+08:00</updated>
-    <id>http://lite.github.com/blog/2012/02/17/archlinux-on-vmware</id>
-    <content type="html"><![CDATA[<h2>Enable networking</h2>
-
-<p>append to /etc/rc.conf</p>
-
-<pre><code>eth0="dhcp"
-INTERFACE=(eth0)
-ROUTES=(!gateway)
-</code></pre>
-
-<p>run command &#8220;/etc/rc.d/network restart&#8221;</p>
-
-<h2>Enable pacman repo</h2>
-
-<p>append to &#8220;/etc/pacman.conf&#8221;</p>
-
-<pre><code>SigLevel=Optional TrustAll 
-</code></pre>
-
-<p>uncomment the repo in &#8220;/etc/pacman.d/mirrorlist&#8221;</p>
-
-<h2>Upgrade</h2>
-
-<pre><code>pacman -Syu
-</code></pre>
 ]]></content>
   </entry>
   
