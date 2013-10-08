@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-08-24T01:13:04+08:00</updated>
+  <updated>2013-10-09T01:37:48+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,144 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[jenkins and gradle]]></title>
+    <link href="http://lite.github.com/blog/2013/10/09/jenkins-and-gradle/"/>
+    <updated>2013-10-09T01:08:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/10/09/jenkins-and-gradle</id>
+    <content type="html"><![CDATA[<p>Install jenkins</p>
+
+<pre>
+sudo zypper addrepo http://pkg.jenkins-ci.org/opensuse/ jenkins
+sudo zypper install jenkins
+</pre>
+
+
+<p>&#8220;Manage Jenkins&#8221;, &#8220;Manage Plugins&#8221;</p>
+
+<p>&#8220;Advanced&#8221;, &#8220;Update Site&#8221;, Url is http://mirror.xmission.com/jenkins/updates/update-center.json, Install &#8220;Gradle Plugin&#8221;,  &#8220;Git Plugin&#8221;, &#8220;Post build task&#8221;, Install gradle 1.8 /var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/gradle-1.8</p>
+
+<p>&#8220;New job&#8221;</p>
+
+<p>&#8220;Source Code Management&#8221;, &#8220;git repo&#8221; is git@host:test.git, &#8220;Branches to build&#8221; is origin/develop. &#8220;Build&#8221;, &#8220;Invoke Gradle script&#8221;, &#8220;Task&#8221; is build and deploy</p>
+
+<pre>
+// /var/lib/jenkins/jobs/test/workspace/build.gradle
+sourceCompatibility = 1.6
+version = 1.0
+
+allprojects {
+    apply plugin: 'idea'
+}
+
+subprojects {
+    apply plugin: 'java'
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile(
+            'com.google.guava:guava:13.0.1',
+            'log4j:log4j:1.2.17',
+            // fileTree(dir: "${rootProject.projectDir}/lib", include: '*.jar')
+        )
+        testCompile(
+            'junit:junit:4.10',
+            'org.mockito:mockito-all:1.9.0',
+        )
+    }
+}
+
+project(':Server') {
+    jar {
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(
+it) } }
+        manifest { attributes 'Main-Class': 'main.java.StartServer' }
+    }
+    dependencies {
+        compile(
+            project(':ServerUtil'),
+            files(
+                '../Lib/jdom.jar',
+            )
+
+        )
+    }
+}
+
+def jarProjects() {
+    subprojects.findAll { project -> project.name != 'ServerUtil'}
+}
+
+task deploy(description: 'Copies the artifacts') {
+    ext {
+        distDir = file("dist")
+    }
+    doLast {
+     jarProjects().each { project ->
+            def jarDist = project.file("${distDir}/${project.name}")
+            def confDist = project.file("${distDir}/${project.name}/config")
+            def confDir = project.file("config")
+            def jarDir = project.file("${project.buildDir}/libs")
+            copy {
+                from jarDir
+                into jarDist
+                include "*.jar"
+            }
+            copy{
+                from confDir
+                into confDist
+            }
+        }
+    }
+}
+</pre>
+
+
+<ul>
+<li>Post-build Actions</li>
+</ul>
+
+
+<pre>
+/bin/bash start.sh
+</pre>
+
+
+
+
+<pre>
+# //var/lib/jenkins/jobs/test/workspace/start.sh
+kill -9 `lsof -t -i :8081`
+nohup java -jar Server.jar &
+</pre>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[wget JDK with cookie ]]></title>
+    <link href="http://lite.github.com/blog/2013/09/29/wget-jdk-with-cookie/"/>
+    <updated>2013-09-29T10:54:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/09/29/wget-jdk-with-cookie</id>
+    <content type="html"><![CDATA[<p>&#8220;In order to download products from Oracle Technology Network you must agree to the OTN license terms&#8221;
+You need a single cookie to bypass this:</p>
+
+<p>  Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F</p>
+
+<p>JDK7</p>
+
+<p>  wget &#8211;no-cookies &#8211;no-check-certificate &#8211;header &#8220;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F&#8221; http://download.oracle.com/otn-pub/java/jdk/7u25-b15/jdk-7u25-macosx-x64.dmg</p>
+
+<p>JDK6</p>
+
+<p>  wget &#8211;no-cookies &#8211;no-check-certificate &#8211;header &#8220;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F&#8221; http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-i586-rpm.bin</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[TexturePacker和Unity3D插件Tang]]></title>
@@ -821,91 +959,6 @@ url 'http://studio.imagemagick.net/download/ImageMagick-6.7.8-8.tar.bz2'
 
 git push git@github.com:lite/homebrew.git
 brew install imagemagick
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[emacs-live]]></title>
-    <link href="http://lite.github.com/blog/2012/07/04/emacs-live/"/>
-    <updated>2012-07-04T06:55:00+08:00</updated>
-    <id>http://lite.github.com/blog/2012/07/04/emacs-live</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/overtone/emacs-live">emacs-live</a></p>
-
-<p>Energy starts surging through your fingertips. Sparks fly, making
-the shadows grow and flicker ominously around you. You arch your
-back and open your eyes as if for the first time. The text appears
-more vibrant and colourful than you remember. Your fingers dance on
-the keyboard commanding the cursor with a joyful precision and
-control.</p>
-
-<p>You lean back and marvel as a shimmering swirl of syntactic and
-symantic structures project out of the screen and intertwine with a
-fractal beauty. You watch as meaning recursively unfolds into deeper
-meaning live in front of your eyes. You feel a deep and lasting
-synchronicity form as the boundaries between you and your Emacs
-wash away. You and your Emacs Live.</p>
-
-<p>M-x start-hacking.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[code monkey]]></title>
-    <link href="http://lite.github.com/blog/2012/06/24/code-monkey/"/>
-    <updated>2012-06-24T07:15:00+08:00</updated>
-    <id>http://lite.github.com/blog/2012/06/24/code-monkey</id>
-    <content type="html"><![CDATA[<p><a href="http://v.youku.com/v_show/id_XMjk4OTI3NDc2.html">Code Monkey AMV</a></p>
-
-<p>Lyrics:</p>
-
-<pre><code>Code Monkey get up get coffee. Code Monkey go to job.
-Code monkey have boring meeting, boring manager Rob.
-Rob say Code Monkey very diligent. But his output stink.
-His code not functional or elegant. What do Code Monkey think?
-Code Monkey think maybe manager wanna write goddamn login page himself.
-Code Monkey not say it out loud.
-Code Monkey not crazy just proud.
-
-Chorus
-
-Code Monkey like Fritos.
-Code Monkey like Tab and Mountain Dew.
-Code Monkey very simple man
-Big warm fuzzy secret heart
-Code Monkey like you.
-Code Monkey like you.
-
-Code Monkey hang around at front desk
-Tell you sweater look nice
-Code Monkey offer buy you soda
-Bring you cup bring you ice
-You say no thank you for the soda 
-cause soda make you fat
-Anyway you busy with the telephone
-no time for chat.
-
-Code Monkey have long walk back to cubicle
-He sit down pretend to work.
-Code Monkey not thinking so straight.
-Code Monkey not feeling so great.
-
-Chorus
-
-Code Monkey like you lots.
-Code Monkey have every reason
-To get out this place.
-Code Monkey just keep on working
-See your soft pretty face
-Much rather wake up eat a coffee cake
-Take bath, take nap
-This job fulfilling in creative way
-Such a load of crap.
-Code Monkey think someday he have everything even pretty girl like you.
-Code Monkey just waiting for now.
-Code Monkey say someday, somehow.
-
-Chorus
 </code></pre>
 ]]></content>
   </entry>

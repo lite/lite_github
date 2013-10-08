@@ -6,7 +6,8 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Aug 23rd, 2013 Tags: Unity3D Code&#8217;n&#8217;Web慷慨地赠送了一个license, 为了表示感谢，在此做强烈推荐。 TexturePacker是手机游戏开发中非常得力的工具,可以非常方便的把许多的图像资源合成一张大图 &hellip;">
+	<meta name="description" content="Published on: Oct 9th, 2013 Tags: Install jenkins sudo zypper addrepo http://pkg.jenkins-ci.org/opensuse/ jenkins
+sudo zypper install jenkins &#8220 &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -96,6 +97,210 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/10/09/jenkins-and-gradle/">
+		
+			Jenkins and Gradle</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-09T01:08:00+08:00" pubdate data-updated="true">Oct 9<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+</div>
+    </div>
+		<p>Install jenkins</p>
+
+<pre>
+sudo zypper addrepo http://pkg.jenkins-ci.org/opensuse/ jenkins
+sudo zypper install jenkins
+</pre>
+
+
+<p>&#8220;Manage Jenkins&#8221;, &#8220;Manage Plugins&#8221;</p>
+
+<p>&#8220;Advanced&#8221;, &#8220;Update Site&#8221;, Url is http://mirror.xmission.com/jenkins/updates/update-center.json, Install &#8220;Gradle Plugin&#8221;,  &#8220;Git Plugin&#8221;, &#8220;Post build task&#8221;, Install gradle 1.8 /var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/gradle-1.8</p>
+
+<p>&#8220;New job&#8221;</p>
+
+<p>&#8220;Source Code Management&#8221;, &#8220;git repo&#8221; is git@host:test.git, &#8220;Branches to build&#8221; is origin/develop. &#8220;Build&#8221;, &#8220;Invoke Gradle script&#8221;, &#8220;Task&#8221; is build and deploy</p>
+
+<pre>
+// /var/lib/jenkins/jobs/test/workspace/build.gradle
+sourceCompatibility = 1.6
+version = 1.0
+
+allprojects {
+    apply plugin: 'idea'
+}
+
+subprojects {
+    apply plugin: 'java'
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile(
+            'com.google.guava:guava:13.0.1',
+            'log4j:log4j:1.2.17',
+            // fileTree(dir: "${rootProject.projectDir}/lib", include: '*.jar')
+        )
+        testCompile(
+            'junit:junit:4.10',
+            'org.mockito:mockito-all:1.9.0',
+        )
+    }
+}
+
+project(':Server') {
+    jar {
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(
+it) } }
+        manifest { attributes 'Main-Class': 'main.java.StartServer' }
+    }
+    dependencies {
+        compile(
+            project(':ServerUtil'),
+            files(
+                '../Lib/jdom.jar',
+            )
+
+        )
+    }
+}
+
+def jarProjects() {
+    subprojects.findAll { project -> project.name != 'ServerUtil'}
+}
+
+task deploy(description: 'Copies the artifacts') {
+    ext {
+        distDir = file("dist")
+    }
+    doLast {
+     jarProjects().each { project ->
+            def jarDist = project.file("${distDir}/${project.name}")
+            def confDist = project.file("${distDir}/${project.name}/config")
+            def confDir = project.file("config")
+            def jarDir = project.file("${project.buildDir}/libs")
+            copy {
+                from jarDir
+                into jarDist
+                include "*.jar"
+            }
+            copy{
+                from confDir
+                into confDist
+            }
+        }
+    }
+}
+</pre>
+
+
+<ul>
+<li>Post-build Actions</li>
+</ul>
+
+
+<pre>
+/bin/bash start.sh
+</pre>
+
+
+
+
+<pre>
+# //var/lib/jenkins/jobs/test/workspace/start.sh
+kill -9 `lsof -t -i :8081`
+nohup java -jar Server.jar &
+</pre>
+
+
+
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/10/09/jenkins-and-gradle//index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/09/29/wget-jdk-with-cookie/">
+		
+			Wget JDK With Cookie</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-29T10:54:00+08:00" pubdate data-updated="true">Sep 29<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/jdk/'>JDK</a>
+
+
+</div>
+    </div>
+		<p>&#8220;In order to download products from Oracle Technology Network you must agree to the OTN license terms&#8221;
+You need a single cookie to bypass this:</p>
+
+<p>  Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F</p>
+
+<p>JDK7</p>
+
+<p>  wget &#8211;no-cookies &#8211;no-check-certificate &#8211;header &#8220;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F&#8221; http://download.oracle.com/otn-pub/java/jdk/7u25-b15/jdk-7u25-macosx-x64.dmg</p>
+
+<p>JDK6</p>
+
+<p>  wget &#8211;no-cookies &#8211;no-check-certificate &#8211;header &#8220;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F&#8221; http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-i586-rpm.bin</p>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/09/29/wget-jdk-with-cookie//index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -788,147 +993,6 @@ blacklist nouveau
 <div class="meta">
 	
 		<span class="comments"><a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2//index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/02/03/iptables-and-jvm-thread/">
-		
-			Iptables and JVM Thread</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-03T13:12:00+08:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2013</time></div>
-      <div class="tags">Tags: 
-
-</div>
-    </div>
-		<p><a href="http://www.dd-wrt.com/wiki/index.php/Iptables_command">Iptables</a></p>
-
-<pre><code>iptables -L
-iptables -F
-
-iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -j REJECT 
-iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -s 8.8.0.0/16 -j ACCEPT
-
-iptables -I OUTPUT -p TCP -d 10.142.20.0/24 -j REJECT
-</code></pre>
-
-<p>[JVM thread limit]</p>
-
-<pre><code>-Xms   intial java heap size
--Xmx   maximum java heap size
--Xss   the stack size for each thread
-
-/proc/sys/kernel/pid_max
-/proc/sys/kernel/thread-max
-max_user_process（ulimit -u）
-/proc/sys/vm/max_map_count
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2013/02/03/iptables-and-jvm-thread//index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/">
-		
-			Thin With Rvm as a System Service</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-29T22:04:00+08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/rvm/'>rvm</a>, <a class='category' href='/blog/categories/thin/'>thin</a>
-
-
-</div>
-    </div>
-		<p>Install thin to /etc/init.d/thin</p>
-
-<pre><code>rvm wrapper ruby-1.9.2-p125 bootup thin
-sudo  ~/.rvm/bin/bootup_thin install
-</code></pre>
-
-<p>Edit DAEMON in /etc/init.d/thin</p>
-
-<pre><code>DAEMON=/usr/local/bin/bootup_thin
-</code></pre>
-
-<p>Enable thin system service at runlevel 3 and 5</p>
-
-<pre><code>sudo /sbin/chkconfig -s thin 35
-</code></pre>
-
-<p>Edit /etc/thin/thin.yml</p>
-
-<pre><code>pid: tmp/pids/thin.pid
-wait: 30
-port: 8000
-timeout: 30
-log: log/thin.log
-max_conns: 1024
-require: []
-environment: production
-max_persistent_conns: 512
-daemonize: true
-servers: 3
-socket: /tmp/thin.sock
-chdir: /home/dli/dth/redmine
-</code></pre>
-
-<p>Start service thin</p>
-
-<pre><code>sudo /sbin/service thin start
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service//index.html#disqus_thread">Comments</a></span>
 	
 </div>
 </article>

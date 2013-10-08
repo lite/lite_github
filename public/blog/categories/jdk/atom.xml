@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: JDK | Lite]]></title>
+  <link href="http://lite.github.com/blog/categories/jdk/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2013-10-09T01:37:48+08:00</updated>
+  <id>http://lite.github.com/</id>
+  <author>
+    <name><![CDATA[Lite]]></name>
+    <email><![CDATA[litekok@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[wget JDK with cookie ]]></title>
+    <link href="http://lite.github.com/blog/2013/09/29/wget-jdk-with-cookie/"/>
+    <updated>2013-09-29T10:54:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/09/29/wget-jdk-with-cookie</id>
+    <content type="html"><![CDATA[<p>"In order to download products from Oracle Technology Network you must agree to the OTN license terms"
+You need a single cookie to bypass this:</p>
+
+<p>  Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F</p>
+
+<p>JDK7</p>
+
+<p>  wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F" http://download.oracle.com/otn-pub/java/jdk/7u25-b15/jdk-7u25-macosx-x64.dmg</p>
+
+<p>JDK6</p>
+
+<p>  wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F" http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-i586-rpm.bin</p>
+]]></content>
+  </entry>
+  
+</feed>

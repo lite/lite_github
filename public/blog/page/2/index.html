@@ -6,8 +6,8 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Dec 25th, 2012 Tags: DevOps clone the modules from github git clone git://github.com/anjuke/ngx_http_qqwry_module.git
-git clone git:// &hellip;">
+	<meta name="description" content="Published on: Feb 3rd, 2013 Tags: Iptables iptables -L
+iptables -F iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -j REJECT iptables -I &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,6 +97,147 @@ git clone git:// &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/02/03/iptables-and-jvm-thread/">
+		
+			Iptables and JVM Thread</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-03T13:12:00+08:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+</div>
+    </div>
+		<p><a href="http://www.dd-wrt.com/wiki/index.php/Iptables_command">Iptables</a></p>
+
+<pre><code>iptables -L
+iptables -F
+
+iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -j REJECT 
+iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -s 8.8.0.0/16 -j ACCEPT
+
+iptables -I OUTPUT -p TCP -d 10.142.20.0/24 -j REJECT
+</code></pre>
+
+<p>[JVM thread limit]</p>
+
+<pre><code>-Xms   intial java heap size
+-Xmx   maximum java heap size
+-Xss   the stack size for each thread
+
+/proc/sys/kernel/pid_max
+/proc/sys/kernel/thread-max
+max_user_process（ulimit -u）
+/proc/sys/vm/max_map_count
+</code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/02/03/iptables-and-jvm-thread//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/">
+		
+			Thin With Rvm as a System Service</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-29T22:04:00+08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/rvm/'>rvm</a>, <a class='category' href='/blog/categories/thin/'>thin</a>
+
+
+</div>
+    </div>
+		<p>Install thin to /etc/init.d/thin</p>
+
+<pre><code>rvm wrapper ruby-1.9.2-p125 bootup thin
+sudo  ~/.rvm/bin/bootup_thin install
+</code></pre>
+
+<p>Edit DAEMON in /etc/init.d/thin</p>
+
+<pre><code>DAEMON=/usr/local/bin/bootup_thin
+</code></pre>
+
+<p>Enable thin system service at runlevel 3 and 5</p>
+
+<pre><code>sudo /sbin/chkconfig -s thin 35
+</code></pre>
+
+<p>Edit /etc/thin/thin.yml</p>
+
+<pre><code>pid: tmp/pids/thin.pid
+wait: 30
+port: 8000
+timeout: 30
+log: log/thin.log
+max_conns: 1024
+require: []
+environment: production
+max_persistent_conns: 512
+daemonize: true
+servers: 3
+socket: /tmp/thin.sock
+chdir: /home/dli/dth/redmine
+</code></pre>
+
+<p>Start service thin</p>
+
+<pre><code>sudo /sbin/service thin start
+</code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -684,161 +825,6 @@ brew install imagemagick
 <div class="meta">
 	
 		<span class="comments"><a href="/blog/2012/08/08/brew-tap//blog/page/2/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/07/04/emacs-live/">
-		
-			Emacs-live</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-04T06:55:00+08:00" pubdate data-updated="true">Jul 4<span>th</span>, 2012</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/fun/'>fun</a>
-
-
-</div>
-    </div>
-		<p><a href="https://github.com/overtone/emacs-live">emacs-live</a></p>
-
-<p>Energy starts surging through your fingertips. Sparks fly, making
-the shadows grow and flicker ominously around you. You arch your
-back and open your eyes as if for the first time. The text appears
-more vibrant and colourful than you remember. Your fingers dance on
-the keyboard commanding the cursor with a joyful precision and
-control.</p>
-
-<p>You lean back and marvel as a shimmering swirl of syntactic and
-symantic structures project out of the screen and intertwine with a
-fractal beauty. You watch as meaning recursively unfolds into deeper
-meaning live in front of your eyes. You feel a deep and lasting
-synchronicity form as the boundaries between you and your Emacs
-wash away. You and your Emacs Live.</p>
-
-<p>M-x start-hacking.</p>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/07/04/emacs-live//blog/page/2/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/06/24/code-monkey/">
-		
-			Code Monkey</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-24T07:15:00+08:00" pubdate data-updated="true">Jun 24<span>th</span>, 2012</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/fun/'>fun</a>
-
-
-</div>
-    </div>
-		<p><a href="http://v.youku.com/v_show/id_XMjk4OTI3NDc2.html">Code Monkey AMV</a></p>
-
-<p>Lyrics:</p>
-
-<pre><code>Code Monkey get up get coffee. Code Monkey go to job.
-Code monkey have boring meeting, boring manager Rob.
-Rob say Code Monkey very diligent. But his output stink.
-His code not functional or elegant. What do Code Monkey think?
-Code Monkey think maybe manager wanna write goddamn login page himself.
-Code Monkey not say it out loud.
-Code Monkey not crazy just proud.
-
-Chorus
-
-Code Monkey like Fritos.
-Code Monkey like Tab and Mountain Dew.
-Code Monkey very simple man
-Big warm fuzzy secret heart
-Code Monkey like you.
-Code Monkey like you.
-
-Code Monkey hang around at front desk
-Tell you sweater look nice
-Code Monkey offer buy you soda
-Bring you cup bring you ice
-You say no thank you for the soda 
-cause soda make you fat
-Anyway you busy with the telephone
-no time for chat.
-
-Code Monkey have long walk back to cubicle
-He sit down pretend to work.
-Code Monkey not thinking so straight.
-Code Monkey not feeling so great.
-
-Chorus
-
-Code Monkey like you lots.
-Code Monkey have every reason
-To get out this place.
-Code Monkey just keep on working
-See your soft pretty face
-Much rather wake up eat a coffee cake
-Take bath, take nap
-This job fulfilling in creative way
-Such a load of crap.
-Code Monkey think someday he have everything even pretty girl like you.
-Code Monkey just waiting for now.
-Code Monkey say someday, somehow.
-
-Chorus
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/06/24/code-monkey//blog/page/2/index.html#disqus_thread">Comments</a></span>
 	
 </div>
 </article>
