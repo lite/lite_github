@@ -4,7 +4,7 @@
   <title><![CDATA[Category: JDK | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/jdk/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-10-09T01:37:48+08:00</updated>
+  <updated>2013-10-09T01:41:15+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -21,15 +21,32 @@
     <content type="html"><![CDATA[<p>"In order to download products from Oracle Technology Network you must agree to the OTN license terms"
 You need a single cookie to bypass this:</p>
 
-<p>  Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F</p>
+<pre>
+Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F
+</pre>
 
-<p>JDK7</p>
 
-<p>  wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F" http://download.oracle.com/otn-pub/java/jdk/7u25-b15/jdk-7u25-macosx-x64.dmg</p>
+<ul>
+<li>JDK7</li>
+</ul>
 
-<p>JDK6</p>
 
-<p>  wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F" http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-i586-rpm.bin</p>
+<pre>
+wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F" http://download.oracle.com/otn-pub/java/jdk/7u25-b15/jdk-7u25-macosx-x64.dmg
+</pre>
+
+
+<ul>
+<li>JDK6</li>
+</ul>
+
+
+<pre>
+wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F" http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-i586-rpm.bin
+</pre>
+
+
+
 ]]></content>
   </entry>
   
