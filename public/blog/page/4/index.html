@@ -6,8 +6,9 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Oct 27th, 2011 Tags: heroku, showoff, showoff-io showoff heroku config:add SHOWOFF_EVAL_RUBY=1 showoff create . -d ruby
-showoff add &hellip;">
+	<meta name="description" content="Published on: Oct 31st, 2011 Tags: devops, vagrant, veewee vagrant veewee vagrant basebox templates
+mkdir iso
+vagrant basebox define 'fssle' 'ubuntu &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,6 +98,65 @@ showoff add &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2011/10/31/vagrant-and-veewee/">
+		
+			Vagrant and Veewee</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-31T23:51:00+08:00" pubdate data-updated="true">Oct 31<span>st</span>, 2011</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/vagrant/'>vagrant</a>, <a class='category' href='/blog/categories/veewee/'>veewee</a>
+
+
+</div>
+    </div>
+		<p><a href="http://vagrantup.comi">vagrant</a></p>
+
+<p><a href="https://github.com/jedi4ever/veewee">veewee</a></p>
+
+<pre><code>vagrant basebox templates
+mkdir iso
+vagrant basebox define 'fssle' 'ubuntu-11.04-server-i386'
+vagrant basebox build 'fssle'
+vagrant basebox validate 'fssle'
+vagrant basebox export 'fssle'
+vagrant box add 'fssle' 'fssle'
+vagrant init 'fssle'
+vagrant up
+vagrant reload
+vagrant ssh
+</code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2011/10/31/vagrant-and-veewee//blog/page/4/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">

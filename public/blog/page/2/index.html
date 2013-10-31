@@ -6,8 +6,8 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Feb 3rd, 2013 Tags: Iptables iptables -L
-iptables -F iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -j REJECT iptables -I &hellip;">
+	<meta name="description" content="Published on: Feb 26th, 2013 Tags: Install these packages by zypper zypper in kernel-devel zypper in kernel-desktop-devel
+zypper in kernel-source &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,6 +97,63 @@ iptables -F iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -j REJECT i
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/">
+		
+			Nvidia and openSUSE 12.2</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-26T22:59:00+08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+</div>
+    </div>
+		<p>Install these packages by zypper</p>
+
+<pre><code>zypper in kernel-devel 
+zypper in kernel-desktop-devel
+zypper in kernel-source
+zypper in gcc
+</code></pre>
+
+<p>Update /etc/modprobe.d/50-blacklist.conf</p>
+
+<pre><code>#blacklist nvidiafb
+blacklist nouveau
+</code></pre>
+
+<p>Install nvidia driver</p>
+
+<pre><code>sudo sh ./NVIDIA.run
+</code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -759,72 +816,6 @@ cat test.tar.gz.a* &gt; - | tar -zxvf -
 <div class="meta">
 	
 		<span class="comments"><a href="/blog/2012/08/28/expect-split-and-tcpdump//blog/page/2/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/08/08/brew-tap/">
-		
-			Brew Tap</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-08T22:23:00+08:00" pubdate data-updated="true">Aug 8<span>th</span>, 2012</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/mac/'>Mac</a>, <a class='category' href='/blog/categories/homebrew/'>homebrew</a>
-
-
-</div>
-    </div>
-		<p><a href="https://github.com/mxcl/homebrew/wiki/Interesting-Taps-%26-Branches">Interesting Taps &amp; Branches</a></p>
-
-<pre><code>brew tap larsimmisch/avr
-brew install avr-libc
-</code></pre>
-
-<p>install proxychains(or tsocks)</p>
-
-<pre><code>brew tap lite/alt
-brew install proxychains
-</code></pre>
-
-<p>curl lcms when installing imagemagick</p>
-
-<pre><code>brew edit lcms
-url 'http://www.littlecms.com/1/lcms-1.19.tar.gz'
-
-brew edit imagemagick
-url 'http://studio.imagemagick.net/download/ImageMagick-6.7.8-8.tar.bz2'
-
-git push git@github.com:lite/homebrew.git
-brew install imagemagick
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/08/08/brew-tap//blog/page/2/index.html#disqus_thread">Comments</a></span>
 	
 </div>
 </article>

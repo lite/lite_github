@@ -6,8 +6,9 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Oct 9th, 2013 Tags: Install jenkins sudo zypper addrepo http://pkg.jenkins-ci.org/opensuse/ jenkins
-sudo zypper install jenkins &#8220 &hellip;">
+	<meta name="description" content="Published on: Oct 28th, 2013 Tags: git Rename remote branch git branch -m old_branch new_branch
+git push origin :old_branch
+git push origin &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,6 +98,71 @@ sudo zypper install jenkins &#8220 &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/10/28/rename-branch-and-resolve-conflict/">
+		
+			Rename Branch and Resolve Conflict</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-28T00:03:00+08:00" pubdate data-updated="true">Oct 28<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/git/'>git</a>
+
+
+</div>
+    </div>
+		<ul>
+<li>Rename remote branch</li>
+</ul>
+
+
+<pre>
+git branch -m old_branch new_branch
+git push origin :old_branch
+git push origin new_branch
+</pre>
+
+
+<ul>
+<li>Resolve conflict</li>
+</ul>
+
+
+<pre>
+git checkout --ours .
+git checkout --theirs .
+</pre>
+
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/10/28/rename-branch-and-resolve-conflict//blog/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -953,63 +1019,6 @@ PassivePortRange          30000 50000
 <div class="meta">
 	
 		<span class="comments"><a href="/blog/2013/03/04/pureftpd-and-nxserver//blog/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/">
-		
-			Nvidia and openSUSE 12.2</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-26T22:59:00+08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2013</time></div>
-      <div class="tags">Tags: 
-
-</div>
-    </div>
-		<p>Install these packages by zypper</p>
-
-<pre><code>zypper in kernel-devel 
-zypper in kernel-desktop-devel
-zypper in kernel-source
-zypper in gcc
-</code></pre>
-
-<p>Update /etc/modprobe.d/50-blacklist.conf</p>
-
-<pre><code>#blacklist nvidiafb
-blacklist nouveau
-</code></pre>
-
-<p>Install nvidia driver</p>
-
-<pre><code>sudo sh ./NVIDIA.run
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2013/02/26/nvidia-and-opensuse-12-dot-2//blog/index.html#disqus_thread">Comments</a></span>
 	
 </div>
 </article>

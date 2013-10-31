@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-10-09T01:41:15+08:00</updated>
+  <updated>2013-11-01T00:08:24+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[rename branch and resolve conflict]]></title>
+    <link href="http://lite.github.com/blog/2013/10/28/rename-branch-and-resolve-conflict/"/>
+    <updated>2013-10-28T00:03:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/10/28/rename-branch-and-resolve-conflict</id>
+    <content type="html"><![CDATA[<ul>
+<li>Rename remote branch</li>
+</ul>
+
+
+<pre>
+git branch -m old_branch new_branch
+git push origin :old_branch
+git push origin new_branch
+</pre>
+
+
+<ul>
+<li>Resolve conflict</li>
+</ul>
+
+
+<pre>
+git checkout --ours .
+git checkout --theirs .
+</pre>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Run your own Git server with Gitolite and Amazon EC2]]></title>
