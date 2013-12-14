@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ops | Lite]]></title>
+  <link href="http://lite.github.com/blog/categories/ops/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2013-12-14T12:43:24+08:00</updated>
+  <id>http://lite.github.com/</id>
+  <author>
+    <name><![CDATA[Lite]]></name>
+    <email><![CDATA[litekok@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[dell edge networking]]></title>
+    <link href="http://lite.github.com/blog/2013/12/14/dell-edge-networking/"/>
+    <updated>2013-12-14T12:05:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/12/14/dell-edge-networking</id>
+    <content type="html"><![CDATA[<p>/etc/sysconfig/network-scripts/ifcfg-em1</p>
+
+<pre>
+ONBOOT=yes  #no
+</pre>
+
+
+
+
+<pre>
+service network restart
+</pre>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

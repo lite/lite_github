@@ -6,8 +6,7 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Feb 26th, 2013 Tags: Install these packages by zypper zypper in kernel-devel zypper in kernel-desktop-devel
-zypper in kernel-source &hellip;">
+	<meta name="description" content="Published on: Mar 8th, 2013 Tags: 一部记录海盗湾的纪录片。有3125个用户付费下载，捐赠达到了45164美元，不包括DVD的收入。“TPB APK” 使用CC-BY-NC-SA版权原因 通过Kickstarter准备筹款25000美元，3天时间就筹到了， &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,6 +96,136 @@ zypper in kernel-source &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/03/08/tpb-afk/">
+		
+			TPB AFK</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-08T02:12:00+08:00" pubdate data-updated="true">Mar 8<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+</div>
+    </div>
+		<p>一部记录海盗湾的纪录片。有3125个用户付费下载，捐赠达到了45164美元，不包括DVD的收入。<a href="http://watch.tpbafk.tv/">“TPB APK”</a></p>
+
+<p>使用CC-BY-NC-SA版权<a href="http://www.tpbafk.tv/2013/01/why-i-chose-creative-commons-for-tpb-afk/">原因</a></p>
+
+<p>通过Kickstarter准备筹款25000美元，3天时间就筹到了，最终达到了51434美元<a href="http://www.tpbafk.tv/2010/10/51434-thank-yous/">51434-thank-yous</a></p>
+
+<p>很好的一篇博文：<a href="http://www.ruanyifeng.com/blog/2013/02/tpb.html">纪录片《TPB AFK》与现行版权制度</a></p>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/03/08/tpb-afk//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/03/04/pureftpd-and-nxserver/">
+		
+			Pureftpd and Nxserver</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T18:57:00+08:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+</div>
+    </div>
+		<h2>pureftpd</h2>
+
+<pre><code>./configure --prefix=/usr/local/pureftpd --with-puredb 
+make &amp;&amp; make install
+mkdir /usr/local/pureftpd/etc
+groupadd ftpgroup
+useradd -g ftpgroup -d /dev/null -s /etc ftpuser
+cp configuration-file/pure-ftpd.conf /usr/loca/pureftpd/etc/
+cp configuration-file/pure-config.pl /usr/loca/pureftpd/sbin/
+chmod +x /usr/loca/pureftpd/sbin/pure-config.pl
+/usr/local/pureftpd/bin/pure-pw useradd test -u ftpuser -d /data/ftp/
+/usr/local/pureftpd/bin/pure-pw mkdb
+</code></pre>
+
+<p>Modify PureDB in &#8220;/usr/loca/pureftpd/etc/pure-ftpd.conf&#8221;</p>
+
+<pre><code>PureDB                    /usr/local/pureftpd/etc/pureftpd.pdb
+PassivePortRange          30000 50000
+</code></pre>
+
+<p>Enable port in &#8220;/etc/sysconfig/SuSEfirewall2&#8221;</p>
+
+<pre><code>FW_SERVICES_EXT_TCP="21 30000:50000"
+</code></pre>
+
+<p>Reload firewall config</p>
+
+<pre><code>SuSEfirewall2
+</code></pre>
+
+<p>Startalone pureftpd</p>
+
+<pre><code>/usr/loca/pureftpd/sbin/pure-config.pl /usr/loca/pureftpd/etc/pure-ftpd.conf
+</code></pre>
+
+<h2>nxserver</h2>
+
+<p>Download <a href="http://www.nomachine.com/download.php">nxserver</a></p>
+
+<p>Add user</p>
+
+<pre><code>/usr/NX/bin/nxserver --useradd nxuser
+</code></pre>
+
+<p>nxclient login as a normal user &#8220;nxuser&#8221;</p>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/03/04/pureftpd-and-nxserver//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -662,160 +791,6 @@ gzip_disable    "MSIE [1-6]\.";
 <div class="meta">
 	
 		<span class="comments"><a href="/blog/2012/10/15/gzip-on-nginx//blog/page/2/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/10/02/programmers-quotes/">
-		
-			Programmers-quotes</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-02T23:30:00+08:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2012</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/quotes/'>Quotes</a>
-
-
-</div>
-    </div>
-		<ul>
-<li>Life’s too short to build something nobody wants – Ash Maurya, Running Lean</li>
-<li>Give someone a program, you frustrate them for a day; teach them how to program, you frustrate them for a lifetime. – David Leinweber</li>
-<li>There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies. — C.A.R. Hoare</li>
-<li>Actually, I’m trying to make Ruby natural, not simple. Ruby is simple in appearance, but is very complex inside, just like our human body. – Matz, Ruby</li>
-<li>Much of the essence of building a program is in fact the debugging of the specification. – Fred Brooks, The Mythical Man-Month</li>
-<li>The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time. – Tom Cargill</li>
-<li>Complication is What Happens When You Try to Solve a Problem You Don’t Understand – Andy Boothe</li>
-<li>Weeks of programming can save you hours of planning. – Unknown</li>
-<li>Controlling complexity is the essence of computer programming. — Brian Kernighan</li>
-<li>All problems in computer science can be solved by another level of indirection(abstraction) – David Wheeler</li>
-<li>…except for the problem of too many layers of indirection. – Kevlin Henney’s corollary</li>
-<li>Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning. — Rick Cook</li>
-<li>Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. — Brian W. Kernighan</li>
-<li>I’m not a great programmer; I’m just a good programmer with great habits. ― Kent Beck</li>
-<li>Most of you are familiar with the virtues of a programmer. There are three, of course: laziness, impatience, and hubris. – Larry Wall, Perl</li>
-<li>Any fool can write code that a computer can understand. Good programmers write code that humans can understand. – Martin Fowler</li>
-<li>Measuring programming progress by lines of code is like measuring aircraft building progress by weight. – Bill Gates</li>
-<li>It’s not a bug – it’s an undocumented feature. – Unknown</li>
-<li>The most depressing thing about life as a programmer, I think, is if you’re faced with a chunk of code that either someone else wrote or, worse still, you wrote yourself but you no longer dare to modify. That’s depressing. – Peyton Jones</li>
-<li>It works on my machine! – Most of programmers</li>
-<li>Talk is cheap. Show me the code. – Linus Torvalds</li>
-<li>I thought of objects being like biological cells and/or individual computers on a network, only able to communicate with messages — Alan Kay, Smalltalk</li>
-<li>When you choose a language, you’re choosing more than a set of technical trade-offs—you’re choosing a community. -Joshua Bloch</li>
-<li>Quality, Speed or Cheap. Pick two. – Unknown</li>
-<li>Developer testing isn’t primarily about verifying code. It’s about making great code. If you can’t test something, it might be your testing skills failing you but it’s probably your code code’s design. Testable code is almost always better code. – Chad Fowler</li>
-<li>We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. – Donald Knuth</li>
-<li>No code is faster than no code. – Merb core tenet</li>
-<li>If you’re the smartest person in the room, you’re in the wrong room. – Unknown</li>
-<li>How long would it take your organization to deploy a change (to production) that involves just one single line of code? Do you do this on a repeatable, reliable basis? – Mary Poppendieck</li>
-<li>Nine people can’t make a baby in a month.  — Fred Brooks, The Mythical Man-Month</li>
-<li>Good code is its own best documentation. As you’re about to add a comment, ask yourself, ‘How can I improve the code so that this comment isn’t needed?’ Improve the code and then document it to make it even clearer. – Steve McConnell, Code Complete</li>
-</ul>
-
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/10/02/programmers-quotes//blog/page/2/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/08/28/expect-split-and-tcpdump/">
-		
-			Expect-split-and-tcpdump</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-28T20:25:00+08:00" pubdate data-updated="true">Aug 28<span>th</span>, 2012</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/shell/'>shell</a>
-
-
-</div>
-    </div>
-		<h1><a href="http://danielmiessler.com/study/tcpdump/">tcpdump</a></h1>
-
-<pre><code>tcpdump -x -vv  -i any "tcp port 8001"
-tcpdump -X -vv -s 4096  -w portrange.cap 'portrange 8001-8005'
-tcpdump -X -vv -s 4096  -w ip.cap -i any 'src 8.8.8.8 or dst 6.6.6.6'
-tcpdump -r host.cap -XX -s 4096 &gt; host.cap.txt  
-</code></pre>
-
-<h1>expect</h1>
-
-<p>ssh_config:</p>
-
-<pre><code>host test
-    user app100642705
-    hostname 10.1.2.15 
-    port 3322
-    identityfile pkey
-</code></pre>
-
-<p>myshell.sh:</p>
-
-<pre><code>#!/usr/bin/expect -f
-spawn ssh -F ssh_config test
-expect "*(yes/no)?" {
-    send "yes\r"
-}
-interact #expect eof
-</code></pre>
-
-<h1>split</h1>
-
-<pre><code>tar -czvf - test | split -b 50m - test.tar.gz
-cat test.tar.gz.a* &gt; - | tar -zxvf - 
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/08/28/expect-split-and-tcpdump//blog/page/2/index.html#disqus_thread">Comments</a></span>
 	
 </div>
 </article>

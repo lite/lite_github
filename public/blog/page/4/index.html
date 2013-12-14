@@ -6,9 +6,7 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Oct 31st, 2011 Tags: devops, vagrant, veewee vagrant veewee vagrant basebox templates
-mkdir iso
-vagrant basebox define 'fssle' 'ubuntu &hellip;">
+	<meta name="description" content="Published on: Dec 16th, 2011 Tags: sysadmin, ubuntu dnscrypt download git clone git://github.com/opendns/dnscrypt-proxy.git view README.markdown &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -98,6 +96,187 @@ vagrant basebox define 'fssle' 'ubuntu &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2011/12/16/dnscrypt/">
+		
+			Dnscrypt</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-16T22:56:00+08:00" pubdate data-updated="true">Dec 16<span>th</span>, 2011</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/sysadmin/'>sysadmin</a>, <a class='category' href='/blog/categories/ubuntu/'>ubuntu</a>
+
+
+</div>
+    </div>
+		<p><a href="https://github.com/opendns/dnscrypt-proxy">dnscrypt</a></p>
+
+<p>download</p>
+
+<pre><code>git clone git://github.com/opendns/dnscrypt-proxy.git
+</code></pre>
+
+<p>view README.markdown
+install</p>
+
+<pre><code>./autogen.sh &amp;&amp; ./configure &amp;&amp; make &amp;&amp; make check
+sudo make install
+</code></pre>
+
+<p>in file /etc/resolv.conf</p>
+
+<pre><code>nameserver 127.0.0.1
+sudo chattr +i /etc/resolv.conf
+sudo dnscrypt-proxy --daemonize
+</code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2011/12/16/dnscrypt//blog/page/4/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2011/11/08/chef-on-ec2/">
+		
+			Chef_on_ec2</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-08T00:17:00+08:00" pubdate data-updated="true">Nov 8<span>th</span>, 2011</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/chef/'>chef</a>, <a class='category' href='/blog/categories/devops/'>devops</a>, <a class='category' href='/blog/categories/ec2/'>ec2</a>
+
+
+</div>
+    </div>
+		<p><a href="http://console.aws.amazon.com/ec2/home?region=us-west-1&amp;#s=SecurityGroups">aws security groups</a></p>
+
+<pre><code>22 (SSH)  0.0.0.0/0 Delete
+80 (HTTP) 0.0.0.0/0 Delete
+
+ssh-keygen -R www.fssle.com
+ssh -i fssle-ec2.pem ubuntu@www.fssle.com
+</code></pre>
+
+<p><a href="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key">aws access key</a></p>
+
+<pre><code>export AWS_ACCESS_KEY_ID=""
+export AWS_SECRET_ACCESS_KEY=""
+</code></pre>
+
+<p><a href="http://uec-images.ubuntu.com/server/releases/11.04/release/">ubuntu ec2 image</a></p>
+
+<pre><code>knife[:aws_access_key_id]     = "#{ENV['AWS_ACCESS_KEY_ID']}"
+knife[:aws_secret_access_key] = "#{ENV['AWS_SECRET_ACCESS_KEY']}"
+knife[:identity_file]         = 'fssle-ec2.pem'
+knife[:aws_ssh_key_id]        = "fssle-ec2"
+knife[:availability_zone]     = 'us-west-1a'
+knife[:region]                = 'us-west-1'
+knife[:aws_image_id]          = 'ami-43580406'
+
+knife ec2 server list
+knife ec2 server delete i-296cd36e
+knife ec2 server create -I ami-43580406 -f t1.micro -x ubuntu -G default 
+</code></pre>
+
+<p><a href="https://community.opscode.com/users/username/user_key/new">opscode user key</a></p>
+
+<pre><code>username.pem 
+knife.rb 
+org-validator.pem
+</code></pre>
+
+<ul>
+<li>chef</li>
+</ul>
+
+
+<blockquote><ul>
+<li>role</li>
+</ul>
+</blockquote>
+
+<pre><code>knife role list
+export EDITOR=vim &amp;&amp; knife role create base
+knife role edit base
+knife role show base
+knife role from file roles/base.rb
+</code></pre>
+
+<blockquote><ul>
+<li>cookbook</li>
+</ul>
+</blockquote>
+
+<pre><code>knife cookbook site download apt
+knife cookbook site download aws
+knife cookbook site download apache2
+
+knife cookbook create fssle
+knife cookbook list
+knife cookbook upload aws apt apache2
+</code></pre>
+
+<blockquote><ul>
+<li>ec2</li>
+</ul>
+</blockquote>
+
+<pre><code>knife ec2 server create "role[fssle]" -I ami-43580406 -f t1.micro -G default -region -S knife -i ./fssle-ec2.pem --ssh-user ubuntu 
+</code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2011/11/08/chef-on-ec2//blog/page/4/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">

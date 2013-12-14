@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-10-09T01:41:15+08:00</updated>
+  <updated>2013-11-01T00:08:24+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[rename branch and resolve conflict]]></title>
+    <link href="http://lite.github.com/blog/2013/10/28/rename-branch-and-resolve-conflict/"/>
+    <updated>2013-10-28T00:03:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/10/28/rename-branch-and-resolve-conflict</id>
+    <content type="html"><![CDATA[<ul>
+<li>Rename remote branch</li>
+</ul>
+
+
+<pre>
+git branch -m old_branch new_branch
+git push origin :old_branch
+git push origin new_branch
+</pre>
+
+
+<ul>
+<li>Resolve conflict</li>
+</ul>
+
+
+<pre>
+git checkout --ours .
+git checkout --theirs .
+</pre>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[jenkins and gradle]]></title>
@@ -945,37 +975,6 @@ interact #expect eof
 
 <pre><code>tar -czvf - test | split -b 50m - test.tar.gz
 cat test.tar.gz.a* &gt; - | tar -zxvf - 
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[brew tap]]></title>
-    <link href="http://lite.github.com/blog/2012/08/08/brew-tap/"/>
-    <updated>2012-08-08T22:23:00+08:00</updated>
-    <id>http://lite.github.com/blog/2012/08/08/brew-tap</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/mxcl/homebrew/wiki/Interesting-Taps-%26-Branches">Interesting Taps &amp; Branches</a></p>
-
-<pre><code>brew tap larsimmisch/avr
-brew install avr-libc
-</code></pre>
-
-<p>install proxychains(or tsocks)</p>
-
-<pre><code>brew tap lite/alt
-brew install proxychains
-</code></pre>
-
-<p>curl lcms when installing imagemagick</p>
-
-<pre><code>brew edit lcms
-url 'http://www.littlecms.com/1/lcms-1.19.tar.gz'
-
-brew edit imagemagick
-url 'http://studio.imagemagick.net/download/ImageMagick-6.7.8-8.tar.bz2'
-
-git push git@github.com:lite/homebrew.git
-brew install imagemagick
 </code></pre>
 ]]></content>
   </entry>
