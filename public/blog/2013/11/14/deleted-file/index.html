@@ -7,8 +7,8 @@
     <meta name="author" content="Lite">
     
 	<meta name="description" content="You deleted the file, but disk space is not free.
-Get the pid 30439 and fd 1w. lsof | grep deleted
-java 30439 root 1w REG 202,1 3522641920 360788 / &hellip;">
+30439 is the pid and 1w is the fd. lsof | grep deleted
+java 30439 root 1w REG 202,1 3522641920 &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -100,7 +100,7 @@ java 30439 root 1w REG 202,1 3522641920 360788 / &hellip;">
         <article class="post">
 	<h2 class="title">Deleted File</h2>
 	<div class="entry-content"><p>You deleted the file, but disk space is not free.
-Get the pid 30439 and fd 1w.</p>
+30439 is the pid and 1w is the fd.</p>
 
 <pre>
 lsof | grep deleted
@@ -108,7 +108,7 @@ java      30439 root    1w      REG              202,1 3522641920     360788 /ro
 </pre>
 
 
-<p>empty the file which be deleted.</p>
+<p>Clear the file.</p>
 
 <pre>
 echo "" > /proc/30439/fd/1
@@ -144,7 +144,7 @@ echo "" > /proc/30439/fd/1
     </div>
     <footer id="footer">
     <div style="display:inline">
-    Copyright &copy; 2013
+    Copyright &copy; 2014
 
     Lite
 . Powered by <a href="http://octopress.org">Octopress</a> | 

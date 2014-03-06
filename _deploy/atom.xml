@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-12-14T12:43:24+08:00</updated>
+  <updated>2014-03-06T18:30:34+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -14,18 +14,113 @@
 
   
   <entry>
+    <title type="html"><![CDATA[rebar usage]]></title>
+    <link href="http://lite.github.com/blog/2014/03/06/rebar-usage/"/>
+    <updated>2014-03-06T18:01:00+08:00</updated>
+    <id>http://lite.github.com/blog/2014/03/06/rebar-usage</id>
+    <content type="html"><![CDATA[<p>Create server</p>
+
+<pre><code>rebar create-app appid=lyapp
+rebar compile
+rebar clean
+rebar create template=simplesrv srvid=lyapp_server
+</code></pre>
+
+<p>Eunit</p>
+
+<pre><code>mkdir -p test
+
+lyapp_test.hrl：
+-include_lib("eunit/include/eunit.hrl").
+my_test() -&gt;
+    ?assert(1 + 1 =:= 2).
+
+rebar compile eunit
+</code></pre>
+
+<p>Rel</p>
+
+<pre><code>mkdir -p rel
+rebar create-node nodeid=lyapp
+
+rebar.config:
+{sub_dirs, ["rel"]}.
+</code></pre>
+
+<p>Build</p>
+
+<pre><code>rebar compile
+rebar generate
+rel/lyapp/bin/lyapp start
+rel/lyapp/bin/lyapp stop 
+rel/lyapp/bin/lyapp console
+&gt; application:which_applications().
+&gt; release_handler:which_releases().
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[game design]]></title>
+    <link href="http://lite.github.com/blog/2014/01/23/game-design/"/>
+    <updated>2014-01-23T18:09:00+08:00</updated>
+    <id>http://lite.github.com/blog/2014/01/23/game-design</id>
+    <content type="html"><![CDATA[<p>Core Loop Design: Object, Challenge， Reward</p>
+
+<p>Session Design: short and longer</p>
+
+<p>UX: Made for Touch</p>
+
+<p>Wow</p>
+
+<p>Progression planning</p>
+
+<pre><code>* Basic Check-List
+* First session progression
+* Screenshot after first session 
+* 1 week objective defining
+* The 6 month player “art test”
+* The “tile test” calculation
+* Complexity progression
+* Balancing, balancing, balancing
+</code></pre>
+
+<p>Unlock Features Progressively</p>
+
+<pre><code>* Un-lock new features or resources at 3 days, 1 week, 1 month, 2 months of play
+* Don’t have new players overwhelmed
+* High-level players bulk of revenue, the new stuff will increase their retention
+</code></pre>
+
+<p>Monetization and LTV: Not Pay to win!</p>
+
+<p>Real Social Patterns</p>
+
+<pre><code>* PvP, Co-opUGC
+* Trading
+* Chatting
+* Forming Alliances
+* Sending resources
+* Helping newbies
+</code></pre>
+
+<p>Events</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[dell edge networking]]></title>
-    <link href="http://lite.github.com/blog/2013/12/14/dell-edge-networking/"/>
-    <updated>2013-12-14T12:05:00+08:00</updated>
-    <id>http://lite.github.com/blog/2013/12/14/dell-edge-networking</id>
-    <content type="html"><![CDATA[<p>/etc/sysconfig/network-scripts/ifcfg-em1</p>
+    <link href="http://lite.github.com/blog/2013/12/04/dell-edge-networking/"/>
+    <updated>2013-12-04T12:05:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/12/04/dell-edge-networking</id>
+    <content type="html"><![CDATA[<p>Modify /etc/sysconfig/network-scripts/ifcfg-em1</p>
 
 <pre>
 ONBOOT=yes  #no
 </pre>
 
 
-
+<p>Then restart network service</p>
 
 <pre>
 service network restart
@@ -42,7 +137,7 @@ service network restart
     <updated>2013-11-14T11:14:00+08:00</updated>
     <id>http://lite.github.com/blog/2013/11/14/deleted-file</id>
     <content type="html"><![CDATA[<p>You deleted the file, but disk space is not free.
-Get the pid 30439 and fd 1w.</p>
+30439 is the pid and 1w is the fd.</p>
 
 <pre>
 lsof | grep deleted
@@ -50,7 +145,7 @@ java      30439 root    1w      REG              202,1 3522641920     360788 /ro
 </pre>
 
 
-<p>empty the file which be deleted.</p>
+<p>Clear the file.</p>
 
 <pre>
 echo "" > /proc/30439/fd/1
@@ -855,89 +950,6 @@ git clone aws:testing.git
 <li><a href="http://blog.pluskid.org/wp-content/uploads/2010/01/captcha_src.zip">简单验证码的识别</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[svnserve on SuSE]]></title>
-    <link href="http://lite.github.com/blog/2012/11/02/svnserve-on-suse/"/>
-    <updated>2012-11-02T21:10:00+08:00</updated>
-    <id>http://lite.github.com/blog/2012/11/02/svnserve-on-suse</id>
-    <content type="html"><![CDATA[<p>Create the repos</p>
-
-<pre><code>groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn
-</code></pre>
-
-<p>Enable 3690 port /etc/sysconfig/SuSEfirewall2</p>
-
-<pre><code>FW_SERVICES_EXT_TCP="22 80 3306 3690"
-</code></pre>
-
-<p>Create the repos</p>
-
-<pre><code>svnadmin create /srv/svn/repos
-</code></pre>
-
-<p>Configuration</p>
-
-<pre><code>;/srv/svn/repos/conf/svnserve.conf   
-[general]
-anon-access = none
-auth-access = write
-password-db = passwd
-
-;/srv/svn/repos/conf/passwd
-[users]
-test = test
-
-;/etc/sysconfig/svnserve
-;The -R option enforces read-only access
-SVNSERVE_OPTIONS="-d -r /srv/svn/repos"
-</code></pre>
-
-<p>Start svnserve</p>
-
-<pre><code>chown -R svn:svn /srv/svn/
-chmod -R 755 /srv/svn/
-chkconfig svnserve
-service svnserve start
-</code></pre>
-
-<p>On svn client working</p>
-
-<pre><code>svn co --username test svn://192.168.1.21/ my-repos
-svn up
-svn merge ./ -r 5:4 
-svn st
-svn commit -m "rollback to r4"
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[gzip on nginx]]></title>
-    <link href="http://lite.github.com/blog/2012/10/15/gzip-on-nginx/"/>
-    <updated>2012-10-15T22:44:00+08:00</updated>
-    <id>http://lite.github.com/blog/2012/10/15/gzip-on-nginx</id>
-    <content type="html"><![CDATA[<p>add gzip support in conf/nginx.conf</p>
-
-<pre><code>gzip            on;
-gzip_comp_level 5;
-gzip_min_length 1024;
-gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/jpeg image/gif image/png;
-gzip_proxied    expired no-cache no-store private auth;
-gzip_disable    "MSIE [1-6]\.";
-</code></pre>
-
-<p>reload nginx</p>
-
-<pre><code>sbin/nginx -s reload
-</code></pre>
-
-<p>test by curl</p>
-
-<pre><code>curl -I --compressed http://fssle.com/8/config/txt/task.xml
-</code></pre>
 ]]></content>
   </entry>
   

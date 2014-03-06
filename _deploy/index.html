@@ -6,7 +6,10 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content=" Published on: Dec 14th, 2013 Tags: ops /etc/sysconfig/network-scripts/ifcfg-em1 ONBOOT=yes #no service network restart Comments ">
+	<meta name="description" content="Published on: Mar 6th, 2014 Tags: erlang Create server rebar create-app appid=lyapp
+rebar compile
+rebar clean
+rebar create template=simplesrv srvid= &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -101,7 +104,172 @@
     <article class="post">
 	<h2 class="title">
 		
-		<a href="/blog/2013/12/14/dell-edge-networking/">
+		<a href="/blog/2014/03/06/rebar-usage/">
+		
+			Rebar Usage</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-06T18:01:00+08:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/erlang/'>erlang</a>
+
+
+</div>
+    </div>
+		<p>Create server</p>
+
+<pre><code>rebar create-app appid=lyapp
+rebar compile
+rebar clean
+rebar create template=simplesrv srvid=lyapp_server
+</code></pre>
+
+<p>Eunit</p>
+
+<pre><code>mkdir -p test
+
+lyapp_test.hrl：
+-include_lib("eunit/include/eunit.hrl").
+my_test() -&gt;
+    ?assert(1 + 1 =:= 2).
+
+rebar compile eunit
+</code></pre>
+
+<p>Rel</p>
+
+<pre><code>mkdir -p rel
+rebar create-node nodeid=lyapp
+
+rebar.config:
+{sub_dirs, ["rel"]}.
+</code></pre>
+
+<p>Build</p>
+
+<pre><code>rebar compile
+rebar generate
+rel/lyapp/bin/lyapp start
+rel/lyapp/bin/lyapp stop 
+rel/lyapp/bin/lyapp console
+&gt; application:which_applications().
+&gt; release_handler:which_releases().
+</code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2014/03/06/rebar-usage//index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/01/23/game-design/">
+		
+			Game Design</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-23T18:09:00+08:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2014</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/game/'>game</a>
+
+
+</div>
+    </div>
+		<p>Core Loop Design: Object, Challenge， Reward</p>
+
+<p>Session Design: short and longer</p>
+
+<p>UX: Made for Touch</p>
+
+<p>Wow</p>
+
+<p>Progression planning</p>
+
+<pre><code>* Basic Check-List
+* First session progression
+* Screenshot after first session 
+* 1 week objective defining
+* The 6 month player “art test”
+* The “tile test” calculation
+* Complexity progression
+* Balancing, balancing, balancing
+</code></pre>
+
+<p>Unlock Features Progressively</p>
+
+<pre><code>* Un-lock new features or resources at 3 days, 1 week, 1 month, 2 months of play
+* Don’t have new players overwhelmed
+* High-level players bulk of revenue, the new stuff will increase their retention
+</code></pre>
+
+<p>Monetization and LTV: Not Pay to win!</p>
+
+<p>Real Social Patterns</p>
+
+<pre><code>* PvP, Co-opUGC
+* Trading
+* Chatting
+* Forming Alliances
+* Sending resources
+* Helping newbies
+</code></pre>
+
+<p>Events</p>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2014/01/23/game-design//index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/12/04/dell-edge-networking/">
 		
 			Dell Edge Networking</a>
 	</h2>
@@ -119,7 +287,7 @@
   
 
 
-<time datetime="2013-12-14T12:05:00+08:00" pubdate data-updated="true">Dec 14<span>th</span>, 2013</time></div>
+<time datetime="2013-12-04T12:05:00+08:00" pubdate data-updated="true">Dec 4<span>th</span>, 2013</time></div>
       <div class="tags">Tags: 
 
 
@@ -128,14 +296,14 @@
 
 </div>
     </div>
-		<p>/etc/sysconfig/network-scripts/ifcfg-em1</p>
+		<p>Modify /etc/sysconfig/network-scripts/ifcfg-em1</p>
 
 <pre>
 ONBOOT=yes  #no
 </pre>
 
 
-
+<p>Then restart network service</p>
 
 <pre>
 service network restart
@@ -150,7 +318,7 @@ service network restart
 
 <div class="meta">
 	
-		<span class="comments"><a href="/blog/2013/12/14/dell-edge-networking//index.html#disqus_thread">Comments</a></span>
+		<span class="comments"><a href="/blog/2013/12/04/dell-edge-networking//index.html#disqus_thread">Comments</a></span>
 	
 </div>
 </article>
@@ -183,7 +351,7 @@ service network restart
 </div>
     </div>
 		<p>You deleted the file, but disk space is not free.
-Get the pid 30439 and fd 1w.</p>
+30439 is the pid and 1w is the fd.</p>
 
 <pre>
 lsof | grep deleted
@@ -191,7 +359,7 @@ java      30439 root    1w      REG              202,1 3522641920     360788 /ro
 </pre>
 
 
-<p>empty the file which be deleted.</p>
+<p>Clear the file.</p>
 
 <pre>
 echo "" > /proc/30439/fd/1
@@ -723,286 +891,6 @@ wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2F
 </div>
 </article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/05/16/erlang-kernel-poll/">
-		
-			Nodejs, C Libevent and Erlang</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-16T00:41:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2013</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/erlang/'>erlang</a>, <a class='category' href='/blog/categories/nodejs/'>nodejs</a>
-
-
-</div>
-    </div>
-		<p>nodejs &lt; libevent &lt; erlang</p>
-
-<pre><code>node.js:  connect=10000,active connect=100,req=1378370,time=60,req/sec=22972.8,msec/req=4.35543
-libevent: connect=10000,active connect=100,req=3719106,time=60,req/sec=61985.1,msec/req=1.61258
-erlang:   connect=10000,active connect=100,req=6377574,time=60,req/sec=106293,msec/req=0.939882
-</code></pre>
-
-<h2>node_test.js</h2>
-
-<pre><code>
-    var net = require('net');
-    var cnt = 0;
-    var server = net.createServer(function (socket) {
-      socket.pipe(socket);
-    });
-
-    server.listen(8000, "127.0.0.1");
-</code></pre>
-
-
-<h2>libevent_test.c</h2>
-
-<pre><code>
-    #include < stdlib.h>
-    #include < unistd.h>
-    #include < netinet/in.h>  
-    #include < sys/socket.h>  
-    #include < sys/types.h>  
-    #include < sys/socket.h>
-    #include < event.h>  
-    #include < stdio.h>  
-    #include < time.h> 
-    #include < string.h>
-    #include < fcntl.h>
-
-    int buf_len = 2048;
-    int msg_len = 1024; 
-    int total = 0;
-
-    int setnonblock(int fd)
-    {       
-        int flags;       
-        flags = fcntl(fd, F_GETFL);       
-        if (flags < 0)               
-            return flags;       
-        flags |= O_NONBLOCK;       
-        if (fcntl(fd, F_SETFL, flags) < 0)               
-            return -1;       
-     
-        return 0;
-    }
-
-    void connection_echo(int fd, short event, void *arg)
-    {
-        struct event *ev = (struct event *)arg;
-        event_add(ev, NULL);
-
-        char buf[buf_len];
-        int read_len = read(fd, buf, msg_len);
-        write(fd, buf, read_len);
-    }
-
-    void connection_accept(int fd, short event, void *arg)   
-    { 
-        /* for debugging */ 
-        fprintf(stderr, "%s(): fd = %d, event = %d, total = %d.\n", __func__, fd, event, ++total);  
-
-        /* Accept a new connection. */ 
-        struct sockaddr_in s_in;  
-        socklen_t len = sizeof(s_in);  
-        int ns = accept(fd, (struct sockaddr *) &s_in, &len);  
-        if (ns < 0) {  
-            perror("accept");  
-            return;  
-        }  
-
-        setnonblock(ns);
-
-        /* Install echo server. */ 
-        struct event *ev = (struct event *)malloc(sizeof(struct event));  
-        event_set(ev, ns, EV_READ, connection_echo, ev);  
-        event_add(ev, NULL);  
-    } 
-
-    int main(void)  
-    {  
-        /* Request socket. */ 
-        int s = socket(PF_INET, SOCK_STREAM, 0);  
-        if (s < 0) {  
-            perror("socket");  
-            exit(1);  
-        }  
-
-        /* bind() */ 
-        struct sockaddr_in s_in;  
-        memset(&s_in, 0, sizeof(s_in));  
-        s_in.sin_family = AF_INET;  
-        s_in.sin_port = htons(8000);  
-        s_in.sin_addr.s_addr = INADDR_ANY;  
-        if (bind(s, (struct sockaddr *) &s_in, sizeof(s_in)) < 0) {  
-            perror("bind");  
-            exit(1);  
-        }  
-
-        /* listen() */ 
-        if (listen(s, 1000) < 0) {  
-            perror("listen");  
-            exit(1);  
-        }  
-
-        /* Initial libevent. */ 
-        event_init();  
-
-        /* Create event. */ 
-        struct event ev;  
-        event_set(&ev, s, EV_READ | EV_PERSIST, connection_accept, &ev);  
-
-        /* Add event. */ 
-        event_add(&ev, NULL);  
-
-        event_dispatch();  
-
-        return 0;  
-    }
-</code></pre>
-
-
-<h2>erlang_test.erl</h2>
-
-<p>In Eshell:</p>
-
-<pre><code>1&gt;c(erlang_test).
-2&gt;erlang_test:start().
-</code></pre>
-
-<pre><code>
-    -module(erlang_test).
-    -export([start/0]).
-
-    start() ->
-            {ok, Listen} = gen_tcp:listen(8000, [binary,
-                                                    %{packet, 4},
-                                                    {reuseaddr, true},
-                                                    {backlog, 2000},
-                                                    {active, true}]),
-            spawn(fun() -> par_connect(Listen, 0) end).
-
-    par_connect(Listen, Count) ->
-            {ok, Socket} = gen_tcp:accept(Listen),
-            New = Count + 1,
-            io:format("Accept succ ~p~n", [New]),
-            spawn(fun() -> par_connect(Listen, New) end),
-            loop(Socket).
-
-
-    loop(Socket) ->
-        receive
-            {tcp, Socket, Bin} ->
-                gen_tcp:send(Socket, Bin),
-                loop(Socket);
-            {tcp_closed, Socket} ->
-                io:format("Server socket closed~n")
-        end.
-</code></pre>
-
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2013/05/16/erlang-kernel-poll//index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/04/25/nodejs-on-aliyun/">
-		
-			Nodejs on Aliyun</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-25T13:54:00+08:00" pubdate data-updated="true">Apr 25<span>th</span>, 2013</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/aliyun/'>aliyun</a>, <a class='category' href='/blog/categories/nodejs/'>nodejs</a>
-
-
-</div>
-    </div>
-		<p>Mount the data disk</p>
-
-<pre><code>fdisk /dev/xvdb
-mkfs.ext3 /dev/xvdb1
-echo '/dev/xvdb1  /mnt ext3    defaults    0  0' &gt;&gt; /etc/fstab
-mount -a
-</code></pre>
-
-<p>Install the requirements by yum</p>
-
-<pre><code>sed -i "s/exclude=kernel*/#exclude=kernel*/g" /etc/yum.conf
-yum update
-yum install git gcc-c++ openssl-devel make
-</code></pre>
-
-<p>Install nodejs</p>
-
-<pre><code>wget -N http://nodejs.org/dist/node-latest.tar.gz
-tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
-./configure
-make install
-</code></pre>
-
-<p>Install coffeescript and forever by npm</p>
-
-<pre><code>npm install coffeescript
-npm install forever
-forever start -w app.js
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2013/04/25/nodejs-on-aliyun//index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
 <nav id="pagenavi">
     
     
@@ -1014,7 +902,7 @@ forever start -w app.js
     </div>
     <footer id="footer">
     <div style="display:inline">
-    Copyright &copy; 2013
+    Copyright &copy; 2014
 
     Lite
 . Powered by <a href="http://octopress.org">Octopress</a> | 

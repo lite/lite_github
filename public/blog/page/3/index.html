@@ -6,8 +6,7 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Oct 2nd, 2012 Tags: Quotes Life’s too short to build something nobody wants – Ash Maurya, Running Lean
-Give someone a program, you &hellip;">
+	<meta name="description" content="Published on: Nov 2nd, 2012 Tags: SuSE, svn Create the repos groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn Enable 3690 port /etc/ &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,6 +96,159 @@ Give someone a program, you &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/11/02/svnserve-on-suse/">
+		
+			Svnserve on SuSE</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-02T21:10:00+08:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2012</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/suse/'>SuSE</a>, <a class='category' href='/blog/categories/svn/'>svn</a>
+
+
+</div>
+    </div>
+		<p>Create the repos</p>
+
+<pre><code>groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn
+</code></pre>
+
+<p>Enable 3690 port /etc/sysconfig/SuSEfirewall2</p>
+
+<pre><code>FW_SERVICES_EXT_TCP="22 80 3306 3690"
+</code></pre>
+
+<p>Create the repos</p>
+
+<pre><code>svnadmin create /srv/svn/repos
+</code></pre>
+
+<p>Configuration</p>
+
+<pre><code>;/srv/svn/repos/conf/svnserve.conf   
+[general]
+anon-access = none
+auth-access = write
+password-db = passwd
+
+;/srv/svn/repos/conf/passwd
+[users]
+test = test
+
+;/etc/sysconfig/svnserve
+;The -R option enforces read-only access
+SVNSERVE_OPTIONS="-d -r /srv/svn/repos"
+</code></pre>
+
+<p>Start svnserve</p>
+
+<pre><code>chown -R svn:svn /srv/svn/
+chmod -R 755 /srv/svn/
+chkconfig svnserve
+service svnserve start
+</code></pre>
+
+<p>On svn client working</p>
+
+<pre><code>svn co --username test svn://192.168.1.21/ my-repos
+svn up
+svn merge ./ -r 5:4 
+svn st
+svn commit -m "rollback to r4"
+</code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/11/02/svnserve-on-suse//blog/page/3/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/10/15/gzip-on-nginx/">
+		
+			Gzip on Nginx</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-15T22:44:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/devops/'>DevOps</a>
+
+
+</div>
+    </div>
+		<p>add gzip support in conf/nginx.conf</p>
+
+<pre><code>gzip            on;
+gzip_comp_level 5;
+gzip_min_length 1024;
+gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/jpeg image/gif image/png;
+gzip_proxied    expired no-cache no-store private auth;
+gzip_disable    "MSIE [1-6]\.";
+</code></pre>
+
+<p>reload nginx</p>
+
+<pre><code>sbin/nginx -s reload
+</code></pre>
+
+<p>test by curl</p>
+
+<pre><code>curl -I --compressed http://fssle.com/8/config/txt/task.xml
+</code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/10/15/gzip-on-nginx//blog/page/3/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -654,150 +806,6 @@ rake generate
 </div>
 </article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2011/12/28/zte-ct-x920-on-ubuntu/">
-		
-			Zte_ct_x920 on Ubuntu</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-28T16:51:00+08:00" pubdate data-updated="true">Dec 28<span>th</span>, 2011</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/ubuntu/'>ubuntu</a>
-
-
-</div>
-    </div>
-		<p><a href="http://blog.163.com/dengjingniurou@126/blog/static/5398919620111112111659617/">android udev</a></p>
-
-<p>adb devices</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached
-</span><span class='line'>????????????    no permissions</span></code></pre></td></tr></table></div></figure>
-
-
-<p>lsusb</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Bus 001 Device 050: ID 19d2:ffda ONDA Communication S.p.A. </span></code></pre></td></tr></table></div></figure>
-
-
-<p>sudo vim /etc/udev/rules.d/51-Android.rules</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", MODE="0666"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>sudo chmod a+r /etc/udev/rules.d/51-Android.rules
-sudo /etc/init.d/udev stop
-sudo /etc/init.d/udev start</p>
-
-<p>then re-plug the cable</p>
-
-<p>adb devices</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>List of devices attached 
-</span><span class='line'>X920_CT device</span></code></pre></td></tr></table></div></figure>
-
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2011/12/28/zte-ct-x920-on-ubuntu//blog/page/3/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2011/12/19/ginatra/">
-		
-			Ginatra</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-19T09:10:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2011</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/sinatra/'>sinatra</a>
-
-
-</div>
-    </div>
-		<p><a href="https://github.com/lenary/ginatra">ginatra</a></p>
-
-<p>setup</p>
-
-<pre><code>sudo apt-get install python-pip
-sudo pip install pygments
-gem install ginatra
-</code></pre>
-
-<p>repo directory</p>
-
-<pre><code>ginatra setup
-ginatra directory add '~/git/repo'
-ginatra directory list
-</code></pre>
-
-<p>server</p>
-
-<pre><code>ginatra server start
-ginatra server stop
-ginatra daemon start
-ginatra daemon status
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2011/12/19/ginatra//blog/page/3/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
 <nav id="pagenavi">
     
         <a href="/blog/page/2/" class="prev">Prev</a>
@@ -811,7 +819,7 @@ ginatra daemon status
     </div>
     <footer id="footer">
     <div style="display:inline">
-    Copyright &copy; 2013
+    Copyright &copy; 2014
 
     Lite
 . Powered by <a href="http://octopress.org">Octopress</a> | 

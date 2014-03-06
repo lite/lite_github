@@ -4,7 +4,7 @@
   <title><![CDATA[Category: erlang | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/erlang/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-12-14T12:43:24+08:00</updated>
+  <updated>2014-03-06T18:30:34+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -12,6 +12,53 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[rebar usage]]></title>
+    <link href="http://lite.github.com/blog/2014/03/06/rebar-usage/"/>
+    <updated>2014-03-06T18:01:00+08:00</updated>
+    <id>http://lite.github.com/blog/2014/03/06/rebar-usage</id>
+    <content type="html"><![CDATA[<p>Create server</p>
+
+<pre><code>rebar create-app appid=lyapp
+rebar compile
+rebar clean
+rebar create template=simplesrv srvid=lyapp_server
+</code></pre>
+
+<p>Eunit</p>
+
+<pre><code>mkdir -p test
+
+lyapp_test.hrl：
+-include_lib("eunit/include/eunit.hrl").
+my_test() -&gt;
+    ?assert(1 + 1 =:= 2).
+
+rebar compile eunit
+</code></pre>
+
+<p>Rel</p>
+
+<pre><code>mkdir -p rel
+rebar create-node nodeid=lyapp
+
+rebar.config:
+{sub_dirs, ["rel"]}.
+</code></pre>
+
+<p>Build</p>
+
+<pre><code>rebar compile
+rebar generate
+rel/lyapp/bin/lyapp start
+rel/lyapp/bin/lyapp stop 
+rel/lyapp/bin/lyapp console
+&gt; application:which_applications().
+&gt; release_handler:which_releases().
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[nodejs, C libevent and erlang]]></title>

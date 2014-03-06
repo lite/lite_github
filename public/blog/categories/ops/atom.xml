@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ops | Lite]]></title>
   <link href="http://lite.github.com/blog/categories/ops/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2013-12-14T12:43:24+08:00</updated>
+  <updated>2014-03-06T18:30:34+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -15,17 +15,17 @@
   
   <entry>
     <title type="html"><![CDATA[dell edge networking]]></title>
-    <link href="http://lite.github.com/blog/2013/12/14/dell-edge-networking/"/>
-    <updated>2013-12-14T12:05:00+08:00</updated>
-    <id>http://lite.github.com/blog/2013/12/14/dell-edge-networking</id>
-    <content type="html"><![CDATA[<p>/etc/sysconfig/network-scripts/ifcfg-em1</p>
+    <link href="http://lite.github.com/blog/2013/12/04/dell-edge-networking/"/>
+    <updated>2013-12-04T12:05:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/12/04/dell-edge-networking</id>
+    <content type="html"><![CDATA[<p>Modify /etc/sysconfig/network-scripts/ifcfg-em1</p>
 
 <pre>
 ONBOOT=yes  #no
 </pre>
 
 
-
+<p>Then restart network service</p>
 
 <pre>
 service network restart
