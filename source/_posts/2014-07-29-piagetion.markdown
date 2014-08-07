@@ -3,7 +3,7 @@ layout: post
 title: "Piagetion"
 date: 2014-07-29 19:48
 comments: true
-categories: [Education]
+categories: [Theory]
 ---
 
 皮亚杰提出了三种类型的游戏:练习性游戏，象征性游戏和有规则的竞赛游戏，它们分别与认知发展的感知运动阶段、前运算阶段和具体运算阶段相对应。
