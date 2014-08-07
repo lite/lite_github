@@ -6,7 +6,7 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Nov 2nd, 2012 Tags: SuSE, svn Create the repos groupadd svn; useradd -d /srv/svn -s /bin/false -g svn svn Enable 3690 port /etc/ &hellip;">
+	<meta name="description" content="Published on: Dec 6th, 2012 Tags: ec2, git Run your own Git server with Gitolite and Amazon EC2 Create user useradd git -g wheel --create-home -- &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -96,6 +96,139 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/06/gitolite-and-ec2/">
+		
+			Run Your Own Git Server With Gitolite and Amazon EC2</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-06T16:57:00+08:00" pubdate data-updated="true">Dec 6<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/ec2/'>ec2</a>, <a class='category' href='/blog/categories/git/'>git</a>
+
+
+</div>
+    </div>
+		<p><a href="http://edvanbeinum.com/run-your-own-git-server-with-gitolite-and-amazon-ec2">Run your own Git server with Gitolite and Amazon EC2</a></p>
+
+<p>Create user</p>
+
+<pre><code>useradd git -g wheel --create-home --shell /usr/bin/git-shell
+</code></pre>
+
+<p>AllowUsers git in sshd_config</p>
+
+<p>Install gitolite</p>
+
+<pre><code>sudo yum -y install perl-CPAN perl-Time-HiRes
+
+perl -MCPAN -e shell
+    o conf urllist http://cpan.yahoo.com/
+    o conf commit
+    install CPAN
+    reload cpan
+
+git clone git://github.com/sitaramc/gitolite
+mkdir -p $HOME/bin
+gitolite/install -to $HOME/bin
+bin/gitolite setup -pk YourName.pub
+</code></pre>
+
+<p>Testing git by ssh</p>
+
+<pre><code>ssh -i dli.pem ec2-user@aws
+ssh -Nqf -D 7070 -i dli.pem ec2-user@aws
+git clone aws:gitolite-admin.git
+git clone aws:testing.git
+</code></pre>
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/12/06/gitolite-and-ec2//blog/page/3/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/11/15/captcha/">
+		
+			Captcha</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-15T11:15:00+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/captcha/'>captcha</a>, <a class='category' href='/blog/categories/ocr/'>ocr</a>, <a class='category' href='/blog/categories/opencv/'>opencv</a>
+
+
+</div>
+    </div>
+		<p>Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart</p>
+
+<p>二值化 + 去干扰线 + 去噪 + 分割 + 旋转 + 识别
+中值滤镜 + PCA</p>
+
+<ul>
+<li><a href="http://code.google.com/p/tesseract-ocr/">tesseract-ocr</a></li>
+<li><a href="http://www.80vul.com/webzine_0x02/PSTZine_0x02_0x09.html">如何识别高级的验证码</a></li>
+<li><a href="http://1.identify.sinaapp.com/?p=8">二维物体形状识别方法比较</a></li>
+<li><a href="http://www.eecs.berkeley.edu/Research/Projects/CS/vision/shape/">Recognition:Objects, Humans, Activities</a></li>
+<li><a href="http://caca.zoy.org/wiki/PWNtcha">Pwntcha</a></li>
+<li><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/table_of_content_imgproc/table_of_content_imgproc.html">OpenCV</a></li>
+<li><a href="http://blog.pluskid.org/wp-content/uploads/2010/01/captcha_src.zip">简单验证码的识别</a></li>
+</ul>
+
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/11/15/captcha//blog/page/3/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -685,123 +818,6 @@ Chorus
 <div class="meta">
 	
 		<span class="comments"><a href="/blog/2012/05/09/git-tools//blog/page/3/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/02/17/archlinux-on-vmware/">
-		
-			Archlinux on Vmware</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-17T04:35:00+08:00" pubdate data-updated="true">Feb 17<span>th</span>, 2012</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/archlinux/'>Archlinux</a>, <a class='category' href='/blog/categories/vmware/'>Vmware</a>
-
-
-</div>
-    </div>
-		<h2>Enable networking</h2>
-
-<p>append to /etc/rc.conf</p>
-
-<pre><code>eth0="dhcp"
-INTERFACE=(eth0)
-ROUTES=(!gateway)
-</code></pre>
-
-<p>run command &#8220;/etc/rc.d/network restart&#8221;</p>
-
-<h2>Enable pacman repo</h2>
-
-<p>append to &#8220;/etc/pacman.conf&#8221;</p>
-
-<pre><code>SigLevel=Optional TrustAll 
-</code></pre>
-
-<p>uncomment the repo in &#8220;/etc/pacman.d/mirrorlist&#8221;</p>
-
-<h2>Upgrade</h2>
-
-<pre><code>pacman -Syu
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/02/17/archlinux-on-vmware//blog/page/3/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/02/15/slash/">
-		
-			Slash</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-15T18:45:00+08:00" pubdate data-updated="true">Feb 15<span>th</span>, 2012</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/themes/'>Themes</a>
-
-
-</div>
-    </div>
-		<p><a href="http://zespia.tw/Octopress-Theme-Slash/index_tw.html">Octopress themes - Slash</a></p>
-
-<pre><code>cd octopress
-git clone git@github.com:tommy351/Octopress-Theme-Slash.git .themes/slash
-rake install['slash']
-rake generate
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/02/15/slash//blog/page/3/index.html#disqus_thread">Comments</a></span>
 	
 </div>
 </article>
