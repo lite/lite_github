@@ -1,115 +1,127 @@
 
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
-	<meta charset="utf-8">
-	<title>Lite</title>
-    <meta name="author" content="Lite">
-    
-	<meta name="description" content="Published on: Oct 25th, 2011 Tags: 运维 blogging rake generate
+  <meta charset="utf-8">
+  <title>Lite</title>
+  <meta name="author" content="Lite">
+
+  
+  <meta name="description" content="blogging rake generate
 rake preview heroku heroku create lite
-git remote add heroku git@heroku.com:lite.git &hellip;">
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+git remote add heroku git@heroku.com:lite.git
+rake new_post[octopress]
+git push heroku &hellip;">
+  
 
-	<link href="/atom.xml" rel="alternate" title="Lite" type="application/atom+xml">
-	<link rel="canonical" href="">
-	<link href="/favicon.ico" rel="shortcut icon">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+  <link rel="canonical" href="http://lite.github.com/blog/page/5/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Lite" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-    <script type="text/javascript" src="/javascripts/jquery-tapir.js"></script>
+<!-- mathjax config similar to math.stackexchange -->
 
-    <!-- remove or comment it to disable ajaxification -->   
-    <script src="/javascripts/ajaxify.js"></script>
-   
-    
-    
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-286167-2']);
-		_gaq.push(['_trackPageview']);
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
 
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-286167-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 
 
 </head>
 
-
-<body>
-    <div id="wrapper">
-    <header id="header" class="inner"><!-- for more effects see _animate.scss -->
-<h1 class="animated bounceInDown">
-    <div id="headerbg">
-        Lite
-    </div>
-</h1>
-<br>
-
-<ul id="social-links" style="text-align:center">
-  
-  <!-- GitHub -->
-  <li>
-  <a href="https://github.com/lite" class="github" title="Github"></a>
-  </li>
-  
-  
-  
-  
-  
-  
-  
-  
-</ul>
-
-
-<!-- use full url including 'index.html' for navigation bar if you are using ajax -->
-<ul id="nav">
-	<li id="ajax"><a href="/index.html">Home</a></li>
-	<li id="ajax"><a href="/blog/archives/index.html">Archives</a></li>
-    <li><a href="/atom.xml">RSS</a></li>
-    
-    <li>
-    <div id="dark">
-        <form method="get" action="/search.html" id="search">
-            <input name="query" type="text" placeholder="Search..." x-webkit-speech />
-        </form>
-    </div>
-    </li>
-        
-</ul>
-
-
-
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
 
 </header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:lite.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
 
-<div id="toload">
-<!-- begin toload --> 
-    <div id="content" class="inner">
+</nav> -->
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/25/octopress-on-heroku/">Heroku上使用octopress</a></h1>
+    
+    
+      <p class="meta">
         
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2011/10/25/octopress-on-heroku/">
-		
-			Heroku上使用octopress</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
 
 
 
@@ -121,16 +133,16 @@ git remote add heroku git@heroku.com:lite.git &hellip;">
   
 
 
-<time datetime="2011-10-25T00:56:00+08:00" pubdate data-updated="true">Oct 25<span>th</span>, 2011</time></div>
-      <div class="tags">Tags: 
+<time datetime="2011-10-25T00:56:00+08:00" pubdate data-updated="true">Oct 25<span>th</span>, 2011</time>
+        
+         | <a href="/blog/2011/10/25/octopress-on-heroku/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
 
 
-	<a class='category' href='/blog/categories/运维/'>运维</a>
-
-
-</div>
-    </div>
-		<p><a href="http://octopress.org/docs/blogging/">blogging</a></p>
+  <div class="entry-content"><p><a href="http://octopress.org/docs/blogging/">blogging</a></p>
 
 <pre>
 rake generate
@@ -147,46 +159,116 @@ rake new_post[octopress]
 git push heroku master
 </pre>
 
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2011/10/25/octopress-on-heroku//blog/page/5/index.html#disqus_thread">Comments</a></span>
-	
 </div>
-</article>
+  
+  
 
-<nav id="pagenavi">
+
+    </article>
+  
+  <div class="pagination">
     
-        <a href="/blog/page/4/" class="prev">Prev</a>
+    <a href="archives">Blog Archives</a>
     
+    <a class="next" href="/blog/page/4/">Newer &rarr;</a>
     
-    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
-</nav>
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <ul id="recent_posts">
+      <li class="post">
+      <a href="http://lite.github.com" alt="Home"><img src="/images/Home.png"></a>
+      <a href="http://lite.github.com/archives/" alt="Archives"><img src="/images/Calendar.png"></a>
+      
+      <a href="mailto:litekok@gmail.com" alt="E-Mail"><img src="/images/Envelope.png"></a>
+      
+      <a href="http://lite.github.com/atom.xml" alt="subscribe feed"><img src="/images/rss.png"></a>
+      </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/21/lego-vision/">乐高教育</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/07/knowledge-building/">知识建构</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/29/piage/">皮亚杰点滴</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/21/pmset-hibernatemode/">关闭Mac深度睡眠</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/06/rebar-usage/">rebar工具</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Douban</h1>
+  <script type="text/javascript" src="http://www.douban.com/service/badge/litekok/?show=collection&amp;n=8&amp;columns=2" ></script>
+</section>
+
+
+<section>
+  <h1>Latest Weibo</h1>
+  <iframe width="80%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2283001861&verifier=08ec6ff2&dpc=1"></iframe>
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/lite">@lite</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'lite',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+  
+</aside>
 
     </div>
-    <footer id="footer">
-    <div style="display:inline">
-    Copyright &copy; 2014
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Lite -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
 
-    Lite
-. Powered by <a href="http://octopress.org">Octopress</a> | 
-    Theme <a href="http://github.com/panks/fabric">fabric</a> by <a href="http://panks.me">Pankaj Kumar</a>
-</div>
-
-
-    </footer>
-    <script src="/javascripts/fabric.js"></script>
-<script src="/javascripts/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-	$('.fancybox').fancybox();
-})(jQuery);
-</script> <!-- Delete or comment this line to disable Fancybox -->
-
+</footer>
+  
 
 <script type="text/javascript">
       var disqus_shortname = 'fssle';
@@ -205,14 +287,11 @@ git push heroku master
 
 
 
-<!-- end toload --> 
-</div>
-</div>
-<script src="/javascripts/jquery.ui.totop.js" type="text/javascript"></script>
-<script type="text/javascript">
-/*<![CDATA[*/
-;(function($){$().UItoTop({easingType:'easeOutCirc'});})(jQuery); 
-/*]]>*/
-</script><!-- remove it to remove the scroll to top button -->
+
+
+
+
+
+
 </body>
 </html>

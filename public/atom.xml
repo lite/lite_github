@@ -4,7 +4,7 @@
   <title><![CDATA[Lite]]></title>
   <link href="http://lite.github.com/atom.xml" rel="self"/>
   <link href="http://lite.github.com/"/>
-  <updated>2014-08-21T22:06:52+08:00</updated>
+  <updated>2014-08-21T23:25:19+08:00</updated>
   <id>http://lite.github.com/</id>
   <author>
     <name><![CDATA[Lite]]></name>
@@ -44,7 +44,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Knowledge Building]]></title>
+    <title type="html"><![CDATA[知识建构]]></title>
     <link href="http://lite.github.com/blog/2014/08/07/knowledge-building/"/>
     <updated>2014-08-07T15:45:00+08:00</updated>
     <id>http://lite.github.com/blog/2014/08/07/knowledge-building</id>
@@ -122,7 +122,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[pmset_hibernatemode]]></title>
+    <title type="html"><![CDATA[关闭Mac深度睡眠]]></title>
     <link href="http://lite.github.com/blog/2014/05/21/pmset-hibernatemode/"/>
     <updated>2014-05-21T19:08:00+08:00</updated>
     <id>http://lite.github.com/blog/2014/05/21/pmset-hibernatemode</id>
@@ -152,7 +152,7 @@ sudo rm /var/vm/sleepimage
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[rebar usage]]></title>
+    <title type="html"><![CDATA[rebar工具]]></title>
     <link href="http://lite.github.com/blog/2014/03/06/rebar-usage/"/>
     <updated>2014-03-06T18:01:00+08:00</updated>
     <id>http://lite.github.com/blog/2014/03/06/rebar-usage</id>
