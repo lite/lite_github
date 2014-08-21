@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "svnserve on SuSE"
+title: "SuSE上使用svnserve"
 date: 2012-11-02 21:10
 comments: true
-categories: [SuSE, svn]
+categories: [运维]
 ---
 
 Create the repos

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 技巧 | Lite]]></title>
+  <link href="http://lite.github.com/blog/categories/技巧/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2014-08-21T22:06:52+08:00</updated>
+  <id>http://lite.github.com/</id>
+  <author>
+    <name><![CDATA[Lite]]></name>
+    <email><![CDATA[litekok@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[pmset_hibernatemode]]></title>
+    <link href="http://lite.github.com/blog/2014/05/21/pmset-hibernatemode/"/>
+    <updated>2014-05-21T19:08:00+08:00</updated>
+    <id>http://lite.github.com/blog/2014/05/21/pmset-hibernatemode</id>
+    <content type="html"><![CDATA[<p>关闭深度睡眠，当mac没电时候，系统会自动进入深度休眠，把内存放到硬盘上相同大小的空间中，很少用到也占用硬盘空间。</p>
+
+<p>查看深度休眠模式，3表示有深度休眠</p>
+
+<pre>
+sudo pmset -g | grep hibernatemode
+</pre>
+
+
+<p>关闭深度休眠</p>
+
+<pre>
+sudo pmset -a hibernatemode 0
+</pre>
+
+
+<p>删除深度休眠创建的内存映像文件：</p>
+
+<pre>
+sudo rm /var/vm/sleepimage
+</pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[删除文件未释放空间]]></title>
+    <link href="http://lite.github.com/blog/2013/11/14/deleted-file/"/>
+    <updated>2013-11-14T11:14:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/11/14/deleted-file</id>
+    <content type="html"><![CDATA[<p>删除了文件，但磁盘没有释放。
+pid是30439，fd是1w。</p>
+
+<pre>
+lsof | grep deleted
+java      30439 root    1w      REG              202,1 3522641920     360788 /root/nohup.out (deleted)
+</pre>
+
+
+<p>清除该文件</p>
+
+<pre>
+echo "" > /proc/30439/fd/1
+</pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git使用技巧]]></title>
+    <link href="http://lite.github.com/blog/2013/10/28/rename-branch-and-resolve-conflict/"/>
+    <updated>2013-10-28T00:03:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/10/28/rename-branch-and-resolve-conflict</id>
+    <content type="html"><![CDATA[<ul>
+<li>重命名远程分支</li>
+</ul>
+
+
+<pre>
+git branch -m old_branch new_branch
+git push origin :old_branch
+git push origin new_branch
+</pre>
+
+
+<ul>
+<li>解决冲突</li>
+</ul>
+
+
+<pre>
+git checkout --ours .
+git checkout --theirs .
+</pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[下载JDK]]></title>
+    <link href="http://lite.github.com/blog/2013/09/29/wget-jdk-with-cookie/"/>
+    <updated>2013-09-29T10:54:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/09/29/wget-jdk-with-cookie</id>
+    <content type="html"><![CDATA[<p>"In order to download products from Oracle Technology Network you must agree to the OTN license terms"</p>
+
+<p>避免需证书下载的Cookie:</p>
+
+<pre>
+Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F
+</pre>
+
+
+<ul>
+<li>下载JDK7</li>
+</ul>
+
+
+<pre>
+wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F" http://download.oracle.com/otn-pub/java/jdk/7u25-b15/jdk-7u25-macosx-x64.dmg
+</pre>
+
+
+<ul>
+<li>下载JDK6</li>
+</ul>
+
+
+<pre>
+wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F" http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-i586-rpm.bin
+</pre>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SUSE上安装nvidia驱动]]></title>
+    <link href="http://lite.github.com/blog/2013/02/26/nvidia-and-opensuse-12-dot-2/"/>
+    <updated>2013-02-26T22:59:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/02/26/nvidia-and-opensuse-12-dot-2</id>
+    <content type="html"><![CDATA[<p>使用zypper安装包</p>
+
+<pre>
+zypper in kernel-devel 
+zypper in kernel-desktop-devel
+zypper in kernel-source
+zypper in gcc
+</pre>
+
+
+<p>更新 /etc/modprobe.d/50-blacklist.conf</p>
+
+<pre>
+#blacklist nvidiafb
+blacklist nouveau
+</pre>
+
+
+<p>安装 nvidia 驱动</p>
+
+<pre>   
+sudo sh ./NVIDIA.run
+</pre>
+
+]]></content>
+  </entry>
+  
+</feed>

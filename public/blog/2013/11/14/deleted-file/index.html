@@ -3,12 +3,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>deleted file - Lite</title>
+	<title>删除文件未释放空间 - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="You deleted the file, but disk space is not free.
-30439 is the pid and 1w is the fd. lsof | grep deleted
-java 30439 root 1w REG 202,1 3522641920 &hellip;">
+	<meta name="description" content="删除了文件，但磁盘没有释放。
+pid是30439，fd是1w。 lsof | grep deleted
+java 30439 root 1w REG 202,1 3522641920 360788 /root/nohup.out (deleted) 清除该文件 echo "" > /proc/ &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -98,9 +98,9 @@ java 30439 root 1w REG 202,1 3522641920 &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Deleted File</h2>
-	<div class="entry-content"><p>You deleted the file, but disk space is not free.
-30439 is the pid and 1w is the fd.</p>
+	<h2 class="title">删除文件未释放空间</h2>
+	<div class="entry-content"><p>删除了文件，但磁盘没有释放。
+pid是30439，fd是1w。</p>
 
 <pre>
 lsof | grep deleted
@@ -108,7 +108,7 @@ java      30439 root    1w      REG              202,1 3522641920     360788 /ro
 </pre>
 
 
-<p>Clear the file.</p>
+<p>清除该文件</p>
 
 <pre>
 echo "" > /proc/30439/fd/1

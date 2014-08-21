@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>chef_on_ec2 - Lite</title>
+	<title>EC2上使用Chef - Lite</title>
     <meta name="author" content="Lite">
     
 	<meta name="description" content="aws security groups 22 (SSH) 0.0.0.0/0 Delete
@@ -98,25 +98,30 @@ ssh -i fssle-ec2.pem ubuntu@www.fssle.com aws &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Chef_on_ec2</h2>
+	<h2 class="title">EC2上使用Chef</h2>
 	<div class="entry-content"><p><a href="http://console.aws.amazon.com/ec2/home?region=us-west-1&amp;#s=SecurityGroups">aws security groups</a></p>
 
-<pre><code>22 (SSH)  0.0.0.0/0 Delete
+<pre>
+22 (SSH)  0.0.0.0/0 Delete
 80 (HTTP) 0.0.0.0/0 Delete
 
 ssh-keygen -R www.fssle.com
 ssh -i fssle-ec2.pem ubuntu@www.fssle.com
-</code></pre>
+</pre>
+
 
 <p><a href="https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key">aws access key</a></p>
 
-<pre><code>export AWS_ACCESS_KEY_ID=""
+<pre>
+export AWS_ACCESS_KEY_ID=""
 export AWS_SECRET_ACCESS_KEY=""
-</code></pre>
+</pre>
+
 
 <p><a href="http://uec-images.ubuntu.com/server/releases/11.04/release/">ubuntu ec2 image</a></p>
 
-<pre><code>knife[:aws_access_key_id]     = "#{ENV['AWS_ACCESS_KEY_ID']}"
+<pre>
+knife[:aws_access_key_id]     = "#{ENV['AWS_ACCESS_KEY_ID']}"
 knife[:aws_secret_access_key] = "#{ENV['AWS_SECRET_ACCESS_KEY']}"
 knife[:identity_file]         = 'fssle-ec2.pem'
 knife[:aws_ssh_key_id]        = "fssle-ec2"
@@ -127,14 +132,17 @@ knife[:aws_image_id]          = 'ami-43580406'
 knife ec2 server list
 knife ec2 server delete i-296cd36e
 knife ec2 server create -I ami-43580406 -f t1.micro -x ubuntu -G default 
-</code></pre>
+</pre>
+
 
 <p><a href="https://community.opscode.com/users/username/user_key/new">opscode user key</a></p>
 
-<pre><code>username.pem 
+<pre>
+username.pem 
 knife.rb 
 org-validator.pem
-</code></pre>
+</pre>
+
 
 <ul>
 <li>chef</li>
@@ -146,34 +154,40 @@ org-validator.pem
 </ul>
 </blockquote>
 
-<pre><code>knife role list
-export EDITOR=vim &amp;&amp; knife role create base
+<pre>
+knife role list
+export EDITOR=vim && knife role create base
 knife role edit base
 knife role show base
 knife role from file roles/base.rb
-</code></pre>
+</pre>
+
 
 <blockquote><ul>
 <li>cookbook</li>
 </ul>
 </blockquote>
 
-<pre><code>knife cookbook site download apt
+<pre>
+knife cookbook site download apt
 knife cookbook site download aws
 knife cookbook site download apache2
 
 knife cookbook create fssle
 knife cookbook list
 knife cookbook upload aws apt apache2
-</code></pre>
+</pre>
+
 
 <blockquote><ul>
 <li>ec2</li>
 </ul>
 </blockquote>
 
-<pre><code>knife ec2 server create "role[fssle]" -I ami-43580406 -f t1.micro -G default -region -S knife -i ./fssle-ec2.pem --ssh-user ubuntu 
-</code></pre>
+<pre>
+knife ec2 server create "role[fssle]" -I ami-43580406 -f t1.micro -G default -region -S knife -i ./fssle-ec2.pem --ssh-user ubuntu 
+</pre>
+
 </div>
 
 <div class="meta">

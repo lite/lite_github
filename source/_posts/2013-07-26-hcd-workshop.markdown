@@ -3,7 +3,7 @@ layout: post
 title: "HCD社会创新工作坊"
 date: 2013-07-26 00:54
 comments: true
-categories: [HCD]
+categories: [设计]
 ---
 
 [Human-Centered Design for Social Innovation](http://plusacumen.org/human-centered-design-for-social-innovation-course-materials/)

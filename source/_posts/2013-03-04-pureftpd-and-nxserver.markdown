@@ -1,47 +1,59 @@
 ---
 layout: post
-title: "pureftpd and nxserver"
+title: "pureftpd 和 nxserver"
 date: 2013-03-04 18:57
 comments: true
-categories: 
+categories: [运维]
 ---
 
-## pureftpd
+## 配置pureftpd
 
-	./configure --prefix=/usr/local/pureftpd --with-puredb 
-	make && make install
-	mkdir /usr/local/pureftpd/etc
-	groupadd ftpgroup
-	useradd -g ftpgroup -d /dev/null -s /etc ftpuser
-	cp configuration-file/pure-ftpd.conf /usr/loca/pureftpd/etc/
-	cp configuration-file/pure-config.pl /usr/loca/pureftpd/sbin/
-	chmod +x /usr/loca/pureftpd/sbin/pure-config.pl
-	/usr/local/pureftpd/bin/pure-pw useradd test -u ftpuser -d /data/ftp/
-	/usr/local/pureftpd/bin/pure-pw mkdb
+<pre>
+./configure --prefix=/usr/local/pureftpd --with-puredb 
+make && make install
+mkdir /usr/local/pureftpd/etc
+groupadd ftpgroup
+useradd -g ftpgroup -d /dev/null -s /etc ftpuser
+cp configuration-file/pure-ftpd.conf /usr/loca/pureftpd/etc/
+cp configuration-file/pure-config.pl /usr/loca/pureftpd/sbin/
+chmod +x /usr/loca/pureftpd/sbin/pure-config.pl
+/usr/local/pureftpd/bin/pure-pw useradd test -u ftpuser -d /data/ftp/
+/usr/local/pureftpd/bin/pure-pw mkdb
+</pre>
 
-Modify PureDB in "/usr/loca/pureftpd/etc/pure-ftpd.conf"
+修改"/usr/loca/pureftpd/etc/pure-ftpd.conf"的 PureDB 
 
-	PureDB                    /usr/local/pureftpd/etc/pureftpd.pdb
-	PassivePortRange          30000 50000
+<pre>
+PureDB                    /usr/local/pureftpd/etc/pureftpd.pdb
+PassivePortRange          30000 50000
+</pre>
 
-Enable port in "/etc/sysconfig/SuSEfirewall2"
+在"/etc/sysconfig/SuSEfirewall2"中启用端口
 
-    FW_SERVICES_EXT_TCP="21 30000:50000"
+<pre>
+FW_SERVICES_EXT_TCP="21 30000:50000"
+</pre>
 
-Reload firewall config
+重新加载防火墙配置
 
-    SuSEfirewall2
+<pre>
+SuSEfirewall2
+</pre>
 
-Startalone pureftpd
+启动pureftpd
 
-	/usr/loca/pureftpd/sbin/pure-config.pl /usr/loca/pureftpd/etc/pure-ftpd.conf
+<pre>
+/usr/loca/pureftpd/sbin/pure-config.pl /usr/loca/pureftpd/etc/pure-ftpd.conf
+</pre>
 
-## nxserver
+## 配置nxserver
 
-Download [nxserver](http://www.nomachine.com/download.php)
+下载 [nxserver](http://www.nomachine.com/download.php)
 
-Add user
+添加用户
 
-	/usr/NX/bin/nxserver --useradd nxuser
+<pre>
+/usr/NX/bin/nxserver --useradd nxuser
+</pre>
 
-nxclient login as a normal user "nxuser"
+nxclient 用户登录： "nxuser"

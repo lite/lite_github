@@ -1,22 +1,22 @@
 ---
 layout: post
-title: "git tools"
+title: "Git技巧"
 date: 2012-05-09 06:28
 comments: true
-categories: [git] 
+categories: [技巧] 
 ---
 
-git rm deleted files
+删除文件后在git上删除
 
     git status -s | grep "^ D" | awk '{print $2}' | xargs git rm
 
-git tools
+配套工具
 
 + [gitflow](http://github.com/nvie/gitflow)
 + [topgit](http://repo.or.cz/w/topgit.git)
 + [tig](http://github.com/jonas/tig)
 
-git docs
+文档手册
 
 + [github pull-requests](http://help.github.com/send-pull-requests/)
 + [a successful git branching model](http://nvie.com/posts/a-successful-git-branching-model/)

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "programmers-quotes"
+title: "程序员短语"
 date: 2012-10-02 23:30
 comments: true
-categories: [Quotes]
+categories: [故事]
 ---
 
 + Life’s too short to build something nobody wants – Ash Maurya, Running Lean

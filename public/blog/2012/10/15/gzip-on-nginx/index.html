@@ -3,10 +3,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>gzip on nginx - Lite</title>
+	<title>nginx支持gzip - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="add gzip support in conf/nginx.conf gzip on;
+	<meta name="description" content="修改 conf/nginx.conf，添加 gzip 支持 gzip on;
 gzip_comp_level 5;
 gzip_min_length 1024;
 gzip_types text/plain text/css application/json application/x- &hellip;">
@@ -99,26 +99,32 @@ gzip_types text/plain text/css application/json application/x- &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Gzip on Nginx</h2>
-	<div class="entry-content"><p>add gzip support in conf/nginx.conf</p>
+	<h2 class="title">Nginx支持gzip</h2>
+	<div class="entry-content"><p>修改 conf/nginx.conf，添加 gzip 支持</p>
 
-<pre><code>gzip            on;
+<pre>
+gzip            on;
 gzip_comp_level 5;
 gzip_min_length 1024;
 gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/jpeg image/gif image/png;
 gzip_proxied    expired no-cache no-store private auth;
 gzip_disable    "MSIE [1-6]\.";
-</code></pre>
+</pre>
 
-<p>reload nginx</p>
 
-<pre><code>sbin/nginx -s reload
-</code></pre>
+<p>重新加载 nginx</p>
 
-<p>test by curl</p>
+<pre>
+sbin/nginx -s reload
+</pre>
 
-<pre><code>curl -I --compressed http://fssle.com/8/config/txt/task.xml
-</code></pre>
+
+<p>测试</p>
+
+<pre>
+curl -I --compressed http://fssle.com/8/config/txt/task.xml
+</pre>
+
 </div>
 
 <div class="meta">

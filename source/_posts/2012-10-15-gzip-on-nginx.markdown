@@ -1,24 +1,30 @@
 ---
 layout: post
-title: "gzip on nginx"
+title: "nginx支持gzip"
 date: 2012-10-15 22:44
 comments: true
-categories: [DevOps]
+categories: [运维]
 ---
 
-add gzip support in conf/nginx.conf
+修改 conf/nginx.conf，添加 gzip 支持
 
-    gzip            on;
-    gzip_comp_level 5;
-    gzip_min_length 1024;
-    gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/jpeg image/gif image/png;
-    gzip_proxied    expired no-cache no-store private auth;
-    gzip_disable    "MSIE [1-6]\.";
+<pre>
+gzip            on;
+gzip_comp_level 5;
+gzip_min_length 1024;
+gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/jpeg image/gif image/png;
+gzip_proxied    expired no-cache no-store private auth;
+gzip_disable    "MSIE [1-6]\.";
+</pre>
 
-reload nginx
+重新加载 nginx
 
-    sbin/nginx -s reload
+<pre>
+sbin/nginx -s reload
+</pre>
 
-test by curl
+测试
 
-    curl -I --compressed http://fssle.com/8/config/txt/task.xml
+<pre>
+curl -I --compressed http://fssle.com/8/config/txt/task.xml
+</pre>

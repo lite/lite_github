@@ -1,18 +1,18 @@
 ---
 layout: post
-title: "dell edge networking"
+title: "DELL edge 网络配置"
 date: 2013-12-04 12:05
 comments: true
-categories: [ops]
+categories: [运维]
 ---
 
-Modify /etc/sysconfig/network-scripts/ifcfg-em1
+修改 /etc/sysconfig/network-scripts/ifcfg-em1
 
 <pre>
 ONBOOT=yes  #no
 </pre>
 
-Then restart network service
+重启服务
 
 <pre>
 service network restart

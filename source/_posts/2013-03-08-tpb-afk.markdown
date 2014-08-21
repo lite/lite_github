@@ -3,7 +3,7 @@ layout: post
 title: "TPB AFK"
 date: 2013-03-08 02:12
 comments: true
-categories: 
+categories: [故事]
 ---
 
 一部记录海盗湾的纪录片。有3125个用户付费下载，捐赠达到了45164美元，不包括DVD的收入。[“TPB APK”](http://watch.tpbafk.tv/)

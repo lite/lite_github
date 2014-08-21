@@ -6,7 +6,8 @@
 	<title>Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Published on: Dec 6th, 2012 Tags: ec2, git Run your own Git server with Gitolite and Amazon EC2 Create user useradd git -g wheel --create-home -- &hellip;">
+	<meta name="description" content="Published on: Jan 29th, 2013 Tags: 运维 安装thin 到 /etc/init.d/thin rvm wrapper ruby-1.9.2-p125 bootup thin
+sudo ~/.rvm/bin/bootup_thin install 编辑 /etc/ &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -101,9 +102,194 @@
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service/">
+		
+			Rvm下使用thin</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-29T22:04:00+08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/运维/'>运维</a>
+
+
+</div>
+    </div>
+		<p>安装thin 到 /etc/init.d/thin</p>
+
+<pre>
+rvm wrapper ruby-1.9.2-p125 bootup thin
+sudo  ~/.rvm/bin/bootup_thin install
+</pre>
+
+
+<p>编辑 /etc/init.d/thin 的 DAEMON</p>
+
+<pre>
+DAEMON=/usr/local/bin/bootup_thin
+</pre>
+
+
+<p>在 runlevel 3 和 5 启动 thin</p>
+
+<pre>
+sudo /sbin/chkconfig -s thin 35
+</pre>
+
+
+<p>编辑 /etc/thin/thin.yml</p>
+
+<pre>
+pid: tmp/pids/thin.pid
+wait: 30
+port: 8000
+timeout: 30
+log: log/thin.log
+max_conns: 1024
+require: []
+environment: production
+max_persistent_conns: 512
+daemonize: true
+servers: 3
+socket: /tmp/thin.sock
+chdir: /home/dli/dth/redmine
+</pre>
+
+
+<p>启动 thin 服务</p>
+
+<pre>   
+sudo /sbin/service thin start
+</pre>
+
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2013/01/29/thin-with-rvm-as-a-system-service//blog/page/3/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/25/qqwry-and-nginx/">
+		
+			Nginx下使用QQwry</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-25T14:50:00+08:00" pubdate data-updated="true">Dec 25<span>th</span>, 2012</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/运维/'>运维</a>
+
+
+</div>
+    </div>
+		<p>下载nginx模块</p>
+
+<pre>
+git clone git://github.com/anjuke/ngx_http_qqwry_module.git
+git clone git://github.com/agentzh/echo-nginx-module.git
+</pre>
+
+
+<p>编译 nginx</p>
+
+<pre>
+./configure --with-debug --add-module=./ngx_http_qqwry_module/ --add-module=./echo-nginx-module/
+make
+</pre>
+
+
+<p>下载 <a href="http://update.cz88.net/soft/qqwry.rar">qqwry</a></p>
+
+<p>转换 qqwry.dat.gbk to qqwry.dat(utf8), 复制到文件夹 nginx/conf.</p>
+
+<pre>
+python qqwry_iconv.py
+</pre>
+
+
+<p>编辑 nginx.conf</p>
+
+<pre>
+http {
+    qqwry $remote_addr $qqwry_loc /conf/qqwry.dat;
+
+    server {
+        charset utf-8;
+
+        location /hello {
+            echo $remote_addr;
+            echo $qqwry_loc; 
+            if ($qqwry_loc ~ "浙江省北京市四川省成都市"){
+                echo "hello";
+            }
+        }
+    }
+}
+</pre>
+
+
+<p>启动 nginx</p>
+
+<pre>
+objs/nginx -c conf/nginx.conf
+</pre>
+
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+		<span class="comments"><a href="/blog/2012/12/25/qqwry-and-nginx//blog/page/3/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/12/06/gitolite-and-ec2/">
 		
-			Run Your Own Git Server With Gitolite and Amazon EC2</a>
+			Amazon EC2上安装Git服务器</a>
 	</h2>
     <div class="entry-content">
     <div class="meta">
@@ -123,23 +309,31 @@
       <div class="tags">Tags: 
 
 
-	<a class='category' href='/blog/categories/ec2/'>ec2</a>, <a class='category' href='/blog/categories/git/'>git</a>
+	<a class='category' href='/blog/categories/运维/'>运维</a>
 
 
 </div>
     </div>
 		<p><a href="http://edvanbeinum.com/run-your-own-git-server-with-gitolite-and-amazon-ec2">Run your own Git server with Gitolite and Amazon EC2</a></p>
 
-<p>Create user</p>
+<p>创建用户</p>
 
-<pre><code>useradd git -g wheel --create-home --shell /usr/bin/git-shell
-</code></pre>
+<pre>
+useradd git -g wheel --create-home --shell /usr/bin/git-shell
+</pre>
 
-<p>AllowUsers git in sshd_config</p>
 
-<p>Install gitolite</p>
+<p>修改 sshd_config</p>
 
-<pre><code>sudo yum -y install perl-CPAN perl-Time-HiRes
+<pre>
+AllowUsers git
+</pre>
+
+
+<p>安装 gitolite</p>
+
+<pre>
+sudo yum -y install perl-CPAN perl-Time-HiRes
 
 perl -MCPAN -e shell
     o conf urllist http://cpan.yahoo.com/
@@ -151,15 +345,18 @@ git clone git://github.com/sitaramc/gitolite
 mkdir -p $HOME/bin
 gitolite/install -to $HOME/bin
 bin/gitolite setup -pk YourName.pub
-</code></pre>
+</pre>
 
-<p>Testing git by ssh</p>
 
-<pre><code>ssh -i dli.pem ec2-user@aws
+<p>使用ssh测试git</p>
+
+<pre>
+ssh -i dli.pem ec2-user@aws
 ssh -Nqf -D 7070 -i dli.pem ec2-user@aws
 git clone aws:gitolite-admin.git
 git clone aws:testing.git
-</code></pre>
+</pre>
+
 
 		
 		
@@ -178,7 +375,7 @@ git clone aws:testing.git
 		
 		<a href="/blog/2012/11/15/captcha/">
 		
-			Captcha</a>
+			验证码识别</a>
 	</h2>
     <div class="entry-content">
     <div class="meta">
@@ -198,7 +395,7 @@ git clone aws:testing.git
       <div class="tags">Tags: 
 
 
-	<a class='category' href='/blog/categories/captcha/'>captcha</a>, <a class='category' href='/blog/categories/ocr/'>ocr</a>, <a class='category' href='/blog/categories/opencv/'>opencv</a>
+	<a class='category' href='/blog/categories/技巧/'>技巧</a>
 
 
 </div>
@@ -236,7 +433,7 @@ git clone aws:testing.git
 		
 		<a href="/blog/2012/11/02/svnserve-on-suse/">
 		
-			Svnserve on SuSE</a>
+			SuSE上使用svnserve</a>
 	</h2>
     <div class="entry-content">
     <div class="meta">
@@ -256,7 +453,7 @@ git clone aws:testing.git
       <div class="tags">Tags: 
 
 
-	<a class='category' href='/blog/categories/suse/'>SuSE</a>, <a class='category' href='/blog/categories/svn/'>svn</a>
+	<a class='category' href='/blog/categories/运维/'>运维</a>
 
 
 </div>
@@ -327,7 +524,7 @@ svn commit -m "rollback to r4"
 		
 		<a href="/blog/2012/10/15/gzip-on-nginx/">
 		
-			Gzip on Nginx</a>
+			Nginx支持gzip</a>
 	</h2>
     <div class="entry-content">
     <div class="meta">
@@ -347,30 +544,36 @@ svn commit -m "rollback to r4"
       <div class="tags">Tags: 
 
 
-	<a class='category' href='/blog/categories/devops/'>DevOps</a>
+	<a class='category' href='/blog/categories/运维/'>运维</a>
 
 
 </div>
     </div>
-		<p>add gzip support in conf/nginx.conf</p>
+		<p>修改 conf/nginx.conf，添加 gzip 支持</p>
 
-<pre><code>gzip            on;
+<pre>
+gzip            on;
 gzip_comp_level 5;
 gzip_min_length 1024;
 gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/jpeg image/gif image/png;
 gzip_proxied    expired no-cache no-store private auth;
 gzip_disable    "MSIE [1-6]\.";
-</code></pre>
+</pre>
 
-<p>reload nginx</p>
 
-<pre><code>sbin/nginx -s reload
-</code></pre>
+<p>重新加载 nginx</p>
 
-<p>test by curl</p>
+<pre>
+sbin/nginx -s reload
+</pre>
 
-<pre><code>curl -I --compressed http://fssle.com/8/config/txt/task.xml
-</code></pre>
+
+<p>测试</p>
+
+<pre>
+curl -I --compressed http://fssle.com/8/config/txt/task.xml
+</pre>
+
 
 		
 		
@@ -389,7 +592,7 @@ gzip_disable    "MSIE [1-6]\.";
 		
 		<a href="/blog/2012/10/02/programmers-quotes/">
 		
-			Programmers-quotes</a>
+			程序员短语</a>
 	</h2>
     <div class="entry-content">
     <div class="meta">
@@ -409,7 +612,7 @@ gzip_disable    "MSIE [1-6]\.";
       <div class="tags">Tags: 
 
 
-	<a class='category' href='/blog/categories/quotes/'>Quotes</a>
+	<a class='category' href='/blog/categories/故事/'>故事</a>
 
 
 </div>
@@ -466,7 +669,7 @@ gzip_disable    "MSIE [1-6]\.";
 		
 		<a href="/blog/2012/08/28/expect-split-and-tcpdump/">
 		
-			Expect-split-and-tcpdump</a>
+			Expect，split和tcpdump</a>
 	</h2>
     <div class="entry-content">
     <div class="meta">
@@ -486,45 +689,53 @@ gzip_disable    "MSIE [1-6]\.";
       <div class="tags">Tags: 
 
 
-	<a class='category' href='/blog/categories/shell/'>shell</a>
+	<a class='category' href='/blog/categories/技巧/'>技巧</a>
 
 
 </div>
     </div>
 		<h1><a href="http://danielmiessler.com/study/tcpdump/">tcpdump</a></h1>
 
-<pre><code>tcpdump -x -vv  -i any "tcp port 8001"
+<pre>  
+tcpdump -x -vv  -i any "tcp port 8001"
 tcpdump -X -vv -s 4096  -w portrange.cap 'portrange 8001-8005'
 tcpdump -X -vv -s 4096  -w ip.cap -i any 'src 8.8.8.8 or dst 6.6.6.6'
-tcpdump -r host.cap -XX -s 4096 &gt; host.cap.txt  
-</code></pre>
+tcpdump -r host.cap -XX -s 4096 > host.cap.txt  
+</pre>
+
 
 <h1>expect</h1>
 
-<p>ssh_config:</p>
+<p>ssh_config内容</p>
 
-<pre><code>host test
+<pre>
+host test
     user app100642705
     hostname 10.1.2.15 
     port 3322
     identityfile pkey
-</code></pre>
+</pre>
 
-<p>myshell.sh:</p>
 
-<pre><code>#!/usr/bin/expect -f
+<p>myshell.sh内容</p>
+
+<pre>
+#!/usr/bin/expect -f
 spawn ssh -F ssh_config test
 expect "*(yes/no)?" {
     send "yes\r"
 }
 interact #expect eof
-</code></pre>
+</pre>
+
 
 <h1>split</h1>
 
-<pre><code>tar -czvf - test | split -b 50m - test.tar.gz
-cat test.tar.gz.a* &gt; - | tar -zxvf - 
-</code></pre>
+<pre>
+tar -czvf - test | split -b 50m - test.tar.gz
+cat test.tar.gz.a* > - | tar -zxvf - 
+</pre>
+
 
 		
 		
@@ -543,7 +754,7 @@ cat test.tar.gz.a* &gt; - | tar -zxvf -
 		
 		<a href="/blog/2012/08/08/brew-tap/">
 		
-			Brew Tap</a>
+			Brew的tap命令</a>
 	</h2>
     <div class="entry-content">
     <div class="meta">
@@ -563,26 +774,31 @@ cat test.tar.gz.a* &gt; - | tar -zxvf -
       <div class="tags">Tags: 
 
 
-	<a class='category' href='/blog/categories/mac/'>Mac</a>, <a class='category' href='/blog/categories/homebrew/'>homebrew</a>
+	<a class='category' href='/blog/categories/技巧/'>技巧</a>
 
 
 </div>
     </div>
 		<p><a href="https://github.com/mxcl/homebrew/wiki/Interesting-Taps-%26-Branches">Interesting Taps &amp; Branches</a></p>
 
-<pre><code>brew tap larsimmisch/avr
+<pre>
+brew tap larsimmisch/avr
 brew install avr-libc
-</code></pre>
+</pre>
 
-<p>install proxychains(or tsocks)</p>
 
-<pre><code>brew tap lite/alt
+<p>安装 proxychains(or tsocks)</p>
+
+<pre>
+brew tap lite/alt
 brew install proxychains
-</code></pre>
+</pre>
 
-<p>curl lcms when installing imagemagick</p>
 
-<pre><code>brew edit lcms
+<p>安装 imagemagick</p>
+
+<pre>
+brew edit lcms
 url 'http://www.littlecms.com/1/lcms-1.19.tar.gz'
 
 brew edit imagemagick
@@ -590,7 +806,10 @@ url 'http://studio.imagemagick.net/download/ImageMagick-6.7.8-8.tar.bz2'
 
 git push git@github.com:lite/homebrew.git
 brew install imagemagick
-</code></pre>
+</pre>
+
+
+
 
 		
 		
@@ -629,7 +848,7 @@ brew install imagemagick
       <div class="tags">Tags: 
 
 
-	<a class='category' href='/blog/categories/fun/'>fun</a>
+	<a class='category' href='/blog/categories/故事/'>故事</a>
 
 
 </div>
@@ -659,165 +878,6 @@ wash away. You and your Emacs Live.</p>
 <div class="meta">
 	
 		<span class="comments"><a href="/blog/2012/07/04/emacs-live//blog/page/3/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/06/24/code-monkey/">
-		
-			Code Monkey</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-24T07:15:00+08:00" pubdate data-updated="true">Jun 24<span>th</span>, 2012</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/fun/'>fun</a>
-
-
-</div>
-    </div>
-		<p><a href="http://v.youku.com/v_show/id_XMjk4OTI3NDc2.html">Code Monkey AMV</a></p>
-
-<p>Lyrics:</p>
-
-<pre><code>Code Monkey get up get coffee. Code Monkey go to job.
-Code monkey have boring meeting, boring manager Rob.
-Rob say Code Monkey very diligent. But his output stink.
-His code not functional or elegant. What do Code Monkey think?
-Code Monkey think maybe manager wanna write goddamn login page himself.
-Code Monkey not say it out loud.
-Code Monkey not crazy just proud.
-
-Chorus
-
-Code Monkey like Fritos.
-Code Monkey like Tab and Mountain Dew.
-Code Monkey very simple man
-Big warm fuzzy secret heart
-Code Monkey like you.
-Code Monkey like you.
-
-Code Monkey hang around at front desk
-Tell you sweater look nice
-Code Monkey offer buy you soda
-Bring you cup bring you ice
-You say no thank you for the soda 
-cause soda make you fat
-Anyway you busy with the telephone
-no time for chat.
-
-Code Monkey have long walk back to cubicle
-He sit down pretend to work.
-Code Monkey not thinking so straight.
-Code Monkey not feeling so great.
-
-Chorus
-
-Code Monkey like you lots.
-Code Monkey have every reason
-To get out this place.
-Code Monkey just keep on working
-See your soft pretty face
-Much rather wake up eat a coffee cake
-Take bath, take nap
-This job fulfilling in creative way
-Such a load of crap.
-Code Monkey think someday he have everything even pretty girl like you.
-Code Monkey just waiting for now.
-Code Monkey say someday, somehow.
-
-Chorus
-</code></pre>
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/06/24/code-monkey//blog/page/3/index.html#disqus_thread">Comments</a></span>
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/05/09/git-tools/">
-		
-			Git Tools</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-09T06:28:00+08:00" pubdate data-updated="true">May 9<span>th</span>, 2012</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/git/'>git</a>
-
-
-</div>
-    </div>
-		<p>git rm deleted files</p>
-
-<pre><code>git status -s | grep "^ D" | awk '{print $2}' | xargs git rm
-</code></pre>
-
-<p>git tools</p>
-
-<ul>
-<li><a href="http://github.com/nvie/gitflow">gitflow</a></li>
-<li><a href="http://repo.or.cz/w/topgit.git">topgit</a></li>
-<li><a href="http://github.com/jonas/tig">tig</a></li>
-</ul>
-
-
-<p>git docs</p>
-
-<ul>
-<li><a href="http://help.github.com/send-pull-requests/">github pull-requests</a></li>
-<li><a href="http://nvie.com/posts/a-successful-git-branching-model/">a successful git branching model</a></li>
-</ul>
-
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/05/09/git-tools//blog/page/3/index.html#disqus_thread">Comments</a></span>
 	
 </div>
 </article>

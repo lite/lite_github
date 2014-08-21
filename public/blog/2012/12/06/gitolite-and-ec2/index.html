@@ -3,10 +3,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Run your own Git server with Gitolite and Amazon EC2 - Lite</title>
+	<title>Amazon EC2上安装Git服务器 - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Run your own Git server with Gitolite and Amazon EC2 Create user useradd git -g wheel --create-home --shell /usr/bin/git-shell AllowUsers git in &hellip;">
+	<meta name="description" content="Run your own Git server with Gitolite and Amazon EC2 创建用户 useradd git -g wheel --create-home --shell /usr/bin/git-shell 修改 sshd_config AllowUsers git &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -96,19 +96,27 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Run Your Own Git Server With Gitolite and Amazon EC2</h2>
+	<h2 class="title">Amazon EC2上安装Git服务器</h2>
 	<div class="entry-content"><p><a href="http://edvanbeinum.com/run-your-own-git-server-with-gitolite-and-amazon-ec2">Run your own Git server with Gitolite and Amazon EC2</a></p>
 
-<p>Create user</p>
+<p>创建用户</p>
 
-<pre><code>useradd git -g wheel --create-home --shell /usr/bin/git-shell
-</code></pre>
+<pre>
+useradd git -g wheel --create-home --shell /usr/bin/git-shell
+</pre>
 
-<p>AllowUsers git in sshd_config</p>
 
-<p>Install gitolite</p>
+<p>修改 sshd_config</p>
 
-<pre><code>sudo yum -y install perl-CPAN perl-Time-HiRes
+<pre>
+AllowUsers git
+</pre>
+
+
+<p>安装 gitolite</p>
+
+<pre>
+sudo yum -y install perl-CPAN perl-Time-HiRes
 
 perl -MCPAN -e shell
     o conf urllist http://cpan.yahoo.com/
@@ -120,15 +128,18 @@ git clone git://github.com/sitaramc/gitolite
 mkdir -p $HOME/bin
 gitolite/install -to $HOME/bin
 bin/gitolite setup -pk YourName.pub
-</code></pre>
+</pre>
 
-<p>Testing git by ssh</p>
 
-<pre><code>ssh -i dli.pem ec2-user@aws
+<p>使用ssh测试git</p>
+
+<pre>
+ssh -i dli.pem ec2-user@aws
 ssh -Nqf -D 7070 -i dli.pem ec2-user@aws
 git clone aws:gitolite-admin.git
 git clone aws:testing.git
-</code></pre>
+</pre>
+
 </div>
 
 <div class="meta">

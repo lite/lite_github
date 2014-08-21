@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 运维 | Lite]]></title>
+  <link href="http://lite.github.com/blog/categories/运维/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2014-08-21T22:06:52+08:00</updated>
+  <id>http://lite.github.com/</id>
+  <author>
+    <name><![CDATA[Lite]]></name>
+    <email><![CDATA[litekok@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[DELL edge 网络配置]]></title>
+    <link href="http://lite.github.com/blog/2013/12/04/dell-edge-networking/"/>
+    <updated>2013-12-04T12:05:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/12/04/dell-edge-networking</id>
+    <content type="html"><![CDATA[<p>修改 /etc/sysconfig/network-scripts/ifcfg-em1</p>
+
+<pre>
+ONBOOT=yes  #no
+</pre>
+
+
+<p>重启服务</p>
+
+<pre>
+service network restart
+</pre>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jenkins 和 Gradle]]></title>
+    <link href="http://lite.github.com/blog/2013/10/09/jenkins-and-gradle/"/>
+    <updated>2013-10-09T01:08:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/10/09/jenkins-and-gradle</id>
+    <content type="html"><![CDATA[<p>安装 jenkins</p>
+
+<pre>
+sudo zypper addrepo http://pkg.jenkins-ci.org/opensuse/ jenkins
+sudo zypper install jenkins
+</pre>
+
+
+<p>"Manage Jenkins", "Manage Plugins"</p>
+
+<p>"Advanced", "Update Site",</p>
+
+<p>Url 是 http://mirror.xmission.com/jenkins/updates/update-center.json</p>
+
+<p>安装 "Gradle Plugin",  "Git Plugin", "Post build task",</p>
+
+<p>安装 gradle 1.8 /var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/gradle-1.8</p>
+
+<p>"New job"</p>
+
+<p>"Source Code Management",</p>
+
+<p>"git repo" 是 git@host:test.git,</p>
+
+<p>"Branches to build" 是 origin/develop.</p>
+
+<p>"Build", "Invoke Gradle script", "Task" 是 build 和 deploy</p>
+
+<pre>
+// /var/lib/jenkins/jobs/test/workspace/build.gradle
+sourceCompatibility = 1.6
+version = 1.0
+
+allprojects {
+    apply plugin: 'idea'
+}
+
+subprojects {
+    apply plugin: 'java'
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile(
+            'com.google.guava:guava:13.0.1',
+            'log4j:log4j:1.2.17',
+            // fileTree(dir: "${rootProject.projectDir}/lib", include: '*.jar')
+        )
+        testCompile(
+            'junit:junit:4.10',
+            'org.mockito:mockito-all:1.9.0',
+        )
+    }
+}
+
+project(':Server') {
+    jar {
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(
+it) } }
+        manifest { attributes 'Main-Class': 'main.java.StartServer' }
+    }
+    dependencies {
+        compile(
+            project(':ServerUtil'),
+            files(
+                '../Lib/jdom.jar',
+            )
+
+        )
+    }
+}
+
+def jarProjects() {
+    subprojects.findAll { project -> project.name != 'ServerUtil'}
+}
+
+task deploy(description: 'Copies the artifacts') {
+    ext {
+        distDir = file("dist")
+    }
+    doLast {
+     jarProjects().each { project ->
+            def jarDist = project.file("${distDir}/${project.name}")
+            def confDist = project.file("${distDir}/${project.name}/config")
+            def confDir = project.file("config")
+            def jarDir = project.file("${project.buildDir}/libs")
+            copy {
+                from jarDir
+                into jarDist
+                include "*.jar"
+            }
+            copy{
+                from confDir
+                into confDist
+            }
+        }
+    }
+}
+</pre>
+
+
+<p>Post-build Actions</p>
+
+<pre>
+/bin/bash start.sh
+</pre>
+
+
+
+
+<pre>
+# //var/lib/jenkins/jobs/test/workspace/start.sh
+kill -9 `lsof -t -i :8081`
+nohup java -jar Server.jar &
+</pre>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[配置阿里云服务器]]></title>
+    <link href="http://lite.github.com/blog/2013/04/25/nodejs-on-aliyun/"/>
+    <updated>2013-04-25T13:54:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/04/25/nodejs-on-aliyun</id>
+    <content type="html"><![CDATA[<p>加载数据盘</p>
+
+<pre>
+fdisk /dev/xvdb
+mkfs.ext3 /dev/xvdb1
+echo '/dev/xvdb1  /mnt ext3    defaults    0  0' >> /etc/fstab
+mount -a
+</pre>
+
+
+<p>使用yum安装所需包</p>
+
+<pre>
+sed -i "s/exclude=kernel*/#exclude=kernel*/g" /etc/yum.conf
+yum update
+yum install git gcc-c++ openssl-devel make
+</pre>
+
+
+<p>安装nodejs</p>
+
+<pre>
+wget -N http://nodejs.org/dist/node-latest.tar.gz
+tar xzvf node-latest.tar.gz && cd `ls -rd node-v*`
+./configure
+make install
+</pre>
+
+
+<p>使用npm安装coffeescript和forever</p>
+
+<pre>
+npm install coffeescript
+npm install forever
+forever start -w app.js
+</pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[pureftpd 和 nxserver]]></title>
+    <link href="http://lite.github.com/blog/2013/03/04/pureftpd-and-nxserver/"/>
+    <updated>2013-03-04T18:57:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/03/04/pureftpd-and-nxserver</id>
+    <content type="html"><![CDATA[<h2>配置pureftpd</h2>
+
+<pre>
+./configure --prefix=/usr/local/pureftpd --with-puredb 
+make && make install
+mkdir /usr/local/pureftpd/etc
+groupadd ftpgroup
+useradd -g ftpgroup -d /dev/null -s /etc ftpuser
+cp configuration-file/pure-ftpd.conf /usr/loca/pureftpd/etc/
+cp configuration-file/pure-config.pl /usr/loca/pureftpd/sbin/
+chmod +x /usr/loca/pureftpd/sbin/pure-config.pl
+/usr/local/pureftpd/bin/pure-pw useradd test -u ftpuser -d /data/ftp/
+/usr/local/pureftpd/bin/pure-pw mkdb
+</pre>
+
+
+<p>修改"/usr/loca/pureftpd/etc/pure-ftpd.conf"的 PureDB</p>
+
+<pre>
+PureDB                    /usr/local/pureftpd/etc/pureftpd.pdb
+PassivePortRange          30000 50000
+</pre>
+
+
+<p>在"/etc/sysconfig/SuSEfirewall2"中启用端口</p>
+
+<pre>
+FW_SERVICES_EXT_TCP="21 30000:50000"
+</pre>
+
+
+<p>重新加载防火墙配置</p>
+
+<pre>
+SuSEfirewall2
+</pre>
+
+
+<p>启动pureftpd</p>
+
+<pre>
+/usr/loca/pureftpd/sbin/pure-config.pl /usr/loca/pureftpd/etc/pure-ftpd.conf
+</pre>
+
+
+<h2>配置nxserver</h2>
+
+<p>下载 <a href="http://www.nomachine.com/download.php">nxserver</a></p>
+
+<p>添加用户</p>
+
+<pre>
+/usr/NX/bin/nxserver --useradd nxuser
+</pre>
+
+
+<p>nxclient 用户登录： "nxuser"</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Iptables 和 JVM thread]]></title>
+    <link href="http://lite.github.com/blog/2013/02/03/iptables-and-jvm-thread/"/>
+    <updated>2013-02-03T13:12:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/02/03/iptables-and-jvm-thread</id>
+    <content type="html"><![CDATA[<p><a href="http://www.dd-wrt.com/wiki/index.php/Iptables_command">Iptables</a></p>
+
+<pre><code>iptables -L
+iptables -F
+
+iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -j REJECT 
+iptables -I INPUT -p TCP -m multiport --dports 8001:8005 -s 8.8.0.0/16 -j ACCEPT
+
+iptables -I OUTPUT -p TCP -d 10.142.20.0/24 -j REJECT
+</code></pre>
+
+<p>[JVM thread limit]</p>
+
+<pre><code>-Xms   intial java heap size
+-Xmx   maximum java heap size
+-Xss   the stack size for each thread
+
+/proc/sys/kernel/pid_max
+/proc/sys/kernel/thread-max
+max_user_process（ulimit -u）
+/proc/sys/vm/max_map_count
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

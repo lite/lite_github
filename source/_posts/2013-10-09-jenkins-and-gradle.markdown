@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "jenkins and gradle"
+title: "Jenkins 和 Gradle"
 date: 2013-10-09 01:08
 comments: true
-categories: 
+categories: [运维]
 ---
 
-Install jenkins
+安装 jenkins
 
 <pre>
 sudo zypper addrepo http://pkg.jenkins-ci.org/opensuse/ jenkins
@@ -15,11 +15,23 @@ sudo zypper install jenkins
 
 "Manage Jenkins", "Manage Plugins"
 
-"Advanced", "Update Site", Url is http://mirror.xmission.com/jenkins/updates/update-center.json, Install "Gradle Plugin",  "Git Plugin", "Post build task", Install gradle 1.8 /var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/gradle-1.8
+"Advanced", "Update Site", 
+
+Url 是 http://mirror.xmission.com/jenkins/updates/update-center.json
+
+安装 "Gradle Plugin",  "Git Plugin", "Post build task", 
+
+安装 gradle 1.8 /var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/gradle-1.8
   
 "New job"
 
-"Source Code Management", "git repo" is git@host:test.git, "Branches to build" is origin/develop. "Build", "Invoke Gradle script", "Task" is build and deploy 
+"Source Code Management", 
+
+"git repo" 是 git@host:test.git, 
+
+"Branches to build" 是 origin/develop. 
+
+"Build", "Invoke Gradle script", "Task" 是 build 和 deploy 
 
 <pre>
 // /var/lib/jenkins/jobs/test/workspace/build.gradle
@@ -94,7 +106,7 @@ task deploy(description: 'Copies the artifacts') {
 }
 </pre>
 
-* Post-build Actions
+Post-build Actions
 
 <pre>
 /bin/bash start.sh

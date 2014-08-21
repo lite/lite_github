@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>QQwry and Nginx - Lite</title>
+	<title>Nginx下使用QQwry - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="clone the modules from github git clone git://github.com/anjuke/ngx_http_qqwry_module.git
-git clone git://github.com/agentzh/echo-nginx-module.git &hellip;">
+	<meta name="description" content="下载nginx模块 git clone git://github.com/anjuke/ngx_http_qqwry_module.git
+git clone git://github.com/agentzh/echo-nginx-module.git 编译 nginx ./configure &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,28 +97,36 @@ git clone git://github.com/agentzh/echo-nginx-module.git &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">QQwry and Nginx</h2>
-	<div class="entry-content"><p>clone the modules from github</p>
+	<h2 class="title">Nginx下使用QQwry</h2>
+	<div class="entry-content"><p>下载nginx模块</p>
 
-<pre><code>git clone git://github.com/anjuke/ngx_http_qqwry_module.git
+<pre>
+git clone git://github.com/anjuke/ngx_http_qqwry_module.git
 git clone git://github.com/agentzh/echo-nginx-module.git
-</code></pre>
+</pre>
 
-<p>compile nginx</p>
 
-<pre><code>./configure --with-debug --add-module=./ngx_http_qqwry_module/ --add-module=./echo-nginx-module/
+<p>编译 nginx</p>
+
+<pre>
+./configure --with-debug --add-module=./ngx_http_qqwry_module/ --add-module=./echo-nginx-module/
 make
-</code></pre>
+</pre>
 
-<p>download <a href="http://update.cz88.net/soft/qqwry.rar">qqwry</a>
-convert qqwry.dat.gbk to qqwry.dat(utf8), and copy to nginx/conf folder.</p>
 
-<pre><code>python qqwry_iconv.py
-</code></pre>
+<p>下载 <a href="http://update.cz88.net/soft/qqwry.rar">qqwry</a></p>
 
-<p>edit nginx.conf</p>
+<p>转换 qqwry.dat.gbk to qqwry.dat(utf8), 复制到文件夹 nginx/conf.</p>
 
-<pre><code>http {
+<pre>
+python qqwry_iconv.py
+</pre>
+
+
+<p>编辑 nginx.conf</p>
+
+<pre>
+http {
     qqwry $remote_addr $qqwry_loc /conf/qqwry.dat;
 
     server {
@@ -133,12 +141,15 @@ convert qqwry.dat.gbk to qqwry.dat(utf8), and copy to nginx/conf folder.</p>
         }
     }
 }
-</code></pre>
+</pre>
 
-<p>start nginx</p>
 
-<pre><code>objs/nginx -c conf/nginx.conf
-</code></pre>
+<p>启动 nginx</p>
+
+<pre>
+objs/nginx -c conf/nginx.conf
+</pre>
+
 </div>
 
 <div class="meta">

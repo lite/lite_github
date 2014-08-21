@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "captcha"
+title: "验证码识别"
 date: 2012-11-15 11:15
 comments: true
-categories: [captcha, opencv, ocr]
+categories: [技巧]
 ---
 
 Captcha = Completely Automated Public Turing Test to Tell Computers and Humans Apart

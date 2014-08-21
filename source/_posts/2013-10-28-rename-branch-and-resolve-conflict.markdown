@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "rename branch and resolve conflict"
+title: "Git使用技巧"
 date: 2013-10-28 00:03
 comments: true
-categories: [git]
+categories: [技巧]
 ---
 
-* Rename remote branch
+* 重命名远程分支
 
 <pre>
 git branch -m old_branch new_branch
@@ -14,7 +14,7 @@ git push origin :old_branch
 git push origin new_branch
 </pre>
 
-* Resolve conflict
+* 解决冲突
 
 <pre>
 git checkout --ours .

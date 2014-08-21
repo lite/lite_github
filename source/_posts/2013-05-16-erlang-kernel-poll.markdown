@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "nodejs, C libevent and erlang"
+title: "nodejs, C libevent 和 erlang"
 date: 2013-05-16 00:41
 comments: true
-categories: [nodejs, erlang]
+categories: [脚本]
 ---
 
 nodejs < libevent < erlang

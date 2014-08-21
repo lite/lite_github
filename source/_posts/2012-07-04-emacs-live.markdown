@@ -3,7 +3,7 @@ layout: post
 title: emacs-live
 date: 2012-07-04 06:55
 comments: true
-categories: [fun]
+categories: [故事]
 ---
 
 [emacs-live](https://github.com/overtone/emacs-live)

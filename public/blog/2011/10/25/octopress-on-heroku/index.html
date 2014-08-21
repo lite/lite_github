@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>octopress on heroku - Lite</title>
+	<title>heroku上使用octopress  - Lite</title>
     <meta name="author" content="Lite">
     
 	<meta name="description" content="blogging rake generate
@@ -100,20 +100,24 @@ git push heroku &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Octopress on Heroku</h2>
+	<h2 class="title">Heroku上使用octopress</h2>
 	<div class="entry-content"><p><a href="http://octopress.org/docs/blogging/">blogging</a></p>
 
-<pre><code>rake generate
+<pre>
+rake generate
 rake preview
-</code></pre>
+</pre>
+
 
 <p><a href="http://octopress.org/docs/deploying/heroku/">heroku</a></p>
 
-<pre><code>heroku create lite
+<pre>
+heroku create lite
 git remote add heroku git@heroku.com:lite.git
 rake new_post[octopress]
 git push heroku master
-</code></pre>
+</pre>
+
 </div>
 
 <div class="meta">

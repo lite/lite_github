@@ -3,13 +3,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>pureftpd and nxserver - Lite</title>
+	<title>pureftpd 和 nxserver - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="pureftpd ./configure --prefix=/usr/local/pureftpd --with-puredb make &amp;&amp; make install
+	<meta name="description" content="配置pureftpd ./configure --prefix=/usr/local/pureftpd --with-puredb make && make install
 mkdir /usr/local/pureftpd/etc
 groupadd ftpgroup
-useradd &hellip;">
+useradd -g &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -99,11 +99,12 @@ useradd &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Pureftpd and Nxserver</h2>
-	<div class="entry-content"><h2>pureftpd</h2>
+	<h2 class="title">Pureftpd 和 Nxserver</h2>
+	<div class="entry-content"><h2>配置pureftpd</h2>
 
-<pre><code>./configure --prefix=/usr/local/pureftpd --with-puredb 
-make &amp;&amp; make install
+<pre>
+./configure --prefix=/usr/local/pureftpd --with-puredb 
+make && make install
 mkdir /usr/local/pureftpd/etc
 groupadd ftpgroup
 useradd -g ftpgroup -d /dev/null -s /etc ftpuser
@@ -112,39 +113,50 @@ cp configuration-file/pure-config.pl /usr/loca/pureftpd/sbin/
 chmod +x /usr/loca/pureftpd/sbin/pure-config.pl
 /usr/local/pureftpd/bin/pure-pw useradd test -u ftpuser -d /data/ftp/
 /usr/local/pureftpd/bin/pure-pw mkdb
-</code></pre>
+</pre>
 
-<p>Modify PureDB in &#8220;/usr/loca/pureftpd/etc/pure-ftpd.conf&#8221;</p>
 
-<pre><code>PureDB                    /usr/local/pureftpd/etc/pureftpd.pdb
+<p>修改&#8221;/usr/loca/pureftpd/etc/pure-ftpd.conf&#8221;的 PureDB</p>
+
+<pre>
+PureDB                    /usr/local/pureftpd/etc/pureftpd.pdb
 PassivePortRange          30000 50000
-</code></pre>
+</pre>
 
-<p>Enable port in &#8220;/etc/sysconfig/SuSEfirewall2&#8221;</p>
 
-<pre><code>FW_SERVICES_EXT_TCP="21 30000:50000"
-</code></pre>
+<p>在&#8221;/etc/sysconfig/SuSEfirewall2&#8221;中启用端口</p>
 
-<p>Reload firewall config</p>
+<pre>
+FW_SERVICES_EXT_TCP="21 30000:50000"
+</pre>
 
-<pre><code>SuSEfirewall2
-</code></pre>
 
-<p>Startalone pureftpd</p>
+<p>重新加载防火墙配置</p>
 
-<pre><code>/usr/loca/pureftpd/sbin/pure-config.pl /usr/loca/pureftpd/etc/pure-ftpd.conf
-</code></pre>
+<pre>
+SuSEfirewall2
+</pre>
 
-<h2>nxserver</h2>
 
-<p>Download <a href="http://www.nomachine.com/download.php">nxserver</a></p>
+<p>启动pureftpd</p>
 
-<p>Add user</p>
+<pre>
+/usr/loca/pureftpd/sbin/pure-config.pl /usr/loca/pureftpd/etc/pure-ftpd.conf
+</pre>
 
-<pre><code>/usr/NX/bin/nxserver --useradd nxuser
-</code></pre>
 
-<p>nxclient login as a normal user &#8220;nxuser&#8221;</p>
+<h2>配置nxserver</h2>
+
+<p>下载 <a href="http://www.nomachine.com/download.php">nxserver</a></p>
+
+<p>添加用户</p>
+
+<pre>
+/usr/NX/bin/nxserver --useradd nxuser
+</pre>
+
+
+<p>nxclient 用户登录： &#8220;nxuser&#8221;</p>
 </div>
 
 <div class="meta">

@@ -1,23 +1,29 @@
 ---
 layout: post
-title: "nvidia and openSUSE 12.2"
+title: "SUSE上安装nvidia驱动"
 date: 2013-02-26 22:59
 comments: true
-categories: 
+categories: [技巧]
 ---
 
-Install these packages by zypper
+使用zypper安装包
 
-	zypper in kernel-devel 
-	zypper in kernel-desktop-devel
-	zypper in kernel-source
-	zypper in gcc
+<pre>
+zypper in kernel-devel 
+zypper in kernel-desktop-devel
+zypper in kernel-source
+zypper in gcc
+</pre>
 
-Update /etc/modprobe.d/50-blacklist.conf
+更新 /etc/modprobe.d/50-blacklist.conf
 
-	#blacklist nvidiafb
-	blacklist nouveau
+<pre>
+#blacklist nvidiafb
+blacklist nouveau
+</pre>
 
-Install nvidia driver
-	
-	sudo sh ./NVIDIA.run
+安装 nvidia 驱动
+
+<pre>	
+sudo sh ./NVIDIA.run
+</pre>

@@ -1,45 +1,55 @@
 ---
 layout: post
-title: "QQwry and Nginx"
+title: "Nginx下使用QQwry"
 date: 2012-12-25 14:50
 comments: true
-categories: [DevOps]
+categories: [运维]
 ---
 
-clone the modules from github
+下载nginx模块
 
-    git clone git://github.com/anjuke/ngx_http_qqwry_module.git
-    git clone git://github.com/agentzh/echo-nginx-module.git
+<pre>
+git clone git://github.com/anjuke/ngx_http_qqwry_module.git
+git clone git://github.com/agentzh/echo-nginx-module.git
+</pre>
 
-compile nginx
+编译 nginx
 
-    ./configure --with-debug --add-module=./ngx_http_qqwry_module/ --add-module=./echo-nginx-module/
-    make
+<pre>
+./configure --with-debug --add-module=./ngx_http_qqwry_module/ --add-module=./echo-nginx-module/
+make
+</pre>
 
-download [qqwry](http://update.cz88.net/soft/qqwry.rar)
-convert qqwry.dat.gbk to qqwry.dat(utf8), and copy to nginx/conf folder.
+下载 [qqwry](http://update.cz88.net/soft/qqwry.rar)
 
-    python qqwry_iconv.py
+转换 qqwry.dat.gbk to qqwry.dat(utf8), 复制到文件夹 nginx/conf.
 
-edit nginx.conf
+<pre>
+python qqwry_iconv.py
+</pre>
 
-    http {
-        qqwry $remote_addr $qqwry_loc /conf/qqwry.dat;
+编辑 nginx.conf
 
-        server {
-            charset utf-8;
+<pre>
+http {
+    qqwry $remote_addr $qqwry_loc /conf/qqwry.dat;
 
-            location /hello {
-                echo $remote_addr;
-                echo $qqwry_loc; 
-                if ($qqwry_loc ~ "浙江省北京市四川省成都市"){
-                    echo "hello";
-                }
+    server {
+        charset utf-8;
+
+        location /hello {
+            echo $remote_addr;
+            echo $qqwry_loc; 
+            if ($qqwry_loc ~ "浙江省北京市四川省成都市"){
+                echo "hello";
             }
         }
     }
+}
+</pre>
 
-start nginx
+启动 nginx
 
-    objs/nginx -c conf/nginx.conf
-
+<pre>
+objs/nginx -c conf/nginx.conf
+</pre>

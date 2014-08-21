@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 故事 | Lite]]></title>
+  <link href="http://lite.github.com/blog/categories/故事/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2014-08-21T22:06:52+08:00</updated>
+  <id>http://lite.github.com/</id>
+  <author>
+    <name><![CDATA[Lite]]></name>
+    <email><![CDATA[litekok@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[TPB AFK]]></title>
+    <link href="http://lite.github.com/blog/2013/03/08/tpb-afk/"/>
+    <updated>2013-03-08T02:12:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/03/08/tpb-afk</id>
+    <content type="html"><![CDATA[<p>一部记录海盗湾的纪录片。有3125个用户付费下载，捐赠达到了45164美元，不包括DVD的收入。<a href="http://watch.tpbafk.tv/">“TPB APK”</a></p>
+
+<p>使用CC-BY-NC-SA版权<a href="http://www.tpbafk.tv/2013/01/why-i-chose-creative-commons-for-tpb-afk/">原因</a></p>
+
+<p>通过Kickstarter准备筹款25000美元，3天时间就筹到了，最终达到了51434美元<a href="http://www.tpbafk.tv/2010/10/51434-thank-yous/">51434-thank-yous</a></p>
+
+<p>很好的一篇博文：<a href="http://www.ruanyifeng.com/blog/2013/02/tpb.html">纪录片《TPB AFK》与现行版权制度</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[程序员短语]]></title>
+    <link href="http://lite.github.com/blog/2012/10/02/programmers-quotes/"/>
+    <updated>2012-10-02T23:30:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/10/02/programmers-quotes</id>
+    <content type="html"><![CDATA[<ul>
+<li>Life’s too short to build something nobody wants – Ash Maurya, Running Lean</li>
+<li>Give someone a program, you frustrate them for a day; teach them how to program, you frustrate them for a lifetime. – David Leinweber</li>
+<li>There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies. — C.A.R. Hoare</li>
+<li>Actually, I’m trying to make Ruby natural, not simple. Ruby is simple in appearance, but is very complex inside, just like our human body. – Matz, Ruby</li>
+<li>Much of the essence of building a program is in fact the debugging of the specification. – Fred Brooks, The Mythical Man-Month</li>
+<li>The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time. – Tom Cargill</li>
+<li>Complication is What Happens When You Try to Solve a Problem You Don’t Understand – Andy Boothe</li>
+<li>Weeks of programming can save you hours of planning. – Unknown</li>
+<li>Controlling complexity is the essence of computer programming. — Brian Kernighan</li>
+<li>All problems in computer science can be solved by another level of indirection(abstraction) – David Wheeler</li>
+<li>…except for the problem of too many layers of indirection. – Kevlin Henney’s corollary</li>
+<li>Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning. — Rick Cook</li>
+<li>Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. — Brian W. Kernighan</li>
+<li>I’m not a great programmer; I’m just a good programmer with great habits. ― Kent Beck</li>
+<li>Most of you are familiar with the virtues of a programmer. There are three, of course: laziness, impatience, and hubris. – Larry Wall, Perl</li>
+<li>Any fool can write code that a computer can understand. Good programmers write code that humans can understand. – Martin Fowler</li>
+<li>Measuring programming progress by lines of code is like measuring aircraft building progress by weight. – Bill Gates</li>
+<li>It’s not a bug – it’s an undocumented feature. – Unknown</li>
+<li>The most depressing thing about life as a programmer, I think, is if you’re faced with a chunk of code that either someone else wrote or, worse still, you wrote yourself but you no longer dare to modify. That’s depressing. – Peyton Jones</li>
+<li>It works on my machine! – Most of programmers</li>
+<li>Talk is cheap. Show me the code. – Linus Torvalds</li>
+<li>I thought of objects being like biological cells and/or individual computers on a network, only able to communicate with messages — Alan Kay, Smalltalk</li>
+<li>When you choose a language, you’re choosing more than a set of technical trade-offs—you’re choosing a community. -Joshua Bloch</li>
+<li>Quality, Speed or Cheap. Pick two. – Unknown</li>
+<li>Developer testing isn’t primarily about verifying code. It’s about making great code. If you can’t test something, it might be your testing skills failing you but it’s probably your code code’s design. Testable code is almost always better code. – Chad Fowler</li>
+<li>We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. – Donald Knuth</li>
+<li>No code is faster than no code. – Merb core tenet</li>
+<li>If you’re the smartest person in the room, you’re in the wrong room. – Unknown</li>
+<li>How long would it take your organization to deploy a change (to production) that involves just one single line of code? Do you do this on a repeatable, reliable basis? – Mary Poppendieck</li>
+<li>Nine people can’t make a baby in a month.  — Fred Brooks, The Mythical Man-Month</li>
+<li>Good code is its own best documentation. As you’re about to add a comment, ask yourself, ‘How can I improve the code so that this comment isn’t needed?’ Improve the code and then document it to make it even clearer. – Steve McConnell, Code Complete</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[emacs-live]]></title>
+    <link href="http://lite.github.com/blog/2012/07/04/emacs-live/"/>
+    <updated>2012-07-04T06:55:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/07/04/emacs-live</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/overtone/emacs-live">emacs-live</a></p>
+
+<p>Energy starts surging through your fingertips. Sparks fly, making
+the shadows grow and flicker ominously around you. You arch your
+back and open your eyes as if for the first time. The text appears
+more vibrant and colourful than you remember. Your fingers dance on
+the keyboard commanding the cursor with a joyful precision and
+control.</p>
+
+<p>You lean back and marvel as a shimmering swirl of syntactic and
+symantic structures project out of the screen and intertwine with a
+fractal beauty. You watch as meaning recursively unfolds into deeper
+meaning live in front of your eyes. You feel a deep and lasting
+synchronicity form as the boundaries between you and your Emacs
+wash away. You and your Emacs Live.</p>
+
+<p>M-x start-hacking.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[code monkey]]></title>
+    <link href="http://lite.github.com/blog/2012/06/24/code-monkey/"/>
+    <updated>2012-06-24T07:15:00+08:00</updated>
+    <id>http://lite.github.com/blog/2012/06/24/code-monkey</id>
+    <content type="html"><![CDATA[<p><a href="http://v.youku.com/v_show/id_XMjk4OTI3NDc2.html">Code Monkey AMV</a></p>
+
+<p>Lyrics:</p>
+
+<pre><code>Code Monkey get up get coffee. Code Monkey go to job.
+Code monkey have boring meeting, boring manager Rob.
+Rob say Code Monkey very diligent. But his output stink.
+His code not functional or elegant. What do Code Monkey think?
+Code Monkey think maybe manager wanna write goddamn login page himself.
+Code Monkey not say it out loud.
+Code Monkey not crazy just proud.
+
+Chorus
+
+Code Monkey like Fritos.
+Code Monkey like Tab and Mountain Dew.
+Code Monkey very simple man
+Big warm fuzzy secret heart
+Code Monkey like you.
+Code Monkey like you.
+
+Code Monkey hang around at front desk
+Tell you sweater look nice
+Code Monkey offer buy you soda
+Bring you cup bring you ice
+You say no thank you for the soda 
+cause soda make you fat
+Anyway you busy with the telephone
+no time for chat.
+
+Code Monkey have long walk back to cubicle
+He sit down pretend to work.
+Code Monkey not thinking so straight.
+Code Monkey not feeling so great.
+
+Chorus
+
+Code Monkey like you lots.
+Code Monkey have every reason
+To get out this place.
+Code Monkey just keep on working
+See your soft pretty face
+Much rather wake up eat a coffee cake
+Take bath, take nap
+This job fulfilling in creative way
+Such a load of crap.
+Code Monkey think someday he have everything even pretty girl like you.
+Code Monkey just waiting for now.
+Code Monkey say someday, somehow.
+
+Chorus
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

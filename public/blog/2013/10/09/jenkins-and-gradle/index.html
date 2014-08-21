@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>jenkins and gradle - Lite</title>
+	<title>Jenkins 和 Gradle - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Install jenkins sudo zypper addrepo http://pkg.jenkins-ci.org/opensuse/ jenkins
-sudo zypper install jenkins &#8220;Manage Jenkins&#8221;, &#8220; &hellip;">
+	<meta name="description" content="安装 jenkins sudo zypper addrepo http://pkg.jenkins-ci.org/opensuse/ jenkins
+sudo zypper install jenkins &#8220;Manage Jenkins&#8221;, &#8220;Manage &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,8 +97,8 @@ sudo zypper install jenkins &#8220;Manage Jenkins&#8221;, &#8220; &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Jenkins and Gradle</h2>
-	<div class="entry-content"><p>Install jenkins</p>
+	<h2 class="title">Jenkins 和 Gradle</h2>
+	<div class="entry-content"><p>安装 jenkins</p>
 
 <pre>
 sudo zypper addrepo http://pkg.jenkins-ci.org/opensuse/ jenkins
@@ -108,11 +108,23 @@ sudo zypper install jenkins
 
 <p>&#8220;Manage Jenkins&#8221;, &#8220;Manage Plugins&#8221;</p>
 
-<p>&#8220;Advanced&#8221;, &#8220;Update Site&#8221;, Url is http://mirror.xmission.com/jenkins/updates/update-center.json, Install &#8220;Gradle Plugin&#8221;,  &#8220;Git Plugin&#8221;, &#8220;Post build task&#8221;, Install gradle 1.8 /var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/gradle-1.8</p>
+<p>&#8220;Advanced&#8221;, &#8220;Update Site&#8221;,</p>
+
+<p>Url 是 http://mirror.xmission.com/jenkins/updates/update-center.json</p>
+
+<p>安装 &#8220;Gradle Plugin&#8221;,  &#8220;Git Plugin&#8221;, &#8220;Post build task&#8221;,</p>
+
+<p>安装 gradle 1.8 /var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/gradle-1.8</p>
 
 <p>&#8220;New job&#8221;</p>
 
-<p>&#8220;Source Code Management&#8221;, &#8220;git repo&#8221; is git@host:test.git, &#8220;Branches to build&#8221; is origin/develop. &#8220;Build&#8221;, &#8220;Invoke Gradle script&#8221;, &#8220;Task&#8221; is build and deploy</p>
+<p>&#8220;Source Code Management&#8221;,</p>
+
+<p>&#8220;git repo&#8221; 是 git@host:test.git,</p>
+
+<p>&#8220;Branches to build&#8221; 是 origin/develop.</p>
+
+<p>&#8220;Build&#8221;, &#8220;Invoke Gradle script&#8221;, &#8220;Task&#8221; 是 build 和 deploy</p>
 
 <pre>
 // /var/lib/jenkins/jobs/test/workspace/build.gradle
@@ -188,10 +200,7 @@ task deploy(description: 'Copies the artifacts') {
 </pre>
 
 
-<ul>
-<li>Post-build Actions</li>
-</ul>
-
+<p>Post-build Actions</p>
 
 <pre>
 /bin/bash start.sh

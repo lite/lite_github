@@ -1,39 +1,50 @@
 ---
 layout: post
-title: "thin with rvm as a system service"
+title: "Rvm下使用thin"
 date: 2013-01-29 22:04
 comments: true
-categories: [thin, rvm]
+categories: [运维]
 ---
 
-Install thin to /etc/init.d/thin
+安装thin 到 /etc/init.d/thin
 
-	rvm wrapper ruby-1.9.2-p125 bootup thin
-	sudo  ~/.rvm/bin/bootup_thin install
+<pre>
+rvm wrapper ruby-1.9.2-p125 bootup thin
+sudo  ~/.rvm/bin/bootup_thin install
+</pre>
 
-Edit DAEMON in /etc/init.d/thin
-	DAEMON=/usr/local/bin/bootup_thin
+编辑 /etc/init.d/thin 的 DAEMON 
 
-Enable thin system service at runlevel 3 and 5 
+<pre>
+DAEMON=/usr/local/bin/bootup_thin
+</pre>
 
-	sudo /sbin/chkconfig -s thin 35
+在 runlevel 3 和 5 启动 thin
 
-Edit /etc/thin/thin.yml
+<pre>
+sudo /sbin/chkconfig -s thin 35
+</pre>
 
-	pid: tmp/pids/thin.pid
-	wait: 30
-	port: 8000
-	timeout: 30
-	log: log/thin.log
-	max_conns: 1024
-	require: []
-	environment: production
-	max_persistent_conns: 512
-	daemonize: true
-	servers: 3
-	socket: /tmp/thin.sock
-	chdir: /home/dli/dth/redmine
+编辑 /etc/thin/thin.yml
+
+<pre>
+pid: tmp/pids/thin.pid
+wait: 30
+port: 8000
+timeout: 30
+log: log/thin.log
+max_conns: 1024
+require: []
+environment: production
+max_persistent_conns: 512
+daemonize: true
+servers: 3
+socket: /tmp/thin.sock
+chdir: /home/dli/dth/redmine
+</pre>
 	
-Start service thin
-	
-	sudo /sbin/service thin start
+启动 thin 服务
+
+<pre>	
+sudo /sbin/service thin start
+</pre>

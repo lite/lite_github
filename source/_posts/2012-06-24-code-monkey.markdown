@@ -3,7 +3,7 @@ layout: post
 title: code monkey
 date: 2012-06-24 07:15
 comments: true
-categories: [fun]
+categories: [故事]
 ---
 
 [Code Monkey AMV](http://v.youku.com/v_show/id_XMjk4OTI3NDc2.html)

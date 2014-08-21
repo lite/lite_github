@@ -3,7 +3,7 @@ layout: post
 title: "六顶思考帽"
 date: 2013-06-17 00:02
 comments: true
-categories: [Thinking]
+categories: [活动]
 ---
 
 爱德华·德波诺提出了一些促进横向思维的方法

@@ -3,12 +3,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>nvidia and openSUSE 12.2 - Lite</title>
+	<title>SUSE上安装nvidia驱动 - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Install these packages by zypper zypper in kernel-devel zypper in kernel-desktop-devel
+	<meta name="description" content="使用zypper安装包 zypper in kernel-devel zypper in kernel-desktop-devel
 zypper in kernel-source
-zypper in gcc Update /etc/modprobe.d/ &hellip;">
+zypper in gcc 更新 /etc/modprobe.d/50-blacklist.conf # &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -98,25 +98,31 @@ zypper in gcc Update /etc/modprobe.d/ &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Nvidia and openSUSE 12.2</h2>
-	<div class="entry-content"><p>Install these packages by zypper</p>
+	<h2 class="title">SUSE上安装nvidia驱动</h2>
+	<div class="entry-content"><p>使用zypper安装包</p>
 
-<pre><code>zypper in kernel-devel 
+<pre>
+zypper in kernel-devel 
 zypper in kernel-desktop-devel
 zypper in kernel-source
 zypper in gcc
-</code></pre>
+</pre>
 
-<p>Update /etc/modprobe.d/50-blacklist.conf</p>
 
-<pre><code>#blacklist nvidiafb
+<p>更新 /etc/modprobe.d/50-blacklist.conf</p>
+
+<pre>
+#blacklist nvidiafb
 blacklist nouveau
-</code></pre>
+</pre>
 
-<p>Install nvidia driver</p>
 
-<pre><code>sudo sh ./NVIDIA.run
-</code></pre>
+<p>安装 nvidia 驱动</p>
+
+<pre>   
+sudo sh ./NVIDIA.run
+</pre>
+
 </div>
 
 <div class="meta">

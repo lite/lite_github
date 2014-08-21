@@ -3,12 +3,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>archlinux on vmware - Lite</title>
+	<title>Vmware上使用archlinux - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Enable networking append to /etc/rc.conf eth0="dhcp"
+	<meta name="description" content="启动网络 修改 /etc/rc.conf eth0="dhcp"
 INTERFACE=(eth0)
-ROUTES=(!gateway) run command &#8220;/etc/rc.d/network restart&#8221; Enable &hellip;">
+ROUTES=(!gateway) 重启网络 &#8220;/etc/rc.d/network restart&#8221; 启用 pacman 仓库 修改 &#8220;/etc/pacman. &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -98,31 +98,37 @@ ROUTES=(!gateway) run command &#8220;/etc/rc.d/network restart&#8221; Enable &he
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Archlinux on Vmware</h2>
-	<div class="entry-content"><h2>Enable networking</h2>
+	<h2 class="title">Vmware上使用archlinux</h2>
+	<div class="entry-content"><h2>启动网络</h2>
 
-<p>append to /etc/rc.conf</p>
+<p>修改 /etc/rc.conf</p>
 
-<pre><code>eth0="dhcp"
+<pre>  
+eth0="dhcp"
 INTERFACE=(eth0)
 ROUTES=(!gateway)
-</code></pre>
+</pre>
 
-<p>run command &#8220;/etc/rc.d/network restart&#8221;</p>
 
-<h2>Enable pacman repo</h2>
+<p>重启网络 &#8220;/etc/rc.d/network restart&#8221;</p>
 
-<p>append to &#8220;/etc/pacman.conf&#8221;</p>
+<h2>启用 pacman 仓库</h2>
 
-<pre><code>SigLevel=Optional TrustAll 
-</code></pre>
+<p>修改 &#8220;/etc/pacman.conf&#8221;</p>
 
-<p>uncomment the repo in &#8220;/etc/pacman.d/mirrorlist&#8221;</p>
+<pre>
+SigLevel=Optional TrustAll 
+</pre>
 
-<h2>Upgrade</h2>
 
-<pre><code>pacman -Syu
-</code></pre>
+<p>注释 &#8220;/etc/pacman.d/mirrorlist&#8221;</p>
+
+<h2>更新包</h2>
+
+<pre>    
+pacman -Syu
+</pre>
+
 </div>
 
 <div class="meta">

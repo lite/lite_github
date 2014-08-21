@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 设计 | Lite]]></title>
+  <link href="http://lite.github.com/blog/categories/设计/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2014-08-21T22:06:52+08:00</updated>
+  <id>http://lite.github.com/</id>
+  <author>
+    <name><![CDATA[Lite]]></name>
+    <email><![CDATA[litekok@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[HCD社会创新工作坊]]></title>
+    <link href="http://lite.github.com/blog/2013/07/26/hcd-workshop/"/>
+    <updated>2013-07-26T00:54:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/07/26/hcd-workshop</id>
+    <content type="html"><![CDATA[<p><a href="http://plusacumen.org/human-centered-design-for-social-innovation-course-materials/">Human-Centered Design for Social Innovation</a></p>
+
+<p>选择一个挑战，Discover发散出大量信息，Ideate将信息分类聚合，发散出大量解决方案，Prototype聚合可行方案并制作原型。</p>
+
+<h1>介绍</h1>
+
+<ul>
+<li>观察，发现社区的信息和要解决的问题，包括产品的资源及限制，人的感受和需求，系统节点等等。</li>
+<li>构思，对各种信息的分析并设计解决方案，例如空间中人群如何交互，满足人的需求，系统中各节点的联系。</li>
+<li>原型，快速建立原型，并持续改进。</li>
+</ul>
+
+
+<p>注：让每阶段的产出视觉化。</p>
+
+<h1>观察</h1>
+
+<ul>
+<li>和社区中的人群面对面交流，观察情绪</li>
+<li>询问专家，学习专业知识</li>
+<li>深入场景，亲身感受</li>
+<li>找到类似的场景，寻求灵感</li>
+</ul>
+
+
+<p>注：交流时请问开放式的问题。</p>
+
+<h1>构思</h1>
+
+<ul>
+<li>分享“观察”中感人的故事和调查的信息。包括采访者的个人信息，有趣的故事，动机，遇到的阻碍，与环境的交互，以及下一次你会再问什么问题？其余队员在Post-it写下记忆最深刻的故事，构成被采访者的详细个人故事。</li>
+<li>按主题分类。每人找5个最有趣的和深刻见解的故事作为重点，并从其余的Post-it里找出相关的证据，合并成3-5块, 并写上标题。</li>
+<li>创建深刻见解的陈述，用简单的3条陈述解释主题为什么会是一个挑战，并和团队一起来为每个主题选出3条陈述。</li>
+<li>创建HMW问题。选择最喜欢的3条陈述（每个主题1条），并把他们转换成HMW问题，和团队一起优化这些问题。</li>
+<li>头脑风暴。头脑风暴的原则：先不要否定，鼓励疯狂的想法，在别人的想法上创造，不要跑离主题，轮流发言，可视化，数量越多越好。</li>
+<li>选择最可行的想法。每人两票。一票选最有创意的，另一票是最可行的。</li>
+</ul>
+
+
+<h1>原型</h1>
+
+<ul>
+<li>为最棒的点子评分。根据excited, innovative和realistic，每项1-5分。</li>
+<li>画出产品体验的不同阶段。比如用户如何获知该产品，开始购买，第一次使用，全家使用。</li>
+<li>选择要设计的原型。写下每个体验阶段，需要回答的最重要问题以及如何测试。</li>
+<li>开始原型设计。原型包括模型，mockup，角色扮演，diagram，story， 广告单。Be Creative，Have Fun，Design to get answer。</li>
+<li>收集反馈。提供原型给用户，计划活动并收集反馈。反馈包括测试点，如第一印象, 参与情况，随时间变化的行为。活动形式可以为提供原型给用户，和用户对话并观察用户的真实行为。</li>
+<li>原型迭代。对反馈做分类，评估相关性，排优先级，并对原型做迭代。</li>
+</ul>
+
+
+<h1>前进</h1>
+
+<ul>
+<li>迭代：解决其余问题。建立一个行动计划。查看前面的体验图来查看哪些问题已经有答案，而哪些仍然未知。列出要用的材料。计算需要的资金。标定合作者，并完成行动计划。</li>
+<li>试验：小范围试用了解可行性。把想法带入市场去测试。画一个商业模式画布，目标顾客，价值主张，收入，渠道。决定什么需要测试，价格。顾客是否愿意付款，以及接受的付款方式，如预付费，分期还是订阅。团队是否同样期待产品的成功。客户留存，客户体验。选择一个启动计划，选择合伙人，建立初始团队，找到办公场所，设置开始的价格，建立品牌。</li>
+<li>扩张：计划扩张策略。通过试验，产品对于客户是期望的，可行的，重要的，可以开始早期扩张，在这个阶段资本和资源都比较紧张，主要测试本地的合作伙伴，如果模式可行，进入特许经营，主要销售或授权给商户，他们付加盟费，使用你的品牌和想法，需要支持本地商户，可能会降低产品质量。最后是整合，集合企业，政府，公益组织来扩张你的产品，会支持本地商户或社区组织，依赖更多外部合作者的意愿和能力。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

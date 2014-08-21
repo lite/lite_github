@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Iptables and JVM thread"
+title: "Iptables 和 JVM thread"
 date: 2013-02-03 13:12
 comments: true
-categories: 
+categories: [运维]
 ---
 
 [Iptables](http://www.dd-wrt.com/wiki/index.php/Iptables_command)

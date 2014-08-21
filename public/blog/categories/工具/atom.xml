@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 工具 | Lite]]></title>
+  <link href="http://lite.github.com/blog/categories/工具/atom.xml" rel="self"/>
+  <link href="http://lite.github.com/"/>
+  <updated>2014-08-21T22:06:52+08:00</updated>
+  <id>http://lite.github.com/</id>
+  <author>
+    <name><![CDATA[Lite]]></name>
+    <email><![CDATA[litekok@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[TexturePacker和Unity3D插件Tang]]></title>
+    <link href="http://lite.github.com/blog/2013/08/23/texturepacker-and-tang-in-unity3d/"/>
+    <updated>2013-08-23T23:13:00+08:00</updated>
+    <id>http://lite.github.com/blog/2013/08/23/texturepacker-and-tang-in-unity3d</id>
+    <content type="html"><![CDATA[<p><a href="http://www.codeandweb.com">Code'n'Web</a>慷慨地赠送了一个license, 为了表示感谢，在此做强烈推荐。</p>
+
+<p>TexturePacker是手机游戏开发中非常得力的工具,可以非常方便的把许多的图像资源合成一张大图,方便管理资源和提升性能,其中裁剪和旋转的功能非常实用。更详细请访问官方网站：<a href="http://www.codeandweb.com/texturepacker">TexturePacker</a></p>
+
+<p>使用TexturePacker，可以在Unity3d加入自己的一些处理，让游戏的开发更加自动化。同事写了一个简单的Unity3D插件Tang。该插件参考了 <a href="http://u3d.as/content/wyrm-tale-games/orthello-2d-framework/1Z9">Orthello 2D Framework</a> 的部分做法，AtlasCocos2DParser类用于解析TexturePacker所生成的数据文件。其核心代码开放在 <a href="https://github.com/zhongzichang/tang">github</a>，欢迎大家试用，Fork或提交代码。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ginatra工具]]></title>
+    <link href="http://lite.github.com/blog/2011/12/19/ginatra/"/>
+    <updated>2011-12-19T09:10:00+08:00</updated>
+    <id>http://lite.github.com/blog/2011/12/19/ginatra</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/lenary/ginatra">ginatra</a></p>
+
+<p>安装</p>
+
+<pre>
+sudo apt-get install python-pip
+sudo pip install pygments
+gem install ginatra
+</pre>
+
+
+<p>仓库目录</p>
+
+<pre>
+ginatra setup
+ginatra directory add '~/git/repo'
+ginatra directory list
+</pre>
+
+
+<p>服务器</p>
+
+<pre>
+ginatra server start
+ginatra server stop
+ginatra daemon start
+ginatra daemon status
+</pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[dnscrypt工具]]></title>
+    <link href="http://lite.github.com/blog/2011/12/16/dnscrypt/"/>
+    <updated>2011-12-16T22:56:00+08:00</updated>
+    <id>http://lite.github.com/blog/2011/12/16/dnscrypt</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/opendns/dnscrypt-proxy">dnscrypt</a></p>
+
+<p>下载</p>
+
+<pre>
+git clone git://github.com/opendns/dnscrypt-proxy.git
+</pre>
+
+
+<p>安装</p>
+
+<pre>
+./autogen.sh && ./configure && make && make check
+sudo make install
+</pre>
+
+
+<p>修改 /etc/resolv.conf</p>
+
+<pre>
+nameserver 127.0.0.1
+</pre>
+
+
+<p>启动dnscrypt服务</p>
+
+<pre>
+sudo chattr +i /etc/resolv.conf
+sudo dnscrypt-proxy --daemonize
+</pre>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

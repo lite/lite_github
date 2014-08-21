@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>thin with rvm as a system service - Lite</title>
+	<title>Rvm下使用thin - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Install thin to /etc/init.d/thin rvm wrapper ruby-1.9.2-p125 bootup thin
-sudo ~/.rvm/bin/bootup_thin install Edit DAEMON in /etc/init.d/thin DAEMON=/ &hellip;">
+	<meta name="description" content="安装thin 到 /etc/init.d/thin rvm wrapper ruby-1.9.2-p125 bootup thin
+sudo ~/.rvm/bin/bootup_thin install 编辑 /etc/init.d/thin 的 DAEMON DAEMON=/usr/local/ &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,26 +97,33 @@ sudo ~/.rvm/bin/bootup_thin install Edit DAEMON in /etc/init.d/thin DAEMON=/ &he
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Thin With Rvm as a System Service</h2>
-	<div class="entry-content"><p>Install thin to /etc/init.d/thin</p>
+	<h2 class="title">Rvm下使用thin</h2>
+	<div class="entry-content"><p>安装thin 到 /etc/init.d/thin</p>
 
-<pre><code>rvm wrapper ruby-1.9.2-p125 bootup thin
+<pre>
+rvm wrapper ruby-1.9.2-p125 bootup thin
 sudo  ~/.rvm/bin/bootup_thin install
-</code></pre>
+</pre>
 
-<p>Edit DAEMON in /etc/init.d/thin</p>
 
-<pre><code>DAEMON=/usr/local/bin/bootup_thin
-</code></pre>
+<p>编辑 /etc/init.d/thin 的 DAEMON</p>
 
-<p>Enable thin system service at runlevel 3 and 5</p>
+<pre>
+DAEMON=/usr/local/bin/bootup_thin
+</pre>
 
-<pre><code>sudo /sbin/chkconfig -s thin 35
-</code></pre>
 
-<p>Edit /etc/thin/thin.yml</p>
+<p>在 runlevel 3 和 5 启动 thin</p>
 
-<pre><code>pid: tmp/pids/thin.pid
+<pre>
+sudo /sbin/chkconfig -s thin 35
+</pre>
+
+
+<p>编辑 /etc/thin/thin.yml</p>
+
+<pre>
+pid: tmp/pids/thin.pid
 wait: 30
 port: 8000
 timeout: 30
@@ -129,12 +136,15 @@ daemonize: true
 servers: 3
 socket: /tmp/thin.sock
 chdir: /home/dli/dth/redmine
-</code></pre>
+</pre>
 
-<p>Start service thin</p>
 
-<pre><code>sudo /sbin/service thin start
-</code></pre>
+<p>启动 thin 服务</p>
+
+<pre>   
+sudo /sbin/service thin start
+</pre>
+
 </div>
 
 <div class="meta">

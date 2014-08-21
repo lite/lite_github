@@ -3,7 +3,7 @@ layout: post
 title: "TexturePacker和Unity3D插件Tang"
 date: 2013-08-23 23:13
 comments: true
-categories: [Unity3D]
+categories: [工具]
 ---
 
 [Code'n'Web](http://www.codeandweb.com)慷慨地赠送了一个license, 为了表示感谢，在此做强烈推荐。

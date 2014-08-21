@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "game design"
+title: "游戏设计"
 date: 2014-01-23 18:09
 comments: true
-categories: [game]
+categories: [游戏]
 ---
 
 Core Loop Design: Object, Challenge， Reward

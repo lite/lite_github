@@ -1,29 +1,35 @@
 ---
 layout: post
-title: "archlinux on vmware"
+title: "Vmware上使用archlinux"
 date: 2012-02-17 04:35
 comments: true
-categories: [Archlinux, Vmware]
+categories: [技巧]
 ---
 
-## Enable networking
+## 启动网络
 
-append to /etc/rc.conf
-  
-    eth0="dhcp"
-    INTERFACE=(eth0)
-    ROUTES=(!gateway)
+修改 /etc/rc.conf
 
-run command "/etc/rc.d/network restart"
+<pre>  
+eth0="dhcp"
+INTERFACE=(eth0)
+ROUTES=(!gateway)
+</pre>
 
-## Enable pacman repo
+重启网络 "/etc/rc.d/network restart"
 
-append to "/etc/pacman.conf"
+## 启用 pacman 仓库
 
-    SigLevel=Optional TrustAll 
+修改 "/etc/pacman.conf"
 
-uncomment the repo in "/etc/pacman.d/mirrorlist" 
+<pre>
+SigLevel=Optional TrustAll 
+</pre>
 
-## Upgrade  
-    
-    pacman -Syu
+注释 "/etc/pacman.d/mirrorlist" 
+
+## 更新包
+
+<pre>    
+pacman -Syu
+</pre>

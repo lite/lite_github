@@ -3,13 +3,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>nodejs on aliyun - Lite</title>
+	<title>配置阿里云服务器 - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="Mount the data disk fdisk /dev/xvdb
+	<meta name="description" content="加载数据盘 fdisk /dev/xvdb
 mkfs.ext3 /dev/xvdb1
-echo '/dev/xvdb1 /mnt ext3 defaults 0 0' &gt;&gt; /etc/fstab
-mount -a Install the &hellip;">
+echo '/dev/xvdb1 /mnt ext3 defaults 0 0' >> /etc/fstab
+mount -a 使用yum安装所需包 sed -i "s/exclude=kernel*/# &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -99,36 +99,44 @@ mount -a Install the &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Nodejs on Aliyun</h2>
-	<div class="entry-content"><p>Mount the data disk</p>
+	<h2 class="title">配置阿里云服务器</h2>
+	<div class="entry-content"><p>加载数据盘</p>
 
-<pre><code>fdisk /dev/xvdb
+<pre>
+fdisk /dev/xvdb
 mkfs.ext3 /dev/xvdb1
-echo '/dev/xvdb1  /mnt ext3    defaults    0  0' &gt;&gt; /etc/fstab
+echo '/dev/xvdb1  /mnt ext3    defaults    0  0' >> /etc/fstab
 mount -a
-</code></pre>
+</pre>
 
-<p>Install the requirements by yum</p>
 
-<pre><code>sed -i "s/exclude=kernel*/#exclude=kernel*/g" /etc/yum.conf
+<p>使用yum安装所需包</p>
+
+<pre>
+sed -i "s/exclude=kernel*/#exclude=kernel*/g" /etc/yum.conf
 yum update
 yum install git gcc-c++ openssl-devel make
-</code></pre>
+</pre>
 
-<p>Install nodejs</p>
 
-<pre><code>wget -N http://nodejs.org/dist/node-latest.tar.gz
-tar xzvf node-latest.tar.gz &amp;&amp; cd `ls -rd node-v*`
+<p>安装nodejs</p>
+
+<pre>
+wget -N http://nodejs.org/dist/node-latest.tar.gz
+tar xzvf node-latest.tar.gz && cd `ls -rd node-v*`
 ./configure
 make install
-</code></pre>
+</pre>
 
-<p>Install coffeescript and forever by npm</p>
 
-<pre><code>npm install coffeescript
+<p>使用npm安装coffeescript和forever</p>
+
+<pre>
+npm install coffeescript
 npm install forever
 forever start -w app.js
-</code></pre>
+</pre>
+
 </div>
 
 <div class="meta">

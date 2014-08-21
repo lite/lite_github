@@ -1,27 +1,34 @@
 ---
 layout: post
-title: "ginatra"
+title: "ginatra工具"
 date: 2011-12-19 09:10
 comments: true
-categories: [git, sinatra] 
+categories: [工具] 
 ---
 
 [ginatra](https://github.com/lenary/ginatra)
 
-setup
+安装
 
-    sudo apt-get install python-pip
-    sudo pip install pygments
-    gem install ginatra
+<pre>
+sudo apt-get install python-pip
+sudo pip install pygments
+gem install ginatra
+</pre>
 
-repo directory
+仓库目录
 
-    ginatra setup
-    ginatra directory add '~/git/repo'
-    ginatra directory list
+<pre>
+ginatra setup
+ginatra directory add '~/git/repo'
+ginatra directory list
+</pre>
 
-server
-    ginatra server start
-    ginatra server stop
-    ginatra daemon start
-    ginatra daemon status
+服务器
+
+<pre>
+ginatra server start
+ginatra server stop
+ginatra daemon start
+ginatra daemon status
+</pre>

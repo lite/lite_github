@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>expect-split-and-tcpdump - Lite</title>
+	<title>expect，split和tcpdump - Lite</title>
     <meta name="author" content="Lite">
     
 	<meta name="description" content="tcpdump tcpdump -x -vv -i any "tcp port 8001"
@@ -98,41 +98,49 @@ tcpdump -X -vv -s 4096 -w ip.cap -i any ' &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Expect-split-and-tcpdump</h2>
+	<h2 class="title">Expect，split和tcpdump</h2>
 	<div class="entry-content"><h1><a href="http://danielmiessler.com/study/tcpdump/">tcpdump</a></h1>
 
-<pre><code>tcpdump -x -vv  -i any "tcp port 8001"
+<pre>  
+tcpdump -x -vv  -i any "tcp port 8001"
 tcpdump -X -vv -s 4096  -w portrange.cap 'portrange 8001-8005'
 tcpdump -X -vv -s 4096  -w ip.cap -i any 'src 8.8.8.8 or dst 6.6.6.6'
-tcpdump -r host.cap -XX -s 4096 &gt; host.cap.txt  
-</code></pre>
+tcpdump -r host.cap -XX -s 4096 > host.cap.txt  
+</pre>
+
 
 <h1>expect</h1>
 
-<p>ssh_config:</p>
+<p>ssh_config内容</p>
 
-<pre><code>host test
+<pre>
+host test
     user app100642705
     hostname 10.1.2.15 
     port 3322
     identityfile pkey
-</code></pre>
+</pre>
 
-<p>myshell.sh:</p>
 
-<pre><code>#!/usr/bin/expect -f
+<p>myshell.sh内容</p>
+
+<pre>
+#!/usr/bin/expect -f
 spawn ssh -F ssh_config test
 expect "*(yes/no)?" {
     send "yes\r"
 }
 interact #expect eof
-</code></pre>
+</pre>
+
 
 <h1>split</h1>
 
-<pre><code>tar -czvf - test | split -b 50m - test.tar.gz
-cat test.tar.gz.a* &gt; - | tar -zxvf - 
-</code></pre>
+<pre>
+tar -czvf - test | split -b 50m - test.tar.gz
+cat test.tar.gz.a* > - | tar -zxvf - 
+</pre>
+
 </div>
 
 <div class="meta">

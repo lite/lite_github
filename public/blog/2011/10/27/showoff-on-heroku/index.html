@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>showoff on heroku - Lite</title>
+	<title>heroku上使用showoff - Lite</title>
     <meta name="author" content="Lite">
     
 	<meta name="description" content="showoff heroku config:add SHOWOFF_EVAL_RUBY=1 showoff create . -d ruby
@@ -99,21 +99,25 @@ showoff heroku slide showoff-io show &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Showoff on Heroku</h2>
+	<h2 class="title">Heroku上使用showoff</h2>
 	<div class="entry-content"><p><a href="https://github.com/schacon/showoff">showoff</a></p>
 
-<pre><code>heroku config:add SHOWOFF_EVAL_RUBY=1
+<pre>
+heroku config:add SHOWOFF_EVAL_RUBY=1
 
 showoff create . -d ruby
 showoff add title -d ruby
 showoff serve
 showoff heroku slide
-</code></pre>
+</pre>
+
 
 <p><a href="http://showoff.io/">showoff-io</a></p>
 
-<pre><code>show 9090
-</code></pre>
+<pre>
+show 9090
+</pre>
+
 </div>
 
 <div class="meta">
