@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>dnscrypt - Lite</title>
+	<title>dnscrypt工具 - Lite</title>
     <meta name="author" content="Lite">
     
-	<meta name="description" content="dnscrypt download git clone git://github.com/opendns/dnscrypt-proxy.git view README.markdown
-install ./autogen.sh &amp;&amp; ./configure &amp;&amp; &hellip;">
+	<meta name="description" content="dnscrypt 下载 git clone git://github.com/opendns/dnscrypt-proxy.git 安装 ./autogen.sh && ./configure && make && make check
+sudo make install 修改 /etc/ &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,27 +97,40 @@ install ./autogen.sh &amp;&amp; ./configure &amp;&amp; &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         <article class="post">
-	<h2 class="title">Dnscrypt</h2>
+	<h2 class="title">Dnscrypt工具</h2>
 	<div class="entry-content"><p><a href="https://github.com/opendns/dnscrypt-proxy">dnscrypt</a></p>
 
-<p>download</p>
+<p>下载</p>
 
-<pre><code>git clone git://github.com/opendns/dnscrypt-proxy.git
-</code></pre>
+<pre>
+git clone git://github.com/opendns/dnscrypt-proxy.git
+</pre>
 
-<p>view README.markdown
-install</p>
 
-<pre><code>./autogen.sh &amp;&amp; ./configure &amp;&amp; make &amp;&amp; make check
+<p>安装</p>
+
+<pre>
+./autogen.sh && ./configure && make && make check
 sudo make install
-</code></pre>
+</pre>
 
-<p>in file /etc/resolv.conf</p>
 
-<pre><code>nameserver 127.0.0.1
+<p>修改 /etc/resolv.conf</p>
+
+<pre>
+nameserver 127.0.0.1
+</pre>
+
+
+<p>启动dnscrypt服务</p>
+
+<pre>
 sudo chattr +i /etc/resolv.conf
 sudo dnscrypt-proxy --daemonize
-</code></pre>
+</pre>
+
+
+
 </div>
 
 <div class="meta">

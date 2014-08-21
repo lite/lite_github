@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Knowledge Building"
+title: "知识建构"
 date: 2014-08-07 15:45
 comments: true
 categories: [教育]

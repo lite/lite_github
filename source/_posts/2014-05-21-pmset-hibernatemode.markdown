@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "pmset_hibernatemode"
+title: "关闭Mac深度睡眠"
 date: 2014-05-21 19:08
 comments: true
 categories: [技巧]

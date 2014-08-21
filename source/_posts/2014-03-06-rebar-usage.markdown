@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "rebar usage"
+title: "rebar工具"
 date: 2014-03-06 18:01
 comments: true
 categories: [脚本]
